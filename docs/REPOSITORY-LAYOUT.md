@@ -2,6 +2,7 @@
 
 ```text
 .
+├── archi.ai                        Canonical architecture, roadmap, gates and DoD
 ├── SKILL.md                         Agent-facing skill contract
 ├── README.md                        Public overview, use and safety model
 ├── CHANGELOG.md                     Version and packaging history
@@ -37,6 +38,8 @@
 ```
 
 ## Runtime boundary
+
+`archi.ai` governs the repository's architecture, phase order, execution constraints, gates, and Definition of Done. Durable changes to those rules must update it rather than creating a parallel roadmap.
 
 Runtime behavior lives in `scripts/`. It has no third-party Python dependencies. `ts_common.py` is the shared trust boundary: configuration, the single network transport seam, retry/deadline accounting, model-drift handling, content-free logging, and exit-code conventions.
 

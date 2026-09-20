@@ -7,6 +7,11 @@ as they keep that property.
 
 ## Ground rules
 
+0. **Read and follow [`archi.ai`](archi.ai).** It is the canonical architecture,
+   roadmap, phase-gate policy, and Definition of Done. Do not create a competing
+   roadmap or silently skip a gate. A durable change to architecture, scope,
+   sequencing, or safety policy must update `archi.ai` in the same PR and explain
+   the evidence and migration/rollback impact.
 1. **No new runtime dependencies.** The scripts are Python standard library
    only, on purpose — they have to run inside constrained agent sandboxes
    (iSH/Alpine on iOS, minimal containers). A PR that adds a third-party import

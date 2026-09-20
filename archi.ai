@@ -1,0 +1,439 @@
+# archi.ai — TypeSafe Decision Project Constitution
+
+Status: **ACTIVE / CANONICAL**
+Project: **TypeSafe Decision for Minis**
+Canonical repository: `https://github.com/vzornjak/typesafe-decision`
+Current audited release: **v2.5.0**
+Current completed phase: **Phase 1**
+Next phase: **Phase 2 — clean blind shortlist evaluation**
+
+## 0. Authority and use
+
+This file is the project's canonical architecture, roadmap, execution policy, and Definition of Done. Agents and contributors MUST read it before planning, editing code, delegating work, opening a pull request, or declaring a phase complete.
+
+### Precedence
+
+From highest to lowest:
+
+1. applicable system, platform, legal, privacy, and safety requirements;
+2. the user's latest explicit instruction;
+3. this `archi.ai` file;
+4. repository-local supporting documents and accepted issues/ADRs;
+5. ad-hoc plans, agent suggestions, and historical conversation context.
+
+A newer user instruction may override this file for the current task. It does not silently rewrite the long-term project plan. If the change is intended to persist, update `archi.ai` in the same change set and record the rationale.
+
+### No silent divergence
+
+- Do not invent a replacement roadmap while this file is active.
+- Do not skip phases or weaken gates without explicit user approval.
+- Do not mark a phase complete without the evidence required here.
+- If reality conflicts with this document, stop, identify the conflict, and propose an amendment.
+- Temporary exceptions must state scope, owner, expiry/exit condition, and risk.
+- Historical reports are evidence, not competing sources of project direction.
+
+## 1. Mission and non-goals
+
+Build an unofficial, community-maintained TypeSafe/Jev decision layer for **Minis first**. Jev supplies bounded semantic judgments; deterministic code owns validation, aggregation, thresholds, authorization, side effects, provenance, accounting, and fail-closed behavior.
+
+Core principles:
+
+1. select or rank before expensive generation where measured value justifies it;
+2. batch independent judgments over shared state;
+3. abstain and escalate under uncertainty;
+4. typed output is an interface guarantee, not a truth guarantee;
+5. confidence never authorizes a risky action;
+6. measurements must be leakage-free, reproducible, and tied to a target workload;
+7. no workflow is enabled merely because Jev is inexpensive.
+
+Non-goals for the current Minis program:
+
+- autonomous authorization of consequential actions;
+- generic routing as the primary product;
+- broad shortlist rollout before Phase 2 passes;
+- premature multi-host portability work;
+- treating local thresholds as TypeSafe vendor defaults;
+- presenting this project as official or endorsed by TypeSafe AI.
+
+## 2. Product boundaries
+
+Supported advisory workflows:
+
+- `route`: optional, Minis-calibrated, confidence-gated advisory routing;
+- `rank` winner mode: advisory candidate selection;
+- `rank` shortlist mode: experimental until Phase 2 passes;
+- `verify`: opt-in, fail-closed; scheduled to evolve into narrower `citecheck`;
+- `triage`: advisory semantic signal under deterministic safety gates.
+
+Jev MUST NOT directly:
+
+- grant user authorization;
+- execute tools or side effects;
+- override hard policy or validation;
+- manufacture missing evidence, values, quotations, URLs, or provenance;
+- turn model confidence into permission.
+
+## 3. Current verified baseline
+
+### Phase 0 — COMPLETE
+
+Delivered:
+
+- frozen baseline and SHA-256 provenance;
+- replay and stub transports;
+- offline reproduction of model output, selection, decision, and cost;
+- no-network testing even when an API key exists;
+- cost-model agreement within the specified tolerance.
+
+### Phase 1 — COMPLETE for the agreed Minis scope
+
+Audited release: `v2.5.0`, schema `4`, policy/workflow `2.5.0`.
+
+Verified gates:
+
+- Python compilation: PASS;
+- self-tests: `25/25`;
+- regressions: `119/119` unique;
+- duplicates: `0`;
+- failures: `0`;
+- frozen replay gates: `7/7`;
+- independent targeted audit probes: `63`;
+- live TypeSafe requests during final audit: `0`;
+- production decision log unchanged during audit.
+
+Finding status:
+
+- P0-1 through P0-5: PASS;
+- P0-6 reporting/leakage remediation: fixed and disclosed, but quality measurement remains **PARTIAL** pending Phase 2;
+- P1-1 through P1-9: PASS;
+- additional hardening classes: `8/8` PASS.
+
+Interpretation: Phase 1 is closed. P0-6 is not a hidden implementation blocker; it is the explicit entry gate for Phase 2. The retracted `51.7%` figure is an uncontrolled projection and MUST NOT be cited as evidence of shortlist quality.
+
+### Public baseline — COMPLETE
+
+The public repository and release are available at:
+
+- repository: `https://github.com/vzornjak/typesafe-decision`;
+- release: `v2.5.0`;
+- offline CI, portable synthetic fixtures, security/contribution documentation, LICENSE/NOTICE, and explicit unofficial positioning are present.
+
+The public baseline is a Minis release artifact. It does not mean the later portability goals in this document are complete.
+
+## 4. Execution discipline
+
+### Canonical ownership
+
+- One writer owns a canonical file tree at a time.
+- Auditors are read-only against the canonical tree.
+- Parallel writers use isolated branches/worktrees/copies and return commits or patches.
+- Applying a patch requires a baseline hash and compare-and-swap style verification.
+- A timeout means `UNKNOWN`, never “finished” or “no writes occurred.”
+- After timeout: obtain terminal status, stop/cancel where supported, inspect diff and hashes, then decide.
+- A final GO requires terminal results from every relevant write-capable or gating worker.
+
+### Subagents
+
+- Max podagent may be started only when the user explicitly requests **Max podagent by name in the current message**.
+- Complexity, prior permission, continuation of old work, or a general “yes” is not authorization.
+- Delegated agents receive a bounded write set, test/log isolation requirements, and an explicit return contract.
+
+### Test isolation
+
+- Tests use offline mode, fake credentials, temporary logs, and no network.
+- Tests MUST NOT write to the production decision log.
+- Production-log hash/row checks bracket sensitive validation.
+- Patch helpers are not test runners.
+- Generated fixtures must be synthetic/public-safe unless a separately approved private benchmark environment is used.
+
+### Change and release policy
+
+- Never rewrite an existing release tag.
+- Security/bug fixes use a patch version; new compatible features use a minor version.
+- Every code change must pass the canonical offline runner and CI.
+- A durable architecture, phase, gate, scope, or policy change updates `archi.ai` in the same commit.
+- Release notes distinguish measured facts, projections, assumptions, and unresolved limits.
+
+## 5. Phase 2 — clean blind shortlist evaluation (NEXT)
+
+### Objective
+
+Determine whether coverage-aware shortlist produces real end-to-end value without gold leakage. Do not modify the production algorithm after observing evaluation results and then reuse the same holdout as proof.
+
+### Preregistration and provenance
+
+Before any scored run:
+
+1. freeze new Croatian and English user queries;
+2. derive requirements from each user query before viewing corpus gold labels;
+3. create gold labels in a separate process that the workflow cannot access;
+4. freeze candidate corpora, required/primary source labels, configurations, seeds where applicable, model IDs, prompts, cost assumptions, and evaluation rubric;
+5. hash all inputs, gold files, configurations, and evaluator instructions;
+6. record who/process created queries, requirements, corpus, gold, and thresholds, and when;
+7. establish a leakage audit before unblinding results.
+
+No old contaminated shortlist validation may serve as the scored dataset or proof.
+
+### Experimental arms
+
+Compare at minimum:
+
+1. no ranking;
+2. winner top-k;
+3. shortlist with documented defaults;
+4. shortlist with a preregistered tuned configuration.
+
+Run probabilistic arms at least three times to measure jaggedness. Generate the actual MAIN answer for every arm; character-count projections alone are insufficient.
+
+### Primary metrics
+
+- requirement coverage recall;
+- required/primary source recall;
+- unsupported-claim rate;
+- citation precision;
+- contradiction/error rate;
+- blind end-to-end answer quality;
+- MAIN input and total tokens;
+- Jev input, calls, latency, and cost;
+- end-to-end latency;
+- abstention/`human_review` rate;
+- Kendall tau, top-k overlap, and score variance across repetitions.
+
+### Phase 2 gate
+
+Phase 2 passes only if all are true:
+
+- provenance audit confirms no gold leakage;
+- shortlist retains at least `95%` of baseline requirement coverage;
+- required-source recall is `100%`;
+- no statistically or practically meaningful degradation in end-to-end quality;
+- actual break-even is positive on the target MAIN model;
+- results and limitations are reproducible and publicly distinguish measurements from projections.
+
+If default `max_per_domain=2` fails, change it only from preregistered benchmark evidence, never by tuning to one visible example.
+
+### Phase 2 outcomes
+
+- **PASS:** proceed to Phase 3 and close P0-6 with the new measurement.
+- **FAIL:** keep shortlist experimental; analyze failure, change the system only on development data, and require a new untouched holdout.
+- **INCONCLUSIVE:** do not claim success; expand or repeat with a new preregistered holdout.
+
+## 6. Phase 3 — production rank/shortlist
+
+Begin only after Phase 2 PASS.
+
+Deliverables:
+
+- adaptive winner versus shortlist selection for genuinely multi-requirement queries;
+- calibrated cross-chunk score comparability;
+- deterministic set-cover with a reason trace;
+- explicit required/primary/protocol source policy;
+- budgeting based on the target MAIN tokenizer rather than fixed character estimates alone;
+- snippets with original source spans and offsets;
+- precise uncovered-requirement output and next-step guidance.
+
+Gate:
+
+- median MAIN-input reduction at least `40%`;
+- coverage loss no more than `5` percentage points;
+- zero lost required sources;
+- shortlist overhead below `20%` of realized MAIN cost savings;
+- p95 within the preregistered workflow deadline.
+
+## 7. Phase 4 — citecheck
+
+Replace broad generic verification with claim-to-evidence judgments:
+
+- `supported`;
+- `partially_supported`;
+- `not_supported`;
+- `contradicted`;
+- `wrong_source`;
+- `insufficient_evidence`.
+
+Return confidence, directness, exact source span, and reason. Deterministic code verifies the quoted span exists.
+
+Gate:
+
+- auto-`supported` precision at least `95%`;
+- contradiction recall at least `90%`;
+- zero accepted nonexistent quotes;
+- abstention preferred over false pass;
+- better F1 or lower review workload than a lexical baseline.
+
+## 8. Phase 5 — targeted evidence loop
+
+Run only for uncovered requirements:
+
+`gap → narrow query plan → retrieval → score → merge/deduplicate → recompute coverage → stop`
+
+Code caps rounds, domains, cost, and deadline. Retrieval owns source discovery; Jev may propose/rank but cannot invent provenance.
+
+Gate:
+
+- close at least `60%` of initial gaps in no more than two rounds;
+- never reduce existing coverage;
+- `100%` provenance for added sources;
+- no cost/loop cap violations;
+- fewer calls or tokens than repeating full web research.
+
+## 9. Phase 6 — publishcheck
+
+Detect before publication:
+
+- claims stronger than sources;
+- confusion between measured, estimated, and assumed values;
+- hidden limitations or small samples;
+- internal contradictions;
+- unsupported generalizations;
+- potentially sensitive data.
+
+It returns issues and spans; it never autonomously publishes or rewrites.
+
+Gate:
+
+- high-severity precision at least `90%`;
+- recall of seeded critical errors at least `90%`;
+- false positives below a preregistered review budget;
+- no automatic publish/merge.
+
+## 10. Phase 7 — extract and policycheck
+
+### Extract
+
+Deterministic parsers find candidate values and spans; Jev selects the intended candidate; code copies or normalizes it. No value generation.
+
+Gate: accepted exact match at least `99%`, `100%` source-span provenance, and abstention when no candidate exists.
+
+### Policycheck
+
+Separate deterministic hard rules from semantic requirements. Profiles contain a versioned checklist, weights, and consequence. Jev judges only semantic conditions.
+
+Gate: zero hard-rule bypasses, evidence per requirement, and reproducible reweighting without repeated inference where possible.
+
+## 11. Phase 8 — selective capabilities
+
+Add only when real workload and evaluation justify them:
+
+- `cachematch` with freshness/version/tenant/permission checks;
+- `classify` with no-match, multilabel, and drift monitoring;
+- `scorecard` with raw dimensions preserved and weights in code;
+- `resolve` without merging on one probabilistic signal;
+- `statewatch` with observed/inferred separation and TTL;
+- consequence-aware `cascade`;
+- `dispatch` only when superior to the host's native tool router.
+
+Generic autonomous routing is not a priority. Route remains an optional, host-calibrated advisory adapter.
+
+## 12. Portability and distribution — deferred until justified
+
+The long-term architecture may separate generic core, workflows, transports, and host adapters. For now, development is Minis-first by explicit user decision.
+
+Do not let portability work delay Phases 2–3. Revisit broader packaging after measured Minis value exists or when the user explicitly changes scope.
+
+Future generic boundaries may include:
+
+- transport/retry/deadline;
+- state and payload budgeting;
+- schemas and validation;
+- deterministic policy and safety;
+- pluggable logging/review/credential/retrieval/cost interfaces;
+- CLI, Minis, MCP, server, GitHub Action, and other adapters.
+
+`route` remains host-specific because executor labels and consequences are not portable without recalibration.
+
+## 13. Observability and operational contract
+
+Every workflow result should expose, where applicable:
+
+- schema, package, and policy version;
+- decision ID, workflow, and mode;
+- requested/served model and drift state;
+- attempts, calls, retries, latency, and usage;
+- decision, warnings, and uncovered requirements;
+- privacy-bounded input/provenance identifiers;
+- partial/completed state;
+- stable reason codes.
+
+Track:
+
+- accepted versus review rate;
+- selective accuracy after outcomes;
+- coverage and required-source recall;
+- cost per successful workflow;
+- p50/p95 latency;
+- failures/retries and model drift;
+- language/domain slices;
+- repeat stability.
+
+Historical schema-less rows remain readable; migration is optional unless a future requirement makes it necessary.
+
+## 14. ROI activation policy
+
+- 1–4 short sources: no shortlist;
+- 5–7 medium sources and one question: winner only if target MAIN context is costly;
+- 8+ sources or multiple independent requirements: shortlist candidate after Phase 2/3 gates;
+- one long document with many claims: batched citecheck after Phase 4;
+- uncovered requirement: targeted evidence loop after Phase 5;
+- public/high-impact report: publishcheck after Phase 6;
+- value must already exist in a document: extract after Phase 7;
+- strict checklist: policycheck after Phase 7;
+- simple conversation or creative text: no Jev;
+- consequential action: Jev is never authorization.
+
+Break-even is calculated per workflow and target MAIN model. Winner and shortlist economics must not share one threshold.
+
+## 15. Definition of Done
+
+### A phase is done only when
+
+- its deliverables exist;
+- all stated gates pass;
+- tests are hermetic and reproducible;
+- provenance and limitations are recorded;
+- terminal callbacks/results exist for all gating workers;
+- `archi.ai` status and supporting documentation are updated.
+
+### Internal Minis production readiness
+
+Requires:
+
+- Phases 0 and 1 complete;
+- Phase 2 clean blind evaluation complete for shortlist use;
+- documented configuration and rollback;
+- fail-closed structured output;
+- privacy review and model-drift gate;
+- outcome monitoring on at least 100 real decisions per important workflow before stronger automation.
+
+### Broader public toolkit readiness
+
+In addition to internal readiness:
+
+- remove Minis defaults from generic core;
+- executable examples for CLI and at least two host adapters;
+- CI across supported Python versions/platforms;
+- reproducible leakage-free benchmark report;
+- current LICENSE/NOTICE, security, contribution, and unofficial-positioning documents.
+
+The current public v2.5.0 repository is an audited public Minis baseline, not completion of this broader portability target.
+
+### Autonomous consequential action
+
+Not currently approved. It additionally requires domain calibration, consequence modeling, deterministic authorization, rollback/compensation, outcome feedback, and a preregistered safety gate. Model confidence alone is never sufficient.
+
+## 16. Amendment protocol
+
+An amendment must include:
+
+1. the reason and evidence;
+2. affected phases, gates, interfaces, and risks;
+3. migration/rollback consequences;
+4. updated version/date/status in this file;
+5. tests or evaluation changes required;
+6. explicit user approval for material scope, safety, or roadmap changes.
+
+Do not erase failed experiments or retractions. Preserve them as evidence and link them from the amendment or release notes.
+
+## 17. Immediate instruction
+
+The next project action is **Phase 2 preregistration and clean blind evaluation**, exactly as defined in Section 5. Do not reopen completed P0/P1 work without a new reproducible defect. Do not begin Phase 3 or later phases before the preceding gate passes. Do not create a competing roadmap.

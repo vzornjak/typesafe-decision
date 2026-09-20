@@ -16,6 +16,14 @@ judgment. The model only ever produces advisory signals.
 
 ---
 
+## Canonical project plan
+
+[`archi.ai`](archi.ai) is the repository's binding architecture, phased roadmap,
+execution policy, and Definition of Done. Read it before proposing work or
+interpreting project status. Durable changes to scope, sequencing, safety rules,
+or phase gates must update `archi.ai` in the same commit; do not create a
+competing roadmap.
+
 ## Status
 
 | | |
