@@ -100,6 +100,8 @@ def validate_task(doc, path):
         if not str(c.get("url", "")).startswith("https://"): errors.append(f"{path}: candidate URL must use https")
         content = c.get("content")
         if not isinstance(content, str) or len(content) < 50 or c.get("content_chars") != len(content): errors.append(f"{path}: invalid content/content_chars")
+        if isinstance(content, str) and "PENDING VERIFIED PUBLIC EXTRACT" in content:
+            errors.append(f"{path}: candidate content is an unresolved placeholder")
     if duplicate(cids): errors.append(f"{path}: duplicate candidate id")
     return errors
 
@@ -128,7 +130,8 @@ def validate():
     def walk(v, key=""):
         if isinstance(v, dict):
             for k, x in v.items(): walk(x, f"{key}.{k}" if key else k)
-        elif v is None: incomplete.append(key)
+        elif v is None and key not in {"main.seed", "pricing.main_cached_input_per_million"}:
+            incomplete.append(key)
     walk(execution)
     if incomplete: errors.append("execution config incomplete: " + ", ".join(incomplete))
     tasks = []
@@ -182,8 +185,9 @@ def lock_inputs(args):
     if INPUT_LOCK.exists(): return {"ok": False, "errors": ["inputs.lock.json already exists; never overwrite a lock"]}
     report = validate()
     if not report["ok"]: return report
-    tracked = [ROOT / "PREREGISTRATION.md"] + [CONFIG / x for x in REQUIRED_CONFIGS]
+    tracked = [ROOT / "PREREGISTRATION.md", ROOT / "ROLES.md", ROOT / "DEVELOPMENT-RECORD.md"] + [CONFIG / x for x in REQUIRED_CONFIGS]
     tracked += files_under(ROOT / "schemas") + files_under(ROOT / "prompts") + files_under(PUBLIC)
+    tracked += files_under(ROOT / "builder-provenance")
     rows = manifest(ROOT, sorted(set(tracked)))
     doc = {
         "schema_version": 1, "kind": "phase2_input_lock", "created_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),

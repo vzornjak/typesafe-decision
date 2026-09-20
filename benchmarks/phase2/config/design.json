@@ -31,7 +31,14 @@
       "jev_runs": 3,
       "main_runs_per_task": 3,
       "configuration_file": "tuned-arm.json",
-      "must_be_frozen_on_development_set": true
+      "must_be_frozen_on_development_set": true,
+      "selection": {
+        "max_candidates": 5,
+        "target_context_chars": 4000,
+        "minimum_score": 0.25,
+        "minimum_coverage_score": 0.4,
+        "max_per_domain": 1
+      }
     }
   },
   "expected_scored_main_answers": 160,

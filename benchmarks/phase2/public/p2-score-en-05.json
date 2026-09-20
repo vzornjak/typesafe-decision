@@ -1,0 +1,113 @@
+{
+  "task_id": "p2-score-en-05",
+  "language": "en",
+  "domain": "science_health",
+  "complexity": "moderate",
+  "query": "For a school trying to reduce airborne respiratory infection risk, explain how ventilation and filtration should be assessed and what practical improvements can be made without implying that they eliminate all risk.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Explain how ventilation and filtration performance can be assessed."
+    },
+    {
+      "id": "r02",
+      "text": "2. Recommend practical building and operational improvements."
+    },
+    {
+      "id": "r03",
+      "text": "3. Describe limitations and place these measures within a layered-risk approach."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.cdc.gov/niosh/ventilation/about/index.html",
+      "title": "Pending source 1",
+      "domain": "cdc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.cdc.gov/niosh/ventilation/guidelines/index.html",
+      "title": "Pending source 2",
+      "domain": "cdc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.epa.gov/indoor-air-quality-iaq/ventilation-and-coronavirus-covid-19",
+      "title": "Pending source 3",
+      "domain": "epa.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home",
+      "title": "Pending source 4",
+      "domain": "epa.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.epa.gov/iaq-schools",
+      "title": "Pending source 5",
+      "domain": "epa.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.who.int/publications/i/item/9789240021280",
+      "title": "Pending source 6",
+      "domain": "who.int",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.who.int/publications/i/item/9789240055882",
+      "title": "Pending source 7",
+      "domain": "who.int",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.ashrae.org/technical-resources/filtration-disinfection",
+      "title": "Pending source 8",
+      "domain": "ashrae.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.ashrae.org/technical-resources/standards-and-guidelines",
+      "title": "Pending source 9",
+      "domain": "ashrae.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.hse.gov.uk/ventilation/index.htm",
+      "title": "Pending source 10",
+      "domain": "hse.gov.uk",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR e1rd-8fqo CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

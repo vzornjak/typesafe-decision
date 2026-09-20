@@ -1,0 +1,130 @@
+{
+  "task_id": "p2-dev-en-02",
+  "language": "en",
+  "domain": "consumer_product",
+  "complexity": "complex",
+  "query": "Create a decision guide for choosing between a repairable laptop and a thin sealed laptop, covering performance, battery, repairability, lifetime cost, software support, and environmental tradeoffs.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "Compare sustained performance and portability"
+    },
+    {
+      "id": "r02",
+      "text": "Compare battery capacity, efficiency, and replacement"
+    },
+    {
+      "id": "r03",
+      "text": "Assess repairability and upgrade paths"
+    },
+    {
+      "id": "r04",
+      "text": "Compare lifetime cost and software-support horizon"
+    },
+    {
+      "id": "r05",
+      "text": "Discuss environmental tradeoffs without simplistic claims"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://phase2-dev-p2-dev-en-02-1.test/document",
+      "title": "Performance and form factor",
+      "domain": "phase2-dev-1.test",
+      "published_at_if_observable": null,
+      "content": "Thin systems can optimize weight and short burst performance, while larger modular systems may sustain loads with more cooling. Actual results depend on processor class, thermal limits, workload, and power profile. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 336
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://phase2-dev-p2-dev-en-02-2.test/document",
+      "title": "Battery tradeoffs",
+      "domain": "phase2-dev-2.test",
+      "published_at_if_observable": null,
+      "content": "Battery life combines capacity, component efficiency, display use, workload, and software. A replaceable pack may extend service life, but replacement availability and safe procedures matter more than the label alone. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 339
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://phase2-dev-p2-dev-en-02-3.test/document",
+      "title": "Repair and upgrades",
+      "domain": "phase2-dev-3.test",
+      "published_at_if_observable": null,
+      "content": "Socketed or accessible storage, memory, ports, keyboard, and battery can reduce repair scope. Parts pricing, manuals, diagnostic tools, warranty terms, and long-term availability determine practical repairability. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 335
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://phase2-dev-p2-dev-en-02-4.test/document",
+      "title": "Lifetime cost and support",
+      "domain": "phase2-dev-4.test",
+      "published_at_if_observable": null,
+      "content": "Purchase price should be combined with likely repairs, upgrades, downtime, resale value, and the operating-system support horizon. A cheap repairable device is not economical if critical parts disappear early. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 331
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://phase2-dev-p2-dev-en-02-5.test/document",
+      "title": "Environmental interpretation",
+      "domain": "phase2-dev-5.test",
+      "published_at_if_observable": null,
+      "content": "Longer useful life can spread manufacturing impact over more years, but heavier materials, inefficient operation, unused upgrades, shipping parts, and recycling pathways also matter. Compare a defined usage period rather than slogans. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 356
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://phase2-dev-p2-dev-en-02-6.test/document",
+      "title": "Unrelated announcement",
+      "domain": "phase2-dev-6.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic notice announces a community event and contains no evidence relevant to the research requirements. It exists to test rejection of superficially polished but irrelevant material. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 314
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://phase2-dev-p2-dev-en-02-7.test/document",
+      "title": "Marketing overview",
+      "domain": "phase2-dev-7.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic promotional page uses broad claims such as best, effortless, and revolutionary without methods, measurements, boundaries, or evidence. It should not dominate documented technical tradeoffs. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 326
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://phase2-dev-p2-dev-en-02-8.test/document",
+      "title": "Outdated summary",
+      "domain": "phase2-dev-8.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic summary omits dates, versions, methods, and limitations. It may mention the general topic but cannot support a detailed current comparison or recommendation. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 294
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://phase2-dev-p2-dev-en-02-9.test/document",
+      "title": "Forum anecdote",
+      "domain": "phase2-dev-9.test",
+      "published_at_if_observable": null,
+      "content": "One anonymous synthetic user reports a personal experience without a baseline, control, reproducible setup, or independent verification. The anecdote may suggest a question but cannot establish a general conclusion. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 337
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://phase2-dev-p2-dev-en-02-10.test/document",
+      "title": "Terminology glossary",
+      "domain": "phase2-dev-10.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic glossary defines a few broad terms but provides no comparative evidence, implementation details, measurements, costs, or limitations required by the query. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 292
+    },
+    {
+      "candidate_id": "c11",
+      "url": "https://phase2-dev-p2-dev-en-02-11.test/document",
+      "title": "Duplicate digest",
+      "domain": "phase2-dev-11.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic digest repeats fragments from a stronger candidate while removing qualifications and provenance. It tests whether near-duplicate low-information material consumes selection budget. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 317
+    }
+  ]
+}

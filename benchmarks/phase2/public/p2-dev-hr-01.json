@@ -1,0 +1,113 @@
+{
+  "task_id": "p2-dev-hr-01",
+  "language": "hr",
+  "domain": "software_technical",
+  "complexity": "moderate",
+  "query": "Usporedi dva dokumentirana načina uvođenja cachea u web API te preporuči kada koristiti svaki pristup, uključujući invalidaciju i opažljivost.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "Objasniti cache-aside pristup i njegove kompromise"
+    },
+    {
+      "id": "r02",
+      "text": "Objasniti write-through pristup i njegove kompromise"
+    },
+    {
+      "id": "r03",
+      "text": "Usporediti invalidaciju i opažljivost oba pristupa"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://phase2-dev-p2-dev-hr-01-1.test/document",
+      "title": "Cache-aside obrazac",
+      "domain": "phase2-dev-1.test",
+      "published_at_if_observable": null,
+      "content": "Aplikacija prvo provjerava cache, zatim čita bazu pri promašaju i sprema rezultat. Prednosti su jednostavno postupno uvođenje i kontrola u aplikaciji. Rizici su zastarjeli zapisi, stampede pri isteku i složenija invalidacija. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 347
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://phase2-dev-p2-dev-hr-01-2.test/document",
+      "title": "Write-through obrazac",
+      "domain": "phase2-dev-2.test",
+      "published_at_if_observable": null,
+      "content": "Svaki zapis prolazi kroz cache i trajnu pohranu prije potvrde. Čitanja su češće zagrijana i konzistencija je predvidljivija, ali zapis ima veću latenciju i cache može sadržavati rijetko korištene podatke. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 326
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://phase2-dev-p2-dev-hr-01-3.test/document",
+      "title": "Invalidacija",
+      "domain": "phase2-dev-3.test",
+      "published_at_if_observable": null,
+      "content": "TTL ograničava starost, eksplicitna invalidacija reagira na promjene, a verzionirani ključevi olakšavaju atomsku zamjenu. Potrebno je definirati ponašanje pri padu cachea. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 293
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://phase2-dev-p2-dev-hr-01-4.test/document",
+      "title": "Opažljivost cachea",
+      "domain": "phase2-dev-4.test",
+      "published_at_if_observable": null,
+      "content": "Mjeri hit rate, miss rate, evictione, latenciju, stampede događaje i razliku između cache i izvornog sustava. Alarm samo na hit rate bez konteksta prometa može zavarati. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 291
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://phase2-dev-p2-dev-hr-01-5.test/document",
+      "title": "Unrelated announcement",
+      "domain": "phase2-dev-5.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic notice announces a community event and contains no evidence relevant to the research requirements. It exists to test rejection of superficially polished but irrelevant material. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 314
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://phase2-dev-p2-dev-hr-01-6.test/document",
+      "title": "Marketing overview",
+      "domain": "phase2-dev-6.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic promotional page uses broad claims such as best, effortless, and revolutionary without methods, measurements, boundaries, or evidence. It should not dominate documented technical tradeoffs. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 326
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://phase2-dev-p2-dev-hr-01-7.test/document",
+      "title": "Outdated summary",
+      "domain": "phase2-dev-7.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic summary omits dates, versions, methods, and limitations. It may mention the general topic but cannot support a detailed current comparison or recommendation. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 294
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://phase2-dev-p2-dev-hr-01-8.test/document",
+      "title": "Forum anecdote",
+      "domain": "phase2-dev-8.test",
+      "published_at_if_observable": null,
+      "content": "One anonymous synthetic user reports a personal experience without a baseline, control, reproducible setup, or independent verification. The anecdote may suggest a question but cannot establish a general conclusion. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 337
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://phase2-dev-p2-dev-hr-01-9.test/document",
+      "title": "Terminology glossary",
+      "domain": "phase2-dev-9.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic glossary defines a few broad terms but provides no comparative evidence, implementation details, measurements, costs, or limitations required by the query. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 292
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://phase2-dev-p2-dev-hr-01-10.test/document",
+      "title": "Duplicate digest",
+      "domain": "phase2-dev-10.test",
+      "published_at_if_observable": null,
+      "content": "This synthetic digest repeats fragments from a stronger candidate while removing qualifications and provenance. It tests whether near-duplicate low-information material consumes selection budget. The document is synthetic and was authored only for development-set harness testing; it is not scored benchmark evidence.",
+      "content_chars": 317
+    }
+  ]
+}

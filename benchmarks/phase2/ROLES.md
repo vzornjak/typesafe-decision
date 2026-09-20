@@ -1,14 +1,14 @@
 # Phase 2 role and custody declaration
 
-Complete this file before `lock-inputs`. Replace every `TBD`; do not include secrets or personal data beyond a public role identifier.
+Role identifiers are process labels only; do not include secrets or unnecessary personal data.
 
 | Role | Actor/process ID | Inputs visible | Outputs produced | Gold visible? |
 |---|---|---|---|---|
-| Dataset builder | TBD | query design rules, public candidate sources | public tasks and query-derived requirements | No |
-| Gold curator | TBD | frozen public tasks and candidate corpus | sealed gold bundle | Yes, after public inputs freeze |
-| Experiment runner | TBD | input lock, public tasks, configs, prompts | Jev selections, MAIN answers, usage and timing | No |
-| Blind evaluator | TBD | randomized answers, cited source text, frozen rubric | quality/claim/citation labels | Yes only during evaluation |
-| Provenance auditor | TBD | manifests, role ledger, runner tree, output lock | pre-unblind audit decision | No gold content required |
+| Dataset builder | `main-agent/dataset-builder-v1` | query design rules, public candidate sources | public tasks and query-derived requirements | No |
+| Gold curator | `isolated-general-agent/gold-curator-v1` | frozen public tasks and candidate corpus | sealed gold bundle | Yes, after public inputs freeze |
+| Experiment runner | `main-agent/experiment-runner-v1` | input lock, public tasks, configs, prompts | Jev selections, MAIN answers, usage and timing | No |
+| Blind evaluator | `isolated-evaluator/to-be-instantiated-after-output-lock` | randomized answers, cited source text, frozen rubric | quality/claim/citation labels | Yes only during evaluation |
+| Provenance auditor | `main-agent/provenance-auditor-v1` | manifests, role ledger, runner tree, output lock | pre-unblind audit decision | No gold content required |
 
 ## Custody rules
 

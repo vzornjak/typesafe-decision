@@ -17,6 +17,8 @@ sealed gold + locked outputs ──> evaluator ──> metrics/decision
 ```
 
 - `public/` is runner-visible and must never contain gold fields.
+- `builder-provenance/` records task-construction lineage but contains no gold.
+- `private-development/` is gitignored local custody for synthetic development-only gold and Jev outputs; it is never confirmatory evidence.
 - Gold is created and stored outside the runner-visible repository while the scored run is active.
 - `schemas/gold-task.schema.json` specifies format only; it is not gold data.
 - `tools/phase2.py` creates and verifies manifests and enforces the pre-unblind boundary.
@@ -50,7 +52,10 @@ Commands fail closed while required configuration fields, prompts, tasks, role d
 - `config/decision-gates.json` — confirmatory PASS/FAIL/INCONCLUSIVE thresholds.
 - `config/metadata-policy.json` — public/gold field boundary.
 - `schemas/` — public input and sealed-gold schemas.
-- `public/` — runner-visible input bundle, initially empty.
+- `public/` — runner-visible input bundle, containing development tasks and unresolved scored stubs until source extraction is complete.
+- `builder-provenance/` — no-gold task-construction lineage.
+- `DEVELOPMENT-RECORD.md` — public summary of synthetic tuning, without curator labels or raw outputs.
+- `private-development/` — gitignored local custody; never confirmatory evidence.
 - `tools/` — local validation, hashing, and leakage-audit utilities.
 
 The old contaminated shortlist experiment is excluded by design and remains only a documented retraction elsewhere in the repository.

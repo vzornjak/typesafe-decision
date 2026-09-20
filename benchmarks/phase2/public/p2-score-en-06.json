@@ -1,0 +1,121 @@
+{
+  "task_id": "p2-score-en-06",
+  "language": "en",
+  "domain": "science_health",
+  "complexity": "complex",
+  "query": "Create an evidence-based home blood-pressure monitoring plan for an adult with possible hypertension: include device selection, cuff fit, measurement technique, measurement schedule, interpretation, and urgent warning signs.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Describe how to select a validated monitor and suitable cuff."
+    },
+    {
+      "id": "r02",
+      "text": "2. Explain preparation, posture, and measurement technique."
+    },
+    {
+      "id": "r03",
+      "text": "3. Propose a repeat-measurement schedule suitable for clinical review."
+    },
+    {
+      "id": "r04",
+      "text": "4. Explain how home readings are interpreted without making an individual diagnosis."
+    },
+    {
+      "id": "r05",
+      "text": "5. Identify readings or associated symptoms requiring urgent assessment."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.cdc.gov/high-blood-pressure/about/index.html",
+      "title": "Pending source 1",
+      "domain": "cdc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.cdc.gov/high-blood-pressure/data-research/facts-stats/index.html",
+      "title": "Pending source 2",
+      "domain": "cdc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure",
+      "title": "Pending source 3",
+      "domain": "nhlbi.nih.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/diagnosis",
+      "title": "Pending source 4",
+      "domain": "nhlbi.nih.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings",
+      "title": "Pending source 5",
+      "domain": "heart.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.heart.org/en/health-topics/high-blood-pressure/monitoring-your-blood-pressure-at-home",
+      "title": "Pending source 6",
+      "domain": "heart.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.nice.org.uk/guidance/ng136",
+      "title": "Pending source 7",
+      "domain": "nice.org.uk",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+      "title": "Pending source 8",
+      "domain": "uspreventiveservicestaskforce.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/hypertension",
+      "title": "Pending source 9",
+      "domain": "who.int",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.validatebp.org/",
+      "title": "Pending source 10",
+      "domain": "validatebp.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR w9ka-5nlu CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

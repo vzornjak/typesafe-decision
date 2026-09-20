@@ -1,0 +1,113 @@
+{
+  "task_id": "p2-score-en-01",
+  "language": "en",
+  "domain": "software_technical",
+  "complexity": "moderate",
+  "query": "For a Python command-line tool, compare `venv` plus `pip` with `pipx`, and recommend which approach to use for development and which for end-user installation.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Compare isolation and installation behavior of `venv`/`pip` and `pipx`."
+    },
+    {
+      "id": "r02",
+      "text": "2. Recommend an approach for local development."
+    },
+    {
+      "id": "r03",
+      "text": "3. Recommend an approach for end-user CLI installation and explain the trade-off."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://docs.python.org/3/library/venv.html",
+      "title": "Pending source 1",
+      "domain": "docs.python.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://docs.python.org/3/tutorial/venv.html",
+      "title": "Pending source 2",
+      "domain": "docs.python.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://docs.python.org/3/installing/index.html",
+      "title": "Pending source 3",
+      "domain": "docs.python.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://packaging.python.org/en/latest/tutorials/installing-packages/",
+      "title": "Pending source 4",
+      "domain": "packaging.python.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/",
+      "title": "Pending source 5",
+      "domain": "packaging.python.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://packaging.python.org/en/latest/specifications/externally-managed-environments/",
+      "title": "Pending source 6",
+      "domain": "packaging.python.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://packaging.python.org/en/latest/discussions/install-requires-vs-requirements/",
+      "title": "Pending source 7",
+      "domain": "packaging.python.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://pip.pypa.io/en/stable/user_guide/",
+      "title": "Pending source 8",
+      "domain": "pip.pypa.io",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://pip.pypa.io/en/stable/topics/dependency-resolution/",
+      "title": "Pending source 9",
+      "domain": "pip.pypa.io",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://pipx.pypa.io/stable/",
+      "title": "Pending source 10",
+      "domain": "pipx.pypa.io",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR m9gt-2cwf CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

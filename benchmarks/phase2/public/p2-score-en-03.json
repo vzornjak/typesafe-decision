@@ -1,0 +1,113 @@
+{
+  "task_id": "p2-score-en-03",
+  "language": "en",
+  "domain": "public_policy_regulation",
+  "complexity": "moderate",
+  "query": "An EU company wants to deploy an AI system that screens job applicants. Explain how to determine whether it is high-risk, and summarize the main obligations of the provider and deployer.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Explain how an employment-screening system is classified under the EU AI Act."
+    },
+    {
+      "id": "r02",
+      "text": "2. Summarize obligations applicable to the system provider."
+    },
+    {
+      "id": "r03",
+      "text": "3. Summarize obligations applicable to the organization deploying the system."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "title": "Pending source 1",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689",
+      "title": "Pending source 2",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "title": "Pending source 3",
+      "domain": "digital-strategy.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act",
+      "title": "Pending source 4",
+      "domain": "digital-strategy.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act",
+      "title": "Pending source 5",
+      "domain": "digital-strategy.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+      "title": "Pending source 6",
+      "domain": "digital-strategy.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-pact",
+      "title": "Pending source 7",
+      "domain": "digital-strategy.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en",
+      "title": "Pending source 8",
+      "domain": "commission.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects_en",
+      "title": "Pending source 9",
+      "domain": "edpb.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://eur-lex.europa.eu/eli/dir/2000/78/oj",
+      "title": "Pending source 10",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR u2fm-6jrc CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

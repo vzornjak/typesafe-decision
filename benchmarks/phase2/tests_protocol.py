@@ -37,6 +37,8 @@ def main():
     check("recursive gold scan", p2.scan_gold({"nested": [{"support_spans": []}]}) == ["$.nested[0].support_spans"])
     bad_chars = json.loads(json.dumps(good)); bad_chars["candidates"][0]["content_chars"] += 1
     check("content length mismatch rejected", any("content/content_chars" in e for e in p2.validate_task(bad_chars, "synthetic")))
+    placeholder = json.loads(json.dumps(good)); placeholder["candidates"][0]["content"] = "PENDING VERIFIED PUBLIC EXTRACT " + "x" * 60; placeholder["candidates"][0]["content_chars"] = len(placeholder["candidates"][0]["content"])
+    check("unresolved scored placeholder rejected", any("unresolved placeholder" in e for e in p2.validate_task(placeholder, "synthetic")))
     duplicate = json.loads(json.dumps(good)); duplicate["requirements"][1]["id"] = "r01"
     check("duplicate requirements rejected", any("duplicate requirement" in e for e in p2.validate_task(duplicate, "synthetic")))
     rows = [{"path": "a", "bytes": 1, "sha256": p2.digest(b"x")}]

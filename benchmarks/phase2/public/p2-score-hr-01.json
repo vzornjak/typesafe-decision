@@ -1,0 +1,113 @@
+{
+  "task_id": "p2-score-hr-01",
+  "language": "hr",
+  "domain": "software_technical",
+  "complexity": "moderate",
+  "query": "Za mobilnu aplikaciju koja prijavljuje korisnika preko vanjskog OAuth pružatelja objasni preporučeni authorization-code tijek, ulogu PKCE-a i sigurno vraćanje korisnika u aplikaciju.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Opisati preporučeni authorization-code tijek za mobilnu odnosno native aplikaciju."
+    },
+    {
+      "id": "r02",
+      "text": "2. Objasniti čemu služi PKCE i kako se koristi."
+    },
+    {
+      "id": "r03",
+      "text": "3. Objasniti sigurno preusmjeravanje natrag u aplikaciju i povezane rizike."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.rfc-editor.org/rfc/rfc6749.html",
+      "title": "Pending source 1",
+      "domain": "rfc-editor.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.rfc-editor.org/rfc/rfc7636.html",
+      "title": "Pending source 2",
+      "domain": "rfc-editor.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.rfc-editor.org/rfc/rfc8252.html",
+      "title": "Pending source 3",
+      "domain": "rfc-editor.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.rfc-editor.org/rfc/rfc9207.html",
+      "title": "Pending source 4",
+      "domain": "rfc-editor.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.rfc-editor.org/rfc/rfc8414.html",
+      "title": "Pending source 5",
+      "domain": "rfc-editor.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.rfc-editor.org/rfc/rfc7591.html",
+      "title": "Pending source 6",
+      "domain": "rfc-editor.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.rfc-editor.org/rfc/rfc9126.html",
+      "title": "Pending source 7",
+      "domain": "rfc-editor.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.rfc-editor.org/rfc/rfc9700.html",
+      "title": "Pending source 8",
+      "domain": "rfc-editor.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "title": "Pending source 9",
+      "domain": "openid.net",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-native-apps-2",
+      "title": "Pending source 10",
+      "domain": "datatracker.ietf.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR r5dw-8kqa CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

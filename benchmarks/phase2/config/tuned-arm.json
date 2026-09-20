@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "frozen_from_synthetic_development_set",
+  "selection_rule": "maximize mean requirement coverage, then required-source recall, then minimize selected count; deterministic config tie-break",
+  "grid": {
+    "max_candidates": [
+      5,
+      6,
+      8
+    ],
+    "target_context_chars": [
+      4000,
+      8000,
+      50000
+    ],
+    "minimum_score": [
+      0.2,
+      0.25,
+      0.35
+    ],
+    "minimum_coverage_score": [
+      0.4,
+      0.5,
+      0.6
+    ],
+    "max_per_domain": [
+      1,
+      2
+    ]
+  },
+  "development_tasks": 4,
+  "development_runs": 12,
+  "best": {
+    "configuration": {
+      "max_candidates": 5,
+      "target_context_chars": 4000,
+      "minimum_score": 0.25,
+      "minimum_coverage_score": 0.4,
+      "max_per_domain": 1
+    },
+    "mean_requirement_coverage": 1.0,
+    "mean_required_source_recall": 1.0,
+    "mean_selected": 4.5,
+    "all_selected": true
+  },
+  "top_five": [
+    {
+      "configuration": {
+        "max_candidates": 5,
+        "target_context_chars": 4000,
+        "minimum_score": 0.25,
+        "minimum_coverage_score": 0.4,
+        "max_per_domain": 1
+      },
+      "mean_requirement_coverage": 1.0,
+      "mean_required_source_recall": 1.0,
+      "mean_selected": 4.5,
+      "all_selected": true
+    },
+    {
+      "configuration": {
+        "max_candidates": 5,
+        "target_context_chars": 4000,
+        "minimum_score": 0.25,
+        "minimum_coverage_score": 0.4,
+        "max_per_domain": 2
+      },
+      "mean_requirement_coverage": 1.0,
+      "mean_required_source_recall": 1.0,
+      "mean_selected": 4.5,
+      "all_selected": true
+    },
+    {
+      "configuration": {
+        "max_candidates": 5,
+        "target_context_chars": 4000,
+        "minimum_score": 0.35,
+        "minimum_coverage_score": 0.4,
+        "max_per_domain": 1
+      },
+      "mean_requirement_coverage": 1.0,
+      "mean_required_source_recall": 1.0,
+      "mean_selected": 4.5,
+      "all_selected": true
+    },
+    {
+      "configuration": {
+        "max_candidates": 5,
+        "target_context_chars": 4000,
+        "minimum_score": 0.35,
+        "minimum_coverage_score": 0.4,
+        "max_per_domain": 2
+      },
+      "mean_requirement_coverage": 1.0,
+      "mean_required_source_recall": 1.0,
+      "mean_selected": 4.5,
+      "all_selected": true
+    },
+    {
+      "configuration": {
+        "max_candidates": 5,
+        "target_context_chars": 4000,
+        "minimum_score": 0.25,
+        "minimum_coverage_score": 0.5,
+        "max_per_domain": 1
+      },
+      "mean_requirement_coverage": 1.0,
+      "mean_required_source_recall": 1.0,
+      "mean_selected": 4.5,
+      "all_selected": true
+    }
+  ],
+  "confirmatory_evidence": false
+}
