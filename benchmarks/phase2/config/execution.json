@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "draft_values_must_be_completed_before_lock",
+  "software": {
+    "repository": "https://github.com/vzornjak/typesafe-decision",
+    "required_base_release": "v2.5.0",
+    "commit": null,
+    "package_version": "2.5.0",
+    "policy_version": "2.5.0",
+    "schema_version": 4
+  },
+  "jev": {
+    "requested_model": "jev-1.13.0",
+    "served_model_must_equal_requested": true,
+    "repetitions": 3,
+    "offline_dry_run_required": true
+  },
+  "main": {
+    "provider": null,
+    "model": null,
+    "temperature": 0.0,
+    "seed": null,
+    "max_output_tokens": 1600,
+    "system_prompt_sha256": "005c4c9b3af4b78b9e4296786bfec61e492db428739aae938d3a745fcb48cf08",
+    "user_prompt_template_sha256": "ff20d553677d1ab9fd85d4f1bee9b7879de893159cfcff413faafe0823f714e1",
+    "token_accounting": "provider_reported_usage_required"
+  },
+  "pricing": {
+    "currency": "USD",
+    "retrieved_at_utc": null,
+    "jev_input_per_million": null,
+    "jev_output_per_million": 0.0,
+    "main_input_per_million": null,
+    "main_cached_input_per_million": null,
+    "main_output_per_million": null,
+    "source_urls": []
+  },
+  "timeouts_and_retry": {
+    "workflow_deadline_seconds": 120,
+    "retry_attempts": 3,
+    "retry_statuses": [
+      408,
+      425,
+      429,
+      "5xx"
+    ]
+  },
+  "prompts": {
+    "directory": "../prompts",
+    "must_be_hash_locked": true
+  },
+  "incomplete_fields_block_lock": true
+}

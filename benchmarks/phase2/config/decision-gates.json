@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "confirmatory_arm": "C_shortlist_default",
+  "baseline_arm": "A_no_rank",
+  "coverage_retention_minimum_ratio": 0.95,
+  "required_source_recall_minimum": 1.0,
+  "quality": {
+    "primary_score": "overall_usefulness_1_to_5",
+    "noninferiority_margin_points": 0.25,
+    "direction": "shortlist_minus_baseline_must_be_greater_than_negative_margin",
+    "paired_bootstrap_confidence": 0.95,
+    "bootstrap_unit": "task",
+    "minimum_valid_scored_tasks": 16
+  },
+  "cost": {
+    "must_have_positive_actual_savings_usd": true,
+    "include_jev_input_output_and_all_main_input_output": true,
+    "exclude_human_evaluation_cost_from_api_break_even_but_report_separately": true
+  },
+  "mandatory_failures": [
+    "leakage_or_provenance_audit_failure",
+    "coverage_retention_below_threshold",
+    "required_source_recall_below_one",
+    "quality_noninferiority_failure",
+    "nonpositive_total_api_cost_savings"
+  ],
+  "inconclusive_conditions": [
+    "confidence_interval_too_wide_for_quality_decision",
+    "fewer_than_16_valid_scored_tasks",
+    "mixed_main_models",
+    "material_protocol_ambiguity",
+    "evaluator_integrity_failure",
+    "model_or_prompt_comparability_loss"
+  ],
+  "tuned_arm_cannot_rescue_default_confirmatory_failure": true
+}

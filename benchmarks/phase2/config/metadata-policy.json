@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "principle": "Only metadata observable or mechanically derivable before gold may enter runner-visible inputs.",
+  "runner_visible_fields": [
+    "candidate_id",
+    "url",
+    "title",
+    "domain",
+    "published_at_if_observable",
+    "content",
+    "content_chars"
+  ],
+  "gold_only_fields": [
+    "required",
+    "primary",
+    "authority_label",
+    "source_type_label",
+    "supported_requirement_ids",
+    "support_spans",
+    "contradiction_labels"
+  ],
+  "derivations": {
+    "domain": "normalized hostname from URL",
+    "content_chars": "Unicode code point count of content",
+    "published_at_if_observable": "literal candidate metadata only; no inferred date"
+  },
+  "forbidden": [
+    "post_hoc authority tuning",
+    "gold-derived source type",
+    "source IDs or expected citations inside requirements",
+    "manual candidate order chosen from expected outcome"
+  ]
+}

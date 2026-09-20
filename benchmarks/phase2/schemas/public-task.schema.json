@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/vzornjak/typesafe-decision/benchmarks/phase2/schemas/public-task.schema.json",
+  "title": "Phase 2 runner-visible task",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task_id", "language", "domain", "complexity", "query", "requirements", "candidates"],
+  "properties": {
+    "task_id": {"type": "string", "pattern": "^p2-(dev|score)-(hr|en)-[0-9]{2}$"},
+    "language": {"enum": ["hr", "en"]},
+    "domain": {"enum": ["software_technical", "public_policy_regulation", "science_health", "consumer_product"]},
+    "complexity": {"enum": ["moderate", "complex"]},
+    "query": {"type": "string", "minLength": 20},
+    "requirements": {
+      "type": "array", "minItems": 2, "maxItems": 6,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "text"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^r[0-9]{2}$"},
+          "text": {"type": "string", "minLength": 8}
+        }
+      }
+    },
+    "candidates": {
+      "type": "array", "minItems": 10, "maxItems": 16,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["candidate_id", "url", "title", "domain", "content", "content_chars"],
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^c[0-9]{2}$"},
+          "url": {"type": "string", "pattern": "^https://"},
+          "title": {"type": "string", "minLength": 1},
+          "domain": {"type": "string", "minLength": 1},
+          "published_at_if_observable": {"type": ["string", "null"]},
+          "content": {"type": "string", "minLength": 50},
+          "content_chars": {"type": "integer", "minimum": 50}
+        }
+      }
+    }
+  }
+}

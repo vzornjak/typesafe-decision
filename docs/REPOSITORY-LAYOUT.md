@@ -11,6 +11,8 @@
 ├── LICENSE                          Project MIT license
 ├── NOTICE                           Upstream attribution and trademark notice
 ├── pyproject.toml                   Package metadata and test command
+├── benchmarks/
+│   └── phase2/                     Blind shortlist evaluation protocol, schemas and lock tools
 ├── scripts/
 │   ├── ts_common.py                 Shared config, transport, retry, drift, logging
 │   ├── decision_workflows.py        rank, verify and triage workflows
@@ -47,7 +49,7 @@ Runtime behavior lives in `scripts/`. It has no third-party Python dependencies.
 
 ## Test boundary
 
-`tests/run_tests.py` is the only release gate maintainers and CI need to invoke. It runs compilation, the 25 selftests, all 119 unique regressions, synthetic fixture integrity, secret scanning, and absolute-path dependency scanning.
+`tests/run_tests.py` is the only release gate maintainers and CI need to invoke. It runs compilation, the 25 selftests, all 119 unique regressions, Phase 2 protocol contract tests, synthetic fixture integrity, secret scanning, and absolute-path dependency scanning.
 
 `tests/fixtures/` is generated data, not evaluation evidence. Its provenance is `origin=synthetic`; its scores are authored to reproduce policy properties. Regenerate only through `tests/generate_fixtures.py` and commit the updated manifest.
 

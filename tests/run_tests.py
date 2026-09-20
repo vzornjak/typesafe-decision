@@ -5,8 +5,9 @@ Runs, in order:
   1. py_compile over every shipped Python file (syntax gate)
   2. scripts/selftest.py        — 25 legacy behaviour-contract tests
   3. scripts/tests_phase1.py    — 119 audit regressions
-  4. fixture integrity          — per-file and aggregate SHA-256
-  5. hygiene scans              — secrets and non-portable absolute paths
+  4. Phase 2 protocol contract tests
+  5. fixture integrity          — per-file and aggregate SHA-256
+  6. hygiene scans              — secrets and non-portable absolute paths
 
 Everything is offline and self-contained. Exit 0 only when all stages pass.
 
@@ -121,6 +122,12 @@ def stage_fixtures():
                      "aggregate_ok": agg_ok, "problems": bad}
 
 
+def stage_phase2_protocol():
+    """Exercise protocol invariants; a draft benchmark is expected to remain unlocked."""
+    ok, doc = _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_protocol.py"))
+    return ok, doc
+
+
 def stage_secret_scan():
     hits = []
     for p in iter_files():
@@ -171,6 +178,7 @@ STAGES = [
     ("py_compile", stage_compile),
     ("selftest", stage_selftest),
     ("regressions", stage_regressions),
+    ("phase2_protocol", stage_phase2_protocol),
     ("fixture_integrity", stage_fixtures),
     ("secret_scan", stage_secret_scan),
     ("absolute_path_scan", stage_path_scan),
@@ -198,6 +206,8 @@ def _summary(name, detail):
                                            "version", "schema_version")}
     if name == "selftest":
         return {k: detail.get(k) for k in ("tests", "version")}
+    if name == "phase2_protocol":
+        return {k: detail.get(k) for k in ("tests", "failures")}
     if name == "fixture_integrity":
         return {"files": detail.get("files"), "label": detail.get("label")}
     if name == "py_compile":

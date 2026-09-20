@@ -123,6 +123,14 @@ Design rules that the tests enforce:
 
 ---
 
+## Phase 2 benchmark status
+
+Phase 2 preregistration and leakage-control tooling live in
+[`benchmarks/phase2/`](benchmarks/phase2/). The protocol is intentionally
+fail-closed and currently **not locked**: no scored dataset, gold bundle, model
+output, or Phase 2 quality result exists yet. Protocol tests and synthetic
+fixtures are not benchmark evidence.
+
 ## Install
 
 No third-party Python dependencies. Standard library only.
