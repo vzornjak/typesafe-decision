@@ -1,0 +1,499 @@
+{
+ "workflow": "rank",
+ "version": "2.5.0",
+ "advisory_only": true,
+ "synthetic": true,
+ "result": {
+  "ranking": [
+   {
+    "id": "c01",
+    "score": 0.948,
+    "fit": 0.96,
+    "useful": 0.93,
+    "injection": 0.03,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.94,
+     "g2": 0.91,
+     "g3": 0.31,
+     "g4": 0.22,
+     "g5": 0.18,
+     "g6": 0.27,
+     "g7": 0.16,
+     "g8": 0.24,
+     "g9": 0.14,
+     "g10": 0.19,
+     "g11": 0.12
+    },
+    "selection_reason": "rank_fill"
+   },
+   {
+    "id": "c02",
+    "score": 0.932,
+    "fit": 0.94,
+    "useful": 0.92,
+    "injection": 0.02,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.26,
+     "g2": 0.24,
+     "g3": 0.92,
+     "g4": 0.88,
+     "g5": 0.35,
+     "g6": 0.29,
+     "g7": 0.18,
+     "g8": 0.21,
+     "g9": 0.17,
+     "g10": 0.22,
+     "g11": 0.15
+    },
+    "selection_reason": "rank_fill"
+   },
+   {
+    "id": "c03",
+    "score": 0.912,
+    "fit": 0.92,
+    "useful": 0.9,
+    "injection": 0.02,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.21,
+     "g2": 0.19,
+     "g3": 0.33,
+     "g4": 0.3,
+     "g5": 0.93,
+     "g6": 0.28,
+     "g7": 0.2,
+     "g8": 0.23,
+     "g9": 0.16,
+     "g10": 0.18,
+     "g11": 0.14
+    },
+    "selection_reason": "rank_fill"
+   },
+   {
+    "id": "c04",
+    "score": 0.892,
+    "fit": 0.9,
+    "useful": 0.88,
+    "injection": 0.03,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.18,
+     "g2": 0.22,
+     "g3": 0.27,
+     "g4": 0.25,
+     "g5": 0.24,
+     "g6": 0.91,
+     "g7": 0.89,
+     "g8": 0.32,
+     "g9": 0.19,
+     "g10": 0.21,
+     "g11": 0.17
+    },
+    "selection_reason": "requirement_coverage"
+   },
+   {
+    "id": "c06",
+    "score": 0.772,
+    "fit": 0.78,
+    "useful": 0.76,
+    "injection": 0.02,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.13,
+     "g2": 0.15,
+     "g3": 0.22,
+     "g4": 0.31,
+     "g5": 0.26,
+     "g6": 0.14,
+     "g7": 0.21,
+     "g8": 0.12,
+     "g9": 0.2,
+     "g10": 0.16,
+     "g11": 0.9
+    },
+    "selection_reason": "requirement_coverage"
+   },
+   {
+    "id": "c05",
+    "score": 0.712,
+    "fit": 0.72,
+    "useful": 0.7,
+    "injection": 0.02,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.12,
+     "g2": 0.44,
+     "g3": 0.15,
+     "g4": 0.13,
+     "g5": 0.11,
+     "g6": 0.62,
+     "g7": 0.19,
+     "g8": 0.14,
+     "g9": 0.12,
+     "g10": 0.1,
+     "g11": 0.09
+    }
+   },
+   {
+    "id": "c13",
+    "score": 0.678,
+    "fit": 0.69,
+    "useful": 0.66,
+    "injection": 0.03,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.52,
+     "g2": 0.48,
+     "g3": 0.44,
+     "g4": 0.42,
+     "g5": 0.4,
+     "g6": 0.38,
+     "g7": 0.36,
+     "g8": 0.34,
+     "g9": 0.32,
+     "g10": 0.3,
+     "g11": 0.28
+    },
+    "selection_reason": "requirement_coverage"
+   },
+   {
+    "id": "c07",
+    "score": 0.628,
+    "fit": 0.64,
+    "useful": 0.61,
+    "injection": 0.03,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.35,
+     "g2": 0.33,
+     "g3": 0.41,
+     "g4": 0.29,
+     "g5": 0.38,
+     "g6": 0.31,
+     "g7": 0.22,
+     "g8": 0.66,
+     "g9": 0.24,
+     "g10": 0.27,
+     "g11": 0.25
+    },
+    "selection_reason": "requirement_coverage"
+   },
+   {
+    "id": "c08",
+    "score": 0.568,
+    "fit": 0.58,
+    "useful": 0.55,
+    "injection": 0.04,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.24,
+     "g2": 0.22,
+     "g3": 0.28,
+     "g4": 0.21,
+     "g5": 0.23,
+     "g6": 0.25,
+     "g7": 0.19,
+     "g8": 0.27,
+     "g9": 0.71,
+     "g10": 0.69,
+     "g11": 0.2
+    },
+    "selection_reason": "requirement_coverage"
+   },
+   {
+    "id": "c09",
+    "score": 0.458,
+    "fit": 0.47,
+    "useful": 0.44,
+    "injection": 0.05,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.18,
+     "g2": 0.16,
+     "g3": 0.19,
+     "g4": 0.15,
+     "g5": 0.17,
+     "g6": 0.14,
+     "g7": 0.13,
+     "g8": 0.16,
+     "g9": 0.15,
+     "g10": 0.12,
+     "g11": 0.18
+    }
+   },
+   {
+    "id": "c10",
+    "score": 0.402,
+    "fit": 0.41,
+    "useful": 0.39,
+    "injection": 0.04,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.15,
+     "g2": 0.13,
+     "g3": 0.17,
+     "g4": 0.12,
+     "g5": 0.14,
+     "g6": 0.13,
+     "g7": 0.11,
+     "g8": 0.12,
+     "g9": 0.13,
+     "g10": 0.11,
+     "g11": 0.15
+    }
+   },
+   {
+    "id": "c11",
+    "score": 0.372,
+    "fit": 0.38,
+    "useful": 0.36,
+    "injection": 0.03,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.11,
+     "g2": 0.1,
+     "g3": 0.12,
+     "g4": 0.11,
+     "g5": 0.1,
+     "g6": 0.12,
+     "g7": 0.09,
+     "g8": 0.11,
+     "g9": 0.12,
+     "g10": 0.13,
+     "g11": 0.1
+    }
+   },
+   {
+    "id": "c12",
+    "score": 0.332,
+    "fit": 0.34,
+    "useful": 0.32,
+    "injection": 0.03,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.1,
+     "g2": 0.09,
+     "g3": 0.11,
+     "g4": 0.1,
+     "g5": 0.09,
+     "g6": 0.11,
+     "g7": 0.08,
+     "g8": 0.1,
+     "g9": 0.11,
+     "g10": 0.12,
+     "g11": 0.09
+    }
+   },
+   {
+    "id": "c14",
+    "score": 0.302,
+    "fit": 0.31,
+    "useful": 0.29,
+    "injection": 0.06,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.14,
+     "g2": 0.12,
+     "g3": 0.13,
+     "g4": 0.11,
+     "g5": 0.12,
+     "g6": 0.1,
+     "g7": 0.09,
+     "g8": 0.11,
+     "g9": 0.1,
+     "g10": 0.21,
+     "g11": 0.08
+    }
+   },
+   {
+    "id": "c15",
+    "score": 0.272,
+    "fit": 0.28,
+    "useful": 0.26,
+    "injection": 0.07,
+    "eligible": true,
+    "coverage": {
+     "g1": 0.09,
+     "g2": 0.08,
+     "g3": 0.1,
+     "g4": 0.09,
+     "g5": 0.08,
+     "g6": 0.09,
+     "g7": 0.07,
+     "g8": 0.08,
+     "g9": 0.09,
+     "g10": 0.1,
+     "g11": 0.07
+    }
+   },
+   {
+    "id": "c16",
+    "score": 0.538,
+    "fit": 0.55,
+    "useful": 0.52,
+    "injection": 0.93,
+    "eligible": false,
+    "coverage": {
+     "g1": 0.3,
+     "g2": 0.28,
+     "g3": 0.31,
+     "g4": 0.27,
+     "g5": 0.29,
+     "g6": 0.26,
+     "g7": 0.24,
+     "g8": 0.25,
+     "g9": 0.23,
+     "g10": 0.22,
+     "g11": 0.21
+    },
+    "exclusion_reason": "injection"
+   }
+  ],
+  "note": "advisory_ranking; injection score is a warning, not a security boundary",
+  "model_requested": "jev-1.13.0",
+  "models_served": [
+   "jev-1.13.0"
+  ],
+  "planned_api_calls": 4,
+  "latency_ms": 0,
+  "api_calls": 4,
+  "api_attempts": 4,
+  "api_responses_received": 4,
+  "usage": {
+   "input_tokens": 0,
+   "output_tokens": 0
+  },
+  "total_usage": {
+   "input_tokens": 0,
+   "output_tokens": 0
+  },
+  "decision": "selected",
+  "mode": "shortlist",
+  "selected": [
+   "c13",
+   "c04",
+   "c08",
+   "c06",
+   "c07",
+   "c01",
+   "c02",
+   "c03"
+  ],
+  "selection_reason": "coverage_authority_diversity_and_budget",
+  "coverage": [
+   {
+    "id": "g1",
+    "requirement": "Describes how to point a custom apex domain at the CDN edge.",
+    "covered": true,
+    "candidates": [
+     "c13",
+     "c01"
+    ]
+   },
+   {
+    "id": "g2",
+    "requirement": "Explains automatic TLS certificate issuance and renewal at the edge.",
+    "covered": true,
+    "candidates": [
+     "c13",
+     "c01"
+    ]
+   },
+   {
+    "id": "g3",
+    "requirement": "Documents cache invalidation / purge after a deploy.",
+    "covered": true,
+    "candidates": [
+     "c13",
+     "c07",
+     "c02"
+    ]
+   },
+   {
+    "id": "g4",
+    "requirement": "Describes immutable build artifacts and atomic deploys.",
+    "covered": true,
+    "candidates": [
+     "c13",
+     "c02"
+    ]
+   },
+   {
+    "id": "g5",
+    "requirement": "Explains how to roll back to a previous deploy.",
+    "covered": true,
+    "candidates": [
+     "c13",
+     "c03"
+    ]
+   },
+   {
+    "id": "g6",
+    "requirement": "Covers cache-control and max-age headers for static assets.",
+    "covered": true,
+    "candidates": [
+     "c04"
+    ]
+   },
+   {
+    "id": "g7",
+    "requirement": "Describes origin authentication between CDN and object storage.",
+    "covered": true,
+    "candidates": [
+     "c04"
+    ]
+   },
+   {
+    "id": "g8",
+    "requirement": "Explains edge redirect and rewrite rules.",
+    "covered": true,
+    "candidates": [
+     "c07"
+    ]
+   },
+   {
+    "id": "g9",
+    "requirement": "Covers access logs and basic request metrics.",
+    "covered": true,
+    "candidates": [
+     "c08"
+    ]
+   },
+   {
+    "id": "g10",
+    "requirement": "Describes cost drivers: egress, requests and invalidations.",
+    "covered": true,
+    "candidates": [
+     "c08"
+    ]
+   },
+   {
+    "id": "g11",
+    "requirement": "Explains the CI permissions needed for an automated deploy.",
+    "covered": true,
+    "candidates": [
+     "c06"
+    ]
+   }
+  ],
+  "uncovered_requirements": [],
+  "estimated_selected_chars": 19664,
+  "estimated_eligible_chars": 36870,
+  "estimated_total_chars": 39328,
+  "estimated_reduction_pct": 46.7,
+  "estimated_reduction_pct_vs_all_candidates": 50.0,
+  "duplicate_of": {},
+  "warnings": [
+   "injection_vetoed:c16"
+  ],
+  "selection": {
+   "max_candidates": 8,
+   "target_context_chars": 50000,
+   "minimum_score": 0.25,
+   "minimum_coverage_score": 0.4,
+   "max_per_domain": 4
+  }
+ }
+}

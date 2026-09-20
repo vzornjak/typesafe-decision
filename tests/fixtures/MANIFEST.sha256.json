@@ -1,0 +1,33 @@
+{
+ "manifest_label": "synthetic-fixtures-frozen",
+ "root": "tests/fixtures",
+ "file_count": 6,
+ "files": [
+  {
+   "name": "provenance.txt",
+   "sha256": "73de3cb4f49e59da1109cf201da84c4909db9b24f6059189b72cc2e9130934a6"
+  },
+  {
+   "name": "query_and_gold.json",
+   "sha256": "a3ff4cc6c082ea1ab8bc8438c4e210ea1583521c09aae766549b03a41a4f647f"
+  },
+  {
+   "name": "rank_shortlist_input.json",
+   "sha256": "76cbb2e2588650ef468f5d63796a5cc8516da1587c866398ef9f318c32a0751d"
+  },
+  {
+   "name": "rank_shortlist_output.json",
+   "sha256": "51ea888881db114aaf94659297593f8bef82912583b2a2be60d3a24ee6ea2b65"
+  },
+  {
+   "name": "rank_winner_input.json",
+   "sha256": "3cbbf5bc656c5a01d3e827e3040979ddccd9cb2ef929ed61cc447b9ae0c9e0ed"
+  },
+  {
+   "name": "rank_winner_output.json",
+   "sha256": "29f609f13cc9837bb9617f8354df6c0a8936128c892bf903211d0f25f34394eb"
+  }
+ ],
+ "aggregate_sha256": "cfe9714e00c426a54cceeaf4874bf67bde88a6909de3d4bfa9549d184d69ac1c",
+ "note": "Synthetic, public-safe replay inputs. Regenerate with tests/generate_fixtures.py."
+}

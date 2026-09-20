@@ -1,0 +1,150 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: tests (python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.12"]
+    env:
+      # The suite must be hermetic. No key is ever provided to CI, and offline
+      # mode hard-blocks egress even if one were present.
+      TYPESAFE_OFFLINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Show environment
+        run: python3 -VV
+
+      - name: Assert no API key is present in the job environment
+        run: |
+          if [ -n "${TYPESAFE_API_KEY:-}" ]; then
+            echo "TYPESAFE_API_KEY must never be set in CI"; exit 1
+          fi
+          echo "ok: no api key in environment"
+
+      - name: Syntax gate (py_compile)
+        run: python3 -m py_compile scripts/*.py tests/*.py
+
+      - name: Legacy contract selftest (25 tests)
+        run: python3 scripts/selftest.py
+
+      - name: Audit regressions (119 tests)
+        run: python3 scripts/tests_phase1.py --verbose
+
+      - name: Full suite (compile, selftest, regressions, fixtures, hygiene scans)
+        run: python3 tests/run_tests.py --verbose
+
+      - name: Assert exact test counts have not silently drifted
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, sys
+          out = subprocess.run([sys.executable, "scripts/tests_phase1.py"],
+                               capture_output=True, text=True, timeout=1800).stdout
+          d = json.loads(out)
+          assert d["ok"] is True, d
+          assert d["tests"] == 119, ("regression count drifted", d["tests"])
+          assert d["unique_tests"] == 119, ("unique count drifted", d["unique_tests"])
+          assert d["duplicates"] == 0, d["duplicates"]
+          assert d["failures"] == 0, d["failures"]
+          assert d["version"] == "2.5.0", d["version"]
+          assert d["schema_version"] == 4, d["schema_version"]
+
+          st = json.loads(subprocess.run([sys.executable, "scripts/selftest.py"],
+                                         capture_output=True, text=True, timeout=900).stdout)
+          assert st["ok"] is True and st["tests"] == 25, st
+          print("counts ok: 119 regressions, 25 selftests")
+          PY
+
+      - name: Assert fixtures are regenerable and reproducible
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, subprocess, sys
+          base = "tests/fixtures"
+          before = {n: hashlib.sha256(open(os.path.join(base, n), "rb").read()).hexdigest()
+                    for n in sorted(os.listdir(base))}
+          subprocess.run([sys.executable, "tests/generate_fixtures.py"], check=True,
+                         capture_output=True, text=True, timeout=900)
+          after = {n: hashlib.sha256(open(os.path.join(base, n), "rb").read()).hexdigest()
+                   for n in sorted(os.listdir(base))}
+          if before != after:
+              diff = [k for k in set(before) | set(after) if before.get(k) != after.get(k)]
+              print("non-reproducible fixtures:", diff); sys.exit(1)
+          print("fixtures reproduce byte-identically")
+          PY
+
+  hygiene:
+    name: secret and path hygiene
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Secret and absolute-path scan
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, sys
+          rep = json.loads(subprocess.run([sys.executable, "tests/run_tests.py", "--verbose"],
+                                          capture_output=True, text=True, timeout=3600).stdout)
+          bad = False
+          for stage in ("secret_scan", "absolute_path_scan", "fixture_integrity"):
+              st = rep["stages"][stage]
+              print(stage, "->", "ok" if st["ok"] else "FAIL")
+              if not st["ok"]:
+                  print(json.dumps(st.get("detail", {}), indent=2)[:4000]); bad = True
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: No tracked log or cassette files
+        run: |
+          set -e
+          found=$(git ls-files | grep -E '\.jsonl($|\.)|cassette' || true)
+          if [ -n "$found" ]; then
+            echo "tracked log/cassette files are not allowed:"; echo "$found"; exit 1
+          fi
+          echo "ok: no tracked log or cassette files"
+
+      - name: Required public-repo documents exist
+        run: |
+          set -e
+          for f in README.md LICENSE NOTICE CONTRIBUTING.md SECURITY.md CHANGELOG.md \
+                   .gitignore pyproject.toml SKILL.md docs/RETRACTION-shortlist-v1.1.md \
+                   references/official-LICENSE tests/fixtures/MANIFEST.sha256.json; do
+            [ -f "$f" ] || { echo "missing required file: $f"; exit 1; }
+          done
+          echo "ok: all required documents present"
+
+      - name: Unofficial status and P0-6 caveat are disclosed
+        run: |
+          set -e
+          grep -qi 'unofficial' README.md || { echo "README must state unofficial status"; exit 1; }
+          grep -qi 'not affiliated' README.md || { echo "README must disclaim affiliation"; exit 1; }
+          grep -q 'P0-6' README.md || { echo "README must disclose P0-6"; exit 1; }
+          grep -qi 'partial' README.md || { echo "README must mark P0-6 PARTIAL"; exit 1; }
+          grep -qi 'retracted' docs/RETRACTION-shortlist-v1.1.md || { echo "retraction doc incomplete"; exit 1; }
+          echo "ok: disclosures present"

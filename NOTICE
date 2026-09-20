@@ -1,0 +1,49 @@
+# NOTICE
+
+## This skill
+
+`typesafe-decision` — an **unofficial**, independent advisory decision layer
+built for Minis. Licensed under the MIT License (see `LICENSE`). It is not
+affiliated with, endorsed by, or supported by TypeSafe AI.
+
+Copyright (c) 2026 typesafe-decision contributors.
+
+## Third-party material included in this directory
+
+### `references/official-SKILL.md`
+
+A verbatim copy of the official TypeSafe Agent Skill (`SKILL.md`), retrieved from
+TypeSafe's public skills repository on 2026-09-20. The upstream front matter
+declares `license: MIT`. MIT requires that the copyright and permission notice be
+retained with copies; the upstream file does not embed a copyright line, so it is
+recorded here:
+
+> Copyright (c) 2026 TypeSafe AI
+> Upstream: https://github.com/typesafe-ai/skills
+> Verified local upstream commit: 65a39f393687675ce170e6094757de20370365b9
+
+The copyright line is copied from upstream `skills/typesafe-ai/LICENSE`.
+The unmodified complete upstream MIT text is retained in
+`references/official-LICENSE`.
+
+### Documentation excerpts (not distributed)
+
+Earlier working copies of `docs.typesafe.ai` pages were kept under a `research/`
+directory in the workspace during development. Those pages carry no explicit
+license and are **not** part of this skill directory. Cite the live documentation
+instead:
+
+- https://docs.typesafe.ai/llms.txt
+- https://docs.typesafe.ai/llms-full.txt
+
+## Trademarks
+
+"TypeSafe", "Jev", "Noul" and "Choice" are used descriptively to identify the
+upstream API and its primitives. No endorsement or affiliation is implied.
+
+## Data and privacy
+
+The decision log written by these scripts stores fingerprints and aggregate
+metrics only — never task text, candidate content or credentials. See the
+"Privacy and failure behavior" section of `SKILL.md` for the full contract,
+including the DPA/GDPR note for business and EU deployments.

@@ -1,0 +1,24 @@
+{
+ "query": "Which synthetic note best explains atomic deploys?",
+ "criteria": [
+  "explicit",
+  "primary source"
+ ],
+ "candidates": [
+  {
+   "id": "w1",
+   "title": "Atomic deploy notes",
+   "snippet": "Each build is immutable and the symlink flip is atomic."
+  },
+  {
+   "id": "w2",
+   "title": "Unrelated changelog",
+   "snippet": "Adds a dark theme toggle to the settings page."
+  },
+  {
+   "id": "w3",
+   "title": "Partial notes",
+   "snippet": "Mentions deploys but not atomicity or rollback."
+  }
+ ]
+}

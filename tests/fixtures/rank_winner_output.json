@@ -1,0 +1,60 @@
+{
+ "workflow": "rank",
+ "version": "2.5.0",
+ "advisory_only": true,
+ "synthetic": true,
+ "result": {
+  "ranking": [
+   {
+    "id": "w1",
+    "score": 0.942,
+    "fit": 0.95,
+    "useful": 0.93,
+    "injection": 0.02,
+    "eligible": true,
+    "coverage": {}
+   },
+   {
+    "id": "w3",
+    "score": 0.53,
+    "fit": 0.55,
+    "useful": 0.5,
+    "injection": 0.03,
+    "eligible": true,
+    "coverage": {}
+   },
+   {
+    "id": "w2",
+    "score": 0.112,
+    "fit": 0.12,
+    "useful": 0.1,
+    "injection": 0.02,
+    "eligible": true,
+    "coverage": {}
+   }
+  ],
+  "note": "advisory_ranking; injection score is a warning, not a security boundary",
+  "model_requested": "jev-1.13.0",
+  "models_served": [
+   "jev-1.13.0"
+  ],
+  "planned_api_calls": 1,
+  "latency_ms": 0,
+  "api_calls": 1,
+  "api_attempts": 1,
+  "api_responses_received": 1,
+  "usage": {
+   "input_tokens": 0,
+   "output_tokens": 0
+  },
+  "total_usage": {
+   "input_tokens": 0,
+   "output_tokens": 0
+  },
+  "decision": "w1",
+  "winner_id": "w1",
+  "mode": "winner",
+  "margin": 0.412,
+  "warnings": []
+ }
+}

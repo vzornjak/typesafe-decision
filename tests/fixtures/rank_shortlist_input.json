@@ -1,0 +1,271 @@
+{
+ "mode": "shortlist",
+ "query": "How do I publish a static documentation site behind a CDN with automatic TLS, cache invalidation and a rollback path?",
+ "criteria": [
+  "primary source preferred",
+  "covers the deploy lifecycle"
+ ],
+ "requirements": [
+  {
+   "id": "g1",
+   "text": "Describes how to point a custom apex domain at the CDN edge."
+  },
+  {
+   "id": "g2",
+   "text": "Explains automatic TLS certificate issuance and renewal at the edge."
+  },
+  {
+   "id": "g3",
+   "text": "Documents cache invalidation / purge after a deploy."
+  },
+  {
+   "id": "g4",
+   "text": "Describes immutable build artifacts and atomic deploys."
+  },
+  {
+   "id": "g5",
+   "text": "Explains how to roll back to a previous deploy."
+  },
+  {
+   "id": "g6",
+   "text": "Covers cache-control and max-age headers for static assets."
+  },
+  {
+   "id": "g7",
+   "text": "Describes origin authentication between CDN and object storage."
+  },
+  {
+   "id": "g8",
+   "text": "Explains edge redirect and rewrite rules."
+  },
+  {
+   "id": "g9",
+   "text": "Covers access logs and basic request metrics."
+  },
+  {
+   "id": "g10",
+   "text": "Describes cost drivers: egress, requests and invalidations."
+  },
+  {
+   "id": "g11",
+   "text": "Explains the CI permissions needed for an automated deploy."
+  }
+ ],
+ "selection": {
+  "max_candidates": 8,
+  "target_context_chars": 50000,
+  "minimum_score": 0.25,
+  "minimum_coverage_score": 0.4,
+  "max_per_domain": 4
+ },
+ "candidates": [
+  {
+   "id": "c01",
+   "url": "https://docs.edgehost.test/synthetic/c01",
+   "title": "Synthetic source c01 — edge delivery notes",
+   "authority": "primary",
+   "source_type": "official_documentation",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c01. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c01/g1/0) Apex domain records are delegated to the edge anycast address. (c01/g1/1) Apex domain records are delegated to the edge anycast address. (c01/g1/2) Apex domain records are delegated to the edge anycast address. (c01/g1/3) Certificates are issued automatically and renewed before expiry. (c01/g2/0) Certificates are issued automatically and renewed before expiry. (c01/g2/1) Certificates are issued automatically and renewed before expiry. (c01/g2/2) Certificates are issued automatically and renewed before expiry. (c01/g2/3) A purge request invalidates cached objects by path prefix. (c01/g3/0) A purge request invalidates cached objects by path prefix. (c01/g3/1) Each build produces an immutable, content-addressed artifact. (c01/g4/0) A previous deploy can be re-pointed to in a single operation. (c01/g5/0) Static assets are served with a long max-age and revalidation. (c01/g6/0) Static assets are served with a long max-age and revalidation. (c01/g6/1) The edge authenticates to object storage with a scoped credential. (c01/g7/0) Redirect and rewrite rules are evaluated at the edge. (c01/g8/0) Request logs and basic latency metrics are exported. (c01/g9/0) Cost is driven by egress volume, request count and invalidations. (c01/g10/0) The CI role needs deploy and purge permissions, nothing more. (c01/g11/0) alpha0 delta1 golf2 juliett3 mike4 papa5 sierra6 victor7 yankee8 beacon9 ember10 charlie11 foxtrot12 india13 lima14 oscar15 romeo16 uniform17 xray18 anchor19 dossier20 bravo21 echo22 hotel23 kilo24 november25 quebec26 tango27 whiskey28 zulu29 cipher30 alpha31 delta32 golf33 juliett34 mike35 papa36 sierra37 victor38 yankee39 beacon40 ember41 charlie42 foxtrot43 india44 lima45 oscar46 romeo47 uniform48 xray49 anchor50 dossier51 bravo52 echo53 hotel54 kilo55 november56 quebec57 tango58 whiskey59 zulu60 cipher61 alpha62 delta63 golf64 juliett65 mike66 papa67 sierra68 victor69 yankee70 beacon71 ember72 charlie73 foxtrot74 india75 lima76 oscar77 romeo78 uniform79 xray80 anchor81 dossier82 bravo83 echo84 hotel85 kilo86 november87 quebec88 tango89 whiskey90 zulu91 cipher92 alpha93 delta94 golf95 juliett96 mike97 papa98 sierra99 victor100 yankee101 beacon102 ember103 charlie104 foxtrot105 india106 lima10"
+    }
+   ]
+  },
+  {
+   "id": "c02",
+   "url": "https://docs.edgehost.test/synthetic/c02",
+   "title": "Synthetic source c02 — edge delivery notes",
+   "authority": "primary",
+   "source_type": "official_documentation",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c02. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c02/g1/0) Apex domain records are delegated to the edge anycast address. (c02/g1/1) Certificates are issued automatically and renewed before expiry. (c02/g2/0) A purge request invalidates cached objects by path prefix. (c02/g3/0) A purge request invalidates cached objects by path prefix. (c02/g3/1) A purge request invalidates cached objects by path prefix. (c02/g3/2) A purge request invalidates cached objects by path prefix. (c02/g3/3) Each build produces an immutable, content-addressed artifact. (c02/g4/0) Each build produces an immutable, content-addressed artifact. (c02/g4/1) Each build produces an immutable, content-addressed artifact. (c02/g4/2) Each build produces an immutable, content-addressed artifact. (c02/g4/3) A previous deploy can be re-pointed to in a single operation. (c02/g5/0) A previous deploy can be re-pointed to in a single operation. (c02/g5/1) Static assets are served with a long max-age and revalidation. (c02/g6/0) Static assets are served with a long max-age and revalidation. (c02/g6/1) The edge authenticates to object storage with a scoped credential. (c02/g7/0) Redirect and rewrite rules are evaluated at the edge. (c02/g8/0) Request logs and basic latency metrics are exported. (c02/g9/0) Cost is driven by egress volume, request count and invalidations. (c02/g10/0) The CI role needs deploy and purge permissions, nothing more. (c02/g11/0) hotel31 kilo32 november33 quebec34 tango35 whiskey36 zulu37 cipher38 alpha39 delta40 golf41 juliett42 mike43 papa44 sierra45 victor46 yankee47 beacon48 ember49 charlie50 foxtrot51 india52 lima53 oscar54 romeo55 uniform56 xray57 anchor58 dossier59 bravo60 echo61 hotel62 kilo63 november64 quebec65 tango66 whiskey67 zulu68 cipher69 alpha70 delta71 golf72 juliett73 mike74 papa75 sierra76 victor77 yankee78 beacon79 ember80 charlie81 foxtrot82 india83 lima84 oscar85 romeo86 uniform87 xray88 anchor89 dossier90 bravo91 echo92 hotel93 kilo94 november95 quebec96 tango97 whiskey98 zulu99 cipher100 alpha101 delta102 golf103 juliett104 mike105 papa106 sierra107 victor108 yankee109 beacon110 ember111 charlie112 foxtrot113 india114 lima115 oscar116 romeo117 uniform118 xray119 anchor120 dossier121 bravo122 echo123 hotel124 kilo125 november126 quebec127 tan"
+    }
+   ]
+  },
+  {
+   "id": "c03",
+   "url": "https://docs.edgehost.test/synthetic/c03",
+   "title": "Synthetic source c03 — edge delivery notes",
+   "authority": "primary",
+   "source_type": "official_documentation",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c03. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c03/g1/0) Certificates are issued automatically and renewed before expiry. (c03/g2/0) A purge request invalidates cached objects by path prefix. (c03/g3/0) A purge request invalidates cached objects by path prefix. (c03/g3/1) Each build produces an immutable, content-addressed artifact. (c03/g4/0) Each build produces an immutable, content-addressed artifact. (c03/g4/1) A previous deploy can be re-pointed to in a single operation. (c03/g5/0) A previous deploy can be re-pointed to in a single operation. (c03/g5/1) A previous deploy can be re-pointed to in a single operation. (c03/g5/2) A previous deploy can be re-pointed to in a single operation. (c03/g5/3) Static assets are served with a long max-age and revalidation. (c03/g6/0) Static assets are served with a long max-age and revalidation. (c03/g6/1) The edge authenticates to object storage with a scoped credential. (c03/g7/0) Redirect and rewrite rules are evaluated at the edge. (c03/g8/0) Request logs and basic latency metrics are exported. (c03/g9/0) Cost is driven by egress volume, request count and invalidations. (c03/g10/0) The CI role needs deploy and purge permissions, nothing more. (c03/g11/0) oscar62 romeo63 uniform64 xray65 anchor66 dossier67 bravo68 echo69 hotel70 kilo71 november72 quebec73 tango74 whiskey75 zulu76 cipher77 alpha78 delta79 golf80 juliett81 mike82 papa83 sierra84 victor85 yankee86 beacon87 ember88 charlie89 foxtrot90 india91 lima92 oscar93 romeo94 uniform95 xray96 anchor97 dossier98 bravo99 echo100 hotel101 kilo102 november103 quebec104 tango105 whiskey106 zulu107 cipher108 alpha109 delta110 golf111 juliett112 mike113 papa114 sierra115 victor116 yankee117 beacon118 ember119 charlie120 foxtrot121 india122 lima123 oscar124 romeo125 uniform126 xray127 anchor128 dossier129 bravo130 echo131 hotel132 kilo133 november134 quebec135 tango136 whiskey137 zulu138 cipher139 alpha140 delta141 golf142 juliett143 mike144 papa145 sierra146 victor147 yankee148 beacon149 ember150 charlie151 foxtrot152 india153 lima154 oscar155 romeo156 uniform157 xray158 anchor159 dossier160 bravo161 echo162 hotel163 kilo164 november165 quebec166 tango167 whiskey168 zulu169 cipher170 alpha171 delta172 golf173 juliett174 mike175 papa176 sierra177 victor178 "
+    }
+   ]
+  },
+  {
+   "id": "c04",
+   "url": "https://docs.edgehost.test/synthetic/c04",
+   "title": "Synthetic source c04 — edge delivery notes",
+   "authority": "primary",
+   "source_type": "official_documentation",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c04. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c04/g1/0) Certificates are issued automatically and renewed before expiry. (c04/g2/0) A purge request invalidates cached objects by path prefix. (c04/g3/0) A purge request invalidates cached objects by path prefix. (c04/g3/1) Each build produces an immutable, content-addressed artifact. (c04/g4/0) Each build produces an immutable, content-addressed artifact. (c04/g4/1) A previous deploy can be re-pointed to in a single operation. (c04/g5/0) Static assets are served with a long max-age and revalidation. (c04/g6/0) Static assets are served with a long max-age and revalidation. (c04/g6/1) Static assets are served with a long max-age and revalidation. (c04/g6/2) Static assets are served with a long max-age and revalidation. (c04/g6/3) The edge authenticates to object storage with a scoped credential. (c04/g7/0) The edge authenticates to object storage with a scoped credential. (c04/g7/1) The edge authenticates to object storage with a scoped credential. (c04/g7/2) The edge authenticates to object storage with a scoped credential. (c04/g7/3) Redirect and rewrite rules are evaluated at the edge. (c04/g8/0) Redirect and rewrite rules are evaluated at the edge. (c04/g8/1) Request logs and basic latency metrics are exported. (c04/g9/0) Cost is driven by egress volume, request count and invalidations. (c04/g10/0) The CI role needs deploy and purge permissions, nothing more. (c04/g11/0) victor93 yankee94 beacon95 ember96 charlie97 foxtrot98 india99 lima100 oscar101 romeo102 uniform103 xray104 anchor105 dossier106 bravo107 echo108 hotel109 kilo110 november111 quebec112 tango113 whiskey114 zulu115 cipher116 alpha117 delta118 golf119 juliett120 mike121 papa122 sierra123 victor124 yankee125 beacon126 ember127 charlie128 foxtrot129 india130 lima131 oscar132 romeo133 uniform134 xray135 anchor136 dossier137 bravo138 echo139 hotel140 kilo141 november142 quebec143 tango144 whiskey145 zulu146 cipher147 alpha148 delta149 golf150 juliett151 mike152 papa153 sierra154 victor155 yankee156 beacon157 ember158 charlie159 foxtrot160 india161 lima162 oscar163 romeo164 uniform165 xray166 anchor167 dossier168 bravo169 echo170 hotel171 kilo172 november173 quebec174 tango175 whiskey176 zulu177 cipher178 alpha179 delta180 golf181 jul"
+    }
+   ]
+  },
+  {
+   "id": "c05",
+   "url": "https://standards.example.test/synthetic/c05",
+   "title": "Synthetic source c05 — edge delivery notes",
+   "authority": "primary",
+   "source_type": "standard",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c05. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c05/g1/0) Certificates are issued automatically and renewed before expiry. (c05/g2/0) Certificates are issued automatically and renewed before expiry. (c05/g2/1) A purge request invalidates cached objects by path prefix. (c05/g3/0) Each build produces an immutable, content-addressed artifact. (c05/g4/0) A previous deploy can be re-pointed to in a single operation. (c05/g5/0) Static assets are served with a long max-age and revalidation. (c05/g6/0) Static assets are served with a long max-age and revalidation. (c05/g6/1) Static assets are served with a long max-age and revalidation. (c05/g6/2) The edge authenticates to object storage with a scoped credential. (c05/g7/0) Redirect and rewrite rules are evaluated at the edge. (c05/g8/0) Request logs and basic latency metrics are exported. (c05/g9/0) Cost is driven by egress volume, request count and invalidations. (c05/g10/0) The CI role needs deploy and purge permissions, nothing more. (c05/g11/0) cipher124 alpha125 delta126 golf127 juliett128 mike129 papa130 sierra131 victor132 yankee133 beacon134 ember135 charlie136 foxtrot137 india138 lima139 oscar140 romeo141 uniform142 xray143 anchor144 dossier145 bravo146 echo147 hotel148 kilo149 november150 quebec151 tango152 whiskey153 zulu154 cipher155 alpha156 delta157 golf158 juliett159 mike160 papa161 sierra162 victor163 yankee164 beacon165 ember166 charlie167 foxtrot168 india169 lima170 oscar171 romeo172 uniform173 xray174 anchor175 dossier176 bravo177 echo178 hotel179 kilo180 november181 quebec182 tango183 whiskey184 zulu185 cipher186 alpha187 delta188 golf189 juliett190 mike191 papa192 sierra193 victor194 yankee195 beacon196 ember197 charlie198 foxtrot199 india200 lima201 oscar202 romeo203 uniform204 xray205 anchor206 dossier207 bravo208 echo209 hotel210 kilo211 november212 quebec213 tango214 whiskey215 zulu216 cipher217 alpha218 delta219 golf220 juliett221 mike222 papa223 sierra224 victor225 yankee226 beacon227 ember228 charlie229 foxtrot230 india231 lima232 oscar233 romeo234 uniform235 xray236 anchor237 dossier238 bravo239 echo240 hotel241 kilo242 november243 quebec244 tango245 whiskey246 zulu247 cipher248 alpha249 delta250 golf251 juliett252 mike253 papa254 sierra255 victor256 yankee257 beacon258 emb"
+    }
+   ]
+  },
+  {
+   "id": "c06",
+   "url": "https://ci.example-runner.test/synthetic/c06",
+   "title": "Synthetic source c06 — edge delivery notes",
+   "authority": "primary",
+   "source_type": "official_documentation",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c06. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c06/g1/0) Certificates are issued automatically and renewed before expiry. (c06/g2/0) A purge request invalidates cached objects by path prefix. (c06/g3/0) Each build produces an immutable, content-addressed artifact. (c06/g4/0) Each build produces an immutable, content-addressed artifact. (c06/g4/1) A previous deploy can be re-pointed to in a single operation. (c06/g5/0) A previous deploy can be re-pointed to in a single operation. (c06/g5/1) Static assets are served with a long max-age and revalidation. (c06/g6/0) The edge authenticates to object storage with a scoped credential. (c06/g7/0) Redirect and rewrite rules are evaluated at the edge. (c06/g8/0) Request logs and basic latency metrics are exported. (c06/g9/0) Cost is driven by egress volume, request count and invalidations. (c06/g10/0) The CI role needs deploy and purge permissions, nothing more. (c06/g11/0) The CI role needs deploy and purge permissions, nothing more. (c06/g11/1) The CI role needs deploy and purge permissions, nothing more. (c06/g11/2) The CI role needs deploy and purge permissions, nothing more. (c06/g11/3) echo155 hotel156 kilo157 november158 quebec159 tango160 whiskey161 zulu162 cipher163 alpha164 delta165 golf166 juliett167 mike168 papa169 sierra170 victor171 yankee172 beacon173 ember174 charlie175 foxtrot176 india177 lima178 oscar179 romeo180 uniform181 xray182 anchor183 dossier184 bravo185 echo186 hotel187 kilo188 november189 quebec190 tango191 whiskey192 zulu193 cipher194 alpha195 delta196 golf197 juliett198 mike199 papa200 sierra201 victor202 yankee203 beacon204 ember205 charlie206 foxtrot207 india208 lima209 oscar210 romeo211 uniform212 xray213 anchor214 dossier215 bravo216 echo217 hotel218 kilo219 november220 quebec221 tango222 whiskey223 zulu224 cipher225 alpha226 delta227 golf228 juliett229 mike230 papa231 sierra232 victor233 yankee234 beacon235 ember236 charlie237 foxtrot238 india239 lima240 oscar241 romeo242 uniform243 xray244 anchor245 dossier246 bravo247 echo248 hotel249 kilo250 november251 quebec252 tango253 whiskey254 zulu255 cipher256 alpha257 delta258 golf259 juliett260 mike261 papa262 sierra263 victor264 yankee265 beacon266 ember267 charlie268 foxtrot269 india270 lima271 oscar272 romeo273 uniform274 "
+    }
+   ]
+  },
+  {
+   "id": "c07",
+   "url": "https://blog.someengineer.test/synthetic/c07",
+   "title": "Synthetic source c07 — edge delivery notes",
+   "authority": "secondary",
+   "source_type": "blog",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c07. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c07/g1/0) Apex domain records are delegated to the edge anycast address. (c07/g1/1) Certificates are issued automatically and renewed before expiry. (c07/g2/0) Certificates are issued automatically and renewed before expiry. (c07/g2/1) A purge request invalidates cached objects by path prefix. (c07/g3/0) A purge request invalidates cached objects by path prefix. (c07/g3/1) Each build produces an immutable, content-addressed artifact. (c07/g4/0) Each build produces an immutable, content-addressed artifact. (c07/g4/1) A previous deploy can be re-pointed to in a single operation. (c07/g5/0) A previous deploy can be re-pointed to in a single operation. (c07/g5/1) Static assets are served with a long max-age and revalidation. (c07/g6/0) Static assets are served with a long max-age and revalidation. (c07/g6/1) The edge authenticates to object storage with a scoped credential. (c07/g7/0) Redirect and rewrite rules are evaluated at the edge. (c07/g8/0) Redirect and rewrite rules are evaluated at the edge. (c07/g8/1) Redirect and rewrite rules are evaluated at the edge. (c07/g8/2) Request logs and basic latency metrics are exported. (c07/g9/0) Cost is driven by egress volume, request count and invalidations. (c07/g10/0) Cost is driven by egress volume, request count and invalidations. (c07/g10/1) The CI role needs deploy and purge permissions, nothing more. (c07/g11/0) The CI role needs deploy and purge permissions, nothing more. (c07/g11/1) lima186 oscar187 romeo188 uniform189 xray190 anchor191 dossier192 bravo193 echo194 hotel195 kilo196 november197 quebec198 tango199 whiskey200 zulu201 cipher202 alpha203 delta204 golf205 juliett206 mike207 papa208 sierra209 victor210 yankee211 beacon212 ember213 charlie214 foxtrot215 india216 lima217 oscar218 romeo219 uniform220 xray221 anchor222 dossier223 bravo224 echo225 hotel226 kilo227 november228 quebec229 tango230 whiskey231 zulu232 cipher233 alpha234 delta235 golf236 juliett237 mike238 papa239 sierra240 victor241 yankee242 beacon243 ember244 charlie245 foxtrot246 india247 lima248 oscar249 romeo250 uniform251 xray252 anchor253 dossier254 bravo255 echo256 hotel257 kilo258 november259 quebec260 tango261 whiskey262 zulu263 cipher264 alpha265 delta266 golf267 juliett2"
+    }
+   ]
+  },
+  {
+   "id": "c08",
+   "url": "https://blog.someengineer.test/synthetic/c08",
+   "title": "Synthetic source c08 — edge delivery notes",
+   "authority": "secondary",
+   "source_type": "blog",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c08. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c08/g1/0) Certificates are issued automatically and renewed before expiry. (c08/g2/0) A purge request invalidates cached objects by path prefix. (c08/g3/0) A purge request invalidates cached objects by path prefix. (c08/g3/1) Each build produces an immutable, content-addressed artifact. (c08/g4/0) A previous deploy can be re-pointed to in a single operation. (c08/g5/0) Static assets are served with a long max-age and revalidation. (c08/g6/0) Static assets are served with a long max-age and revalidation. (c08/g6/1) The edge authenticates to object storage with a scoped credential. (c08/g7/0) Redirect and rewrite rules are evaluated at the edge. (c08/g8/0) Redirect and rewrite rules are evaluated at the edge. (c08/g8/1) Request logs and basic latency metrics are exported. (c08/g9/0) Request logs and basic latency metrics are exported. (c08/g9/1) Request logs and basic latency metrics are exported. (c08/g9/2) Cost is driven by egress volume, request count and invalidations. (c08/g10/0) Cost is driven by egress volume, request count and invalidations. (c08/g10/1) Cost is driven by egress volume, request count and invalidations. (c08/g10/2) The CI role needs deploy and purge permissions, nothing more. (c08/g11/0) sierra217 victor218 yankee219 beacon220 ember221 charlie222 foxtrot223 india224 lima225 oscar226 romeo227 uniform228 xray229 anchor230 dossier231 bravo232 echo233 hotel234 kilo235 november236 quebec237 tango238 whiskey239 zulu240 cipher241 alpha242 delta243 golf244 juliett245 mike246 papa247 sierra248 victor249 yankee250 beacon251 ember252 charlie253 foxtrot254 india255 lima256 oscar257 romeo258 uniform259 xray260 anchor261 dossier262 bravo263 echo264 hotel265 kilo266 november267 quebec268 tango269 whiskey270 zulu271 cipher272 alpha273 delta274 golf275 juliett276 mike277 papa278 sierra279 victor280 yankee281 beacon282 ember283 charlie284 foxtrot285 india286 lima287 oscar288 romeo289 uniform290 xray291 anchor292 dossier293 bravo294 echo295 hotel296 kilo297 november298 quebec299 tango300 whiskey301 zulu302 cipher303 alpha304 delta305 golf306 juliett307 mike308 papa309 sierra310 victor311 yankee312 beacon313 ember314 charlie315 foxtrot316 india317 lima318 oscar319 romeo320 uniform321 xray322 ancho"
+    }
+   ]
+  },
+  {
+   "id": "c09",
+   "url": "https://forum.example-qa.test/synthetic/c09",
+   "title": "Synthetic source c09 — edge delivery notes",
+   "authority": "community",
+   "source_type": "forum",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c09. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c09/g1/0) Certificates are issued automatically and renewed before expiry. (c09/g2/0) A purge request invalidates cached objects by path prefix. (c09/g3/0) Each build produces an immutable, content-addressed artifact. (c09/g4/0) A previous deploy can be re-pointed to in a single operation. (c09/g5/0) Static assets are served with a long max-age and revalidation. (c09/g6/0) The edge authenticates to object storage with a scoped credential. (c09/g7/0) Redirect and rewrite rules are evaluated at the edge. (c09/g8/0) Request logs and basic latency metrics are exported. (c09/g9/0) Cost is driven by egress volume, request count and invalidations. (c09/g10/0) The CI role needs deploy and purge permissions, nothing more. (c09/g11/0) zulu248 cipher249 alpha250 delta251 golf252 juliett253 mike254 papa255 sierra256 victor257 yankee258 beacon259 ember260 charlie261 foxtrot262 india263 lima264 oscar265 romeo266 uniform267 xray268 anchor269 dossier270 bravo271 echo272 hotel273 kilo274 november275 quebec276 tango277 whiskey278 zulu279 cipher280 alpha281 delta282 golf283 juliett284 mike285 papa286 sierra287 victor288 yankee289 beacon290 ember291 charlie292 foxtrot293 india294 lima295 oscar296 romeo297 uniform298 xray299 anchor300 dossier301 bravo302 echo303 hotel304 kilo305 november306 quebec307 tango308 whiskey309 zulu310 cipher311 alpha312 delta313 golf314 juliett315 mike316 papa317 sierra318 victor319 yankee320 beacon321 ember322 charlie323 foxtrot324 india325 lima326 oscar327 romeo328 uniform329 xray330 anchor331 dossier332 bravo333 echo334 hotel335 kilo336 november337 quebec338 tango339 whiskey340 zulu341 cipher342 alpha343 delta344 golf345 juliett346 mike347 papa348 sierra349 victor350 yankee351 beacon352 ember353 charlie354 foxtrot355 india356 lima357 oscar358 romeo359 uniform360 xray361 anchor362 dossier363 bravo364 echo365 hotel366 kilo367 november368 quebec369 tango370 whiskey371 zulu372 cipher373 alpha374 delta375 golf376 juliett377 mike378 papa379 sierra380 victor381 yankee382 beacon383 ember384 charlie385 foxtrot386 india387 lima388 oscar389 romeo390 uniform391 xray392 anchor393 dossier394 bravo395 echo396 hotel397 kilo398 november399 quebec400 tango401 whiskey402 zulu403 cipher404 alpha405 delta406 g"
+    }
+   ]
+  },
+  {
+   "id": "c10",
+   "url": "https://forum.example-qa.test/synthetic/c10",
+   "title": "Synthetic source c10 — edge delivery notes",
+   "authority": "community",
+   "source_type": "forum",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c10. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c10/g1/0) Certificates are issued automatically and renewed before expiry. (c10/g2/0) A purge request invalidates cached objects by path prefix. (c10/g3/0) Each build produces an immutable, content-addressed artifact. (c10/g4/0) A previous deploy can be re-pointed to in a single operation. (c10/g5/0) Static assets are served with a long max-age and revalidation. (c10/g6/0) The edge authenticates to object storage with a scoped credential. (c10/g7/0) Redirect and rewrite rules are evaluated at the edge. (c10/g8/0) Request logs and basic latency metrics are exported. (c10/g9/0) Cost is driven by egress volume, request count and invalidations. (c10/g10/0) The CI role needs deploy and purge permissions, nothing more. (c10/g11/0) bravo279 echo280 hotel281 kilo282 november283 quebec284 tango285 whiskey286 zulu287 cipher288 alpha289 delta290 golf291 juliett292 mike293 papa294 sierra295 victor296 yankee297 beacon298 ember299 charlie300 foxtrot301 india302 lima303 oscar304 romeo305 uniform306 xray307 anchor308 dossier309 bravo310 echo311 hotel312 kilo313 november314 quebec315 tango316 whiskey317 zulu318 cipher319 alpha320 delta321 golf322 juliett323 mike324 papa325 sierra326 victor327 yankee328 beacon329 ember330 charlie331 foxtrot332 india333 lima334 oscar335 romeo336 uniform337 xray338 anchor339 dossier340 bravo341 echo342 hotel343 kilo344 november345 quebec346 tango347 whiskey348 zulu349 cipher350 alpha351 delta352 golf353 juliett354 mike355 papa356 sierra357 victor358 yankee359 beacon360 ember361 charlie362 foxtrot363 india364 lima365 oscar366 romeo367 uniform368 xray369 anchor370 dossier371 bravo372 echo373 hotel374 kilo375 november376 quebec377 tango378 whiskey379 zulu380 cipher381 alpha382 delta383 golf384 juliett385 mike386 papa387 sierra388 victor389 yankee390 beacon391 ember392 charlie393 foxtrot394 india395 lima396 oscar397 romeo398 uniform399 xray400 anchor401 dossier402 bravo403 echo404 hotel405 kilo406 november407 quebec408 tango409 whiskey410 zulu411 cipher412 alpha413 delta414 golf415 juliett416 mike417 papa418 sierra419 victor420 yankee421 beacon422 ember423 charlie424 foxtrot425 india426 lima427 oscar428 romeo429 uniform430 xray431 anchor432 dossier433 bravo434 echo435 hotel436 kilo437 nov"
+    }
+   ]
+  },
+  {
+   "id": "c11",
+   "url": "https://news.example-tech.test/synthetic/c11",
+   "title": "Synthetic source c11 — edge delivery notes",
+   "authority": "secondary",
+   "source_type": "news",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c11. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c11/g1/0) Certificates are issued automatically and renewed before expiry. (c11/g2/0) A purge request invalidates cached objects by path prefix. (c11/g3/0) Each build produces an immutable, content-addressed artifact. (c11/g4/0) A previous deploy can be re-pointed to in a single operation. (c11/g5/0) Static assets are served with a long max-age and revalidation. (c11/g6/0) The edge authenticates to object storage with a scoped credential. (c11/g7/0) Redirect and rewrite rules are evaluated at the edge. (c11/g8/0) Request logs and basic latency metrics are exported. (c11/g9/0) Cost is driven by egress volume, request count and invalidations. (c11/g10/0) The CI role needs deploy and purge permissions, nothing more. (c11/g11/0) india310 lima311 oscar312 romeo313 uniform314 xray315 anchor316 dossier317 bravo318 echo319 hotel320 kilo321 november322 quebec323 tango324 whiskey325 zulu326 cipher327 alpha328 delta329 golf330 juliett331 mike332 papa333 sierra334 victor335 yankee336 beacon337 ember338 charlie339 foxtrot340 india341 lima342 oscar343 romeo344 uniform345 xray346 anchor347 dossier348 bravo349 echo350 hotel351 kilo352 november353 quebec354 tango355 whiskey356 zulu357 cipher358 alpha359 delta360 golf361 juliett362 mike363 papa364 sierra365 victor366 yankee367 beacon368 ember369 charlie370 foxtrot371 india372 lima373 oscar374 romeo375 uniform376 xray377 anchor378 dossier379 bravo380 echo381 hotel382 kilo383 november384 quebec385 tango386 whiskey387 zulu388 cipher389 alpha390 delta391 golf392 juliett393 mike394 papa395 sierra396 victor397 yankee398 beacon399 ember400 charlie401 foxtrot402 india403 lima404 oscar405 romeo406 uniform407 xray408 anchor409 dossier410 bravo411 echo412 hotel413 kilo414 november415 quebec416 tango417 whiskey418 zulu419 cipher420 alpha421 delta422 golf423 juliett424 mike425 papa426 sierra427 victor428 yankee429 beacon430 ember431 charlie432 foxtrot433 india434 lima435 oscar436 romeo437 uniform438 xray439 anchor440 dossier441 bravo442 echo443 hotel444 kilo445 november446 quebec447 tango448 whiskey449 zulu450 cipher451 alpha452 delta453 golf454 juliett455 mike456 papa457 sierra458 victor459 yankee460 beacon461 ember462 charlie463 foxtrot464 india465 lima466 oscar467 romeo468 un"
+    }
+   ]
+  },
+  {
+   "id": "c12",
+   "url": "https://news.example-tech.test/synthetic/c12",
+   "title": "Synthetic source c12 — edge delivery notes",
+   "authority": "secondary",
+   "source_type": "news",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c12. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c12/g1/0) Certificates are issued automatically and renewed before expiry. (c12/g2/0) A purge request invalidates cached objects by path prefix. (c12/g3/0) Each build produces an immutable, content-addressed artifact. (c12/g4/0) A previous deploy can be re-pointed to in a single operation. (c12/g5/0) Static assets are served with a long max-age and revalidation. (c12/g6/0) The edge authenticates to object storage with a scoped credential. (c12/g7/0) Redirect and rewrite rules are evaluated at the edge. (c12/g8/0) Request logs and basic latency metrics are exported. (c12/g9/0) Cost is driven by egress volume, request count and invalidations. (c12/g10/0) The CI role needs deploy and purge permissions, nothing more. (c12/g11/0) papa341 sierra342 victor343 yankee344 beacon345 ember346 charlie347 foxtrot348 india349 lima350 oscar351 romeo352 uniform353 xray354 anchor355 dossier356 bravo357 echo358 hotel359 kilo360 november361 quebec362 tango363 whiskey364 zulu365 cipher366 alpha367 delta368 golf369 juliett370 mike371 papa372 sierra373 victor374 yankee375 beacon376 ember377 charlie378 foxtrot379 india380 lima381 oscar382 romeo383 uniform384 xray385 anchor386 dossier387 bravo388 echo389 hotel390 kilo391 november392 quebec393 tango394 whiskey395 zulu396 cipher397 alpha398 delta399 golf400 juliett401 mike402 papa403 sierra404 victor405 yankee406 beacon407 ember408 charlie409 foxtrot410 india411 lima412 oscar413 romeo414 uniform415 xray416 anchor417 dossier418 bravo419 echo420 hotel421 kilo422 november423 quebec424 tango425 whiskey426 zulu427 cipher428 alpha429 delta430 golf431 juliett432 mike433 papa434 sierra435 victor436 yankee437 beacon438 ember439 charlie440 foxtrot441 india442 lima443 oscar444 romeo445 uniform446 xray447 anchor448 dossier449 bravo450 echo451 hotel452 kilo453 november454 quebec455 tango456 whiskey457 zulu458 cipher459 alpha460 delta461 golf462 juliett463 mike464 papa465 sierra466 victor467 yankee468 beacon469 ember470 charlie471 foxtrot472 india473 lima474 oscar475 romeo476 uniform477 xray478 anchor479 dossier480 bravo481 echo482 hotel483 kilo484 november485 quebec486 tango487 whiskey488 zulu489 cipher490 alpha491 delta492 golf493 juliett494 mike495 papa496 sierra497 victor498 yankee499"
+    }
+   ]
+  },
+  {
+   "id": "c13",
+   "url": "https://vendor.example-cdn2.test/synthetic/c13",
+   "title": "Synthetic source c13 — edge delivery notes",
+   "authority": "primary",
+   "source_type": "official_documentation",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c13. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c13/g1/0) Apex domain records are delegated to the edge anycast address. (c13/g1/1) Apex domain records are delegated to the edge anycast address. (c13/g1/2) Certificates are issued automatically and renewed before expiry. (c13/g2/0) Certificates are issued automatically and renewed before expiry. (c13/g2/1) A purge request invalidates cached objects by path prefix. (c13/g3/0) A purge request invalidates cached objects by path prefix. (c13/g3/1) Each build produces an immutable, content-addressed artifact. (c13/g4/0) Each build produces an immutable, content-addressed artifact. (c13/g4/1) A previous deploy can be re-pointed to in a single operation. (c13/g5/0) A previous deploy can be re-pointed to in a single operation. (c13/g5/1) Static assets are served with a long max-age and revalidation. (c13/g6/0) Static assets are served with a long max-age and revalidation. (c13/g6/1) The edge authenticates to object storage with a scoped credential. (c13/g7/0) The edge authenticates to object storage with a scoped credential. (c13/g7/1) Redirect and rewrite rules are evaluated at the edge. (c13/g8/0) Redirect and rewrite rules are evaluated at the edge. (c13/g8/1) Request logs and basic latency metrics are exported. (c13/g9/0) Request logs and basic latency metrics are exported. (c13/g9/1) Cost is driven by egress volume, request count and invalidations. (c13/g10/0) Cost is driven by egress volume, request count and invalidations. (c13/g10/1) The CI role needs deploy and purge permissions, nothing more. (c13/g11/0) The CI role needs deploy and purge permissions, nothing more. (c13/g11/1) whiskey372 zulu373 cipher374 alpha375 delta376 golf377 juliett378 mike379 papa380 sierra381 victor382 yankee383 beacon384 ember385 charlie386 foxtrot387 india388 lima389 oscar390 romeo391 uniform392 xray393 anchor394 dossier395 bravo396 echo397 hotel398 kilo399 november400 quebec401 tango402 whiskey403 zulu404 cipher405 alpha406 delta407 golf408 juliett409 mike410 papa411 sierra412 victor413 yankee414 beacon415 ember416 charlie417 foxtrot418 india419 lima420 oscar421 romeo422 uniform423 xray424 anchor425 dossier426 bravo427 echo428 hotel429 kilo430 november431 quebec432 tango433 whiskey434 zulu435 cipher436 alpha437 delta"
+    }
+   ]
+  },
+  {
+   "id": "c14",
+   "url": "https://vendor.example-cdn2.test/synthetic/c14",
+   "title": "Synthetic source c14 — edge delivery notes",
+   "authority": "secondary",
+   "source_type": "marketing",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c14. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c14/g1/0) Certificates are issued automatically and renewed before expiry. (c14/g2/0) A purge request invalidates cached objects by path prefix. (c14/g3/0) Each build produces an immutable, content-addressed artifact. (c14/g4/0) A previous deploy can be re-pointed to in a single operation. (c14/g5/0) Static assets are served with a long max-age and revalidation. (c14/g6/0) The edge authenticates to object storage with a scoped credential. (c14/g7/0) Redirect and rewrite rules are evaluated at the edge. (c14/g8/0) Request logs and basic latency metrics are exported. (c14/g9/0) Cost is driven by egress volume, request count and invalidations. (c14/g10/0) The CI role needs deploy and purge permissions, nothing more. (c14/g11/0) dossier403 bravo404 echo405 hotel406 kilo407 november408 quebec409 tango410 whiskey411 zulu412 cipher413 alpha414 delta415 golf416 juliett417 mike418 papa419 sierra420 victor421 yankee422 beacon423 ember424 charlie425 foxtrot426 india427 lima428 oscar429 romeo430 uniform431 xray432 anchor433 dossier434 bravo435 echo436 hotel437 kilo438 november439 quebec440 tango441 whiskey442 zulu443 cipher444 alpha445 delta446 golf447 juliett448 mike449 papa450 sierra451 victor452 yankee453 beacon454 ember455 charlie456 foxtrot457 india458 lima459 oscar460 romeo461 uniform462 xray463 anchor464 dossier465 bravo466 echo467 hotel468 kilo469 november470 quebec471 tango472 whiskey473 zulu474 cipher475 alpha476 delta477 golf478 juliett479 mike480 papa481 sierra482 victor483 yankee484 beacon485 ember486 charlie487 foxtrot488 india489 lima490 oscar491 romeo492 uniform493 xray494 anchor495 dossier496 bravo497 echo498 hotel499 kilo500 november501 quebec502 tango503 whiskey504 zulu505 cipher506 alpha507 delta508 golf509 juliett510 mike511 papa512 sierra513 victor514 yankee515 beacon516 ember517 charlie518 foxtrot519 india520 lima521 oscar522 romeo523 uniform524 xray525 anchor526 dossier527 bravo528 echo529 hotel530 kilo531 november532 quebec533 tango534 whiskey535 zulu536 cipher537 alpha538 delta539 golf540 juliett541 mike542 papa543 sierra544 victor545 yankee546 beacon547 ember548 charlie549 foxtrot550 india551 lima552 oscar553 romeo554 uniform555 xray556 anchor557 dossier558 bravo559 echo560 hotel561 "
+    }
+   ]
+  },
+  {
+   "id": "c15",
+   "url": "https://aggregator.example-list.test/synthetic/c15",
+   "title": "Synthetic source c15 — edge delivery notes",
+   "authority": "community",
+   "source_type": "aggregator",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c15. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c15/g1/0) Certificates are issued automatically and renewed before expiry. (c15/g2/0) A purge request invalidates cached objects by path prefix. (c15/g3/0) Each build produces an immutable, content-addressed artifact. (c15/g4/0) A previous deploy can be re-pointed to in a single operation. (c15/g5/0) Static assets are served with a long max-age and revalidation. (c15/g6/0) The edge authenticates to object storage with a scoped credential. (c15/g7/0) Redirect and rewrite rules are evaluated at the edge. (c15/g8/0) Request logs and basic latency metrics are exported. (c15/g9/0) Cost is driven by egress volume, request count and invalidations. (c15/g10/0) The CI role needs deploy and purge permissions, nothing more. (c15/g11/0) foxtrot434 india435 lima436 oscar437 romeo438 uniform439 xray440 anchor441 dossier442 bravo443 echo444 hotel445 kilo446 november447 quebec448 tango449 whiskey450 zulu451 cipher452 alpha453 delta454 golf455 juliett456 mike457 papa458 sierra459 victor460 yankee461 beacon462 ember463 charlie464 foxtrot465 india466 lima467 oscar468 romeo469 uniform470 xray471 anchor472 dossier473 bravo474 echo475 hotel476 kilo477 november478 quebec479 tango480 whiskey481 zulu482 cipher483 alpha484 delta485 golf486 juliett487 mike488 papa489 sierra490 victor491 yankee492 beacon493 ember494 charlie495 foxtrot496 india497 lima498 oscar499 romeo500 uniform501 xray502 anchor503 dossier504 bravo505 echo506 hotel507 kilo508 november509 quebec510 tango511 whiskey512 zulu513 cipher514 alpha515 delta516 golf517 juliett518 mike519 papa520 sierra521 victor522 yankee523 beacon524 ember525 charlie526 foxtrot527 india528 lima529 oscar530 romeo531 uniform532 xray533 anchor534 dossier535 bravo536 echo537 hotel538 kilo539 november540 quebec541 tango542 whiskey543 zulu544 cipher545 alpha546 delta547 golf548 juliett549 mike550 papa551 sierra552 victor553 yankee554 beacon555 ember556 charlie557 foxtrot558 india559 lima560 oscar561 romeo562 uniform563 xray564 anchor565 dossier566 bravo567 echo568 hotel569 kilo570 november571 quebec572 tango573 whiskey574 zulu575 cipher576 alpha577 delta578 golf579 juliett580 mike581 papa582 sierra583 victor584 yankee585 beacon586 ember587 charlie588 foxtrot589 india590 lima591 oscar592 "
+    }
+   ]
+  },
+  {
+   "id": "c16",
+   "url": "https://spam.example-injected.test/synthetic/c16",
+   "title": "Synthetic source c16 — edge delivery notes",
+   "authority": "community",
+   "source_type": "blog",
+   "snippets": [
+    {
+     "section": "Synthetic body",
+     "text": "Synthetic document c16. This text is generated for regression tests and describes no real product. Apex domain records are delegated to the edge anycast address. (c16/g1/0) Apex domain records are delegated to the edge anycast address. (c16/g1/1) Certificates are issued automatically and renewed before expiry. (c16/g2/0) Certificates are issued automatically and renewed before expiry. (c16/g2/1) A purge request invalidates cached objects by path prefix. (c16/g3/0) A purge request invalidates cached objects by path prefix. (c16/g3/1) Each build produces an immutable, content-addressed artifact. (c16/g4/0) Each build produces an immutable, content-addressed artifact. (c16/g4/1) A previous deploy can be re-pointed to in a single operation. (c16/g5/0) A previous deploy can be re-pointed to in a single operation. (c16/g5/1) Static assets are served with a long max-age and revalidation. (c16/g6/0) Static assets are served with a long max-age and revalidation. (c16/g6/1) The edge authenticates to object storage with a scoped credential. (c16/g7/0) Redirect and rewrite rules are evaluated at the edge. (c16/g8/0) Redirect and rewrite rules are evaluated at the edge. (c16/g8/1) Request logs and basic latency metrics are exported. (c16/g9/0) Cost is driven by egress volume, request count and invalidations. (c16/g10/0) The CI role needs deploy and purge permissions, nothing more. (c16/g11/0) mike465 papa466 sierra467 victor468 yankee469 beacon470 ember471 charlie472 foxtrot473 india474 lima475 oscar476 romeo477 uniform478 xray479 anchor480 dossier481 bravo482 echo483 hotel484 kilo485 november486 quebec487 tango488 whiskey489 zulu490 cipher491 alpha492 delta493 golf494 juliett495 mike496 papa497 sierra498 victor499 yankee500 beacon501 ember502 charlie503 foxtrot504 india505 lima506 oscar507 romeo508 uniform509 xray510 anchor511 dossier512 bravo513 echo514 hotel515 kilo516 november517 quebec518 tango519 whiskey520 zulu521 cipher522 alpha523 delta524 golf525 juliett526 mike527 papa528 sierra529 victor530 yankee531 beacon532 ember533 charlie534 foxtrot535 india536 lima537 oscar538 romeo539 uniform540 xray541 anchor542 dossier543 bravo544 echo545 hotel546 kilo547 november548 quebec549 tango550 whiskey551 zulu552 cipher553 alpha554 delta555 golf556 juliett557 mike558 papa559 sierra560 victor561 yankee562 beacon563 ember564 charlie565 foxtrot566 india567 lima568 oscar569 romeo"
+    }
+   ]
+  }
+ ]
+}

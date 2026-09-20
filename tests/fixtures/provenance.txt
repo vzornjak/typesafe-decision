@@ -1,0 +1,7 @@
+origin=synthetic
+generator=tests/generate_fixtures.py
+derived_from_real_corpus=no
+derived_from_real_api_transcript=no
+derived_from_production_log=no
+personal_data=none
+purpose=deterministic offline replay and selection-policy regressions

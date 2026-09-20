@@ -1,0 +1,32 @@
+{
+ "synthetic": true,
+ "generated_by": "tests/generate_fixtures.py",
+ "note": "Fully synthetic labels over a generated corpus. These are NOT human relevance judgements and carry no evaluation authority. They exist only so the regression suite can assert a relative policy property.",
+ "user_query": "How do I publish a static documentation site behind a CDN with automatic TLS, cache invalidation and a rollback path?",
+ "gold_sources": {
+  "note": "authored labels, synthetic corpus",
+  "highly_relevant": [
+   "c01",
+   "c02",
+   "c03",
+   "c04",
+   "c06"
+  ],
+  "partially_relevant": [
+   "c05",
+   "c07",
+   "c08",
+   "c13"
+  ],
+  "irrelevant_or_noise": [
+   "c09",
+   "c10",
+   "c11",
+   "c12",
+   "c14",
+   "c15",
+   "c16"
+  ]
+ },
+ "leakage_control": "The requirements sent to the model are the same list used to label coverage, so this fixture must never be cited as an independent quality measurement."
+}
