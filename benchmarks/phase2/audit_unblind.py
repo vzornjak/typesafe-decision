@@ -24,7 +24,8 @@ def audit(out):
    path=REPO/'CUSTODY-MANIFEST.json'
    if not path.is_file() or c!=sha(path) or proof.get('custody_manifest_sha256')!=c:errors.append('custody_manifest_mismatch')
   rows=doc.get('files',[])
-  if len(rows)!=160 or len({r['path'] for r in rows})!=160 or {r['path'] for r in rows}!=set(gate.expected_output_names()):errors.append('output_set_mismatch')
+  expected=set(gate.expected_output_names());actual={p.name for p in out.glob('*.json') if p.name!='outputs.lock.json'}
+  if len(rows)!=160 or len({r['path'] for r in rows})!=160 or {r['path'] for r in rows}!=expected or actual!=expected:errors.append('output_set_mismatch')
   for row in rows:
    p=out/row['path']
    if not p.is_file() or p.stat().st_size!=row['bytes'] or sha(p)!=row['sha256']:errors.append('output_file_mismatch:'+row['path'])

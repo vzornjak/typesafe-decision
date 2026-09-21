@@ -6,6 +6,8 @@ ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT))
 import scored_runner as runner
 import validate_outputs as validator
+import seal_outputs as sealer
+import audit_unblind as unblinder
 
 def task():return json.loads((ROOT/'public/p2-dev-en-01.json').read_text())
 def rank(obj):
@@ -60,6 +62,21 @@ def main():
    x=json.loads(original);x['selection']['candidate_order']=list(reversed(x['selection']['candidate_order']));p.write_text(json.dumps(x));checks.append(check('candidate order drift rejected',not validator.validate(out)['ok']));p.write_text(original)
    x=json.loads(original);x['selection']['status']='failed';p.write_text(json.dumps(x));checks.append(check('failed run rejected',not validator.validate(out)['ok']));p.write_text(original)
    p.unlink();checks.append(check('missing row rejected',not validator.validate(out)['ok']))
+   p.write_text(original)
+   old_pre=sealer.preflight;old_seal_lock=sealer.ROOT
+   (root/'runner.lock.json').write_text('{}')
+   sealer.preflight=lambda: {'offline_test':True}
+   sealer.ROOT=root
+   try:
+    sealed=sealer.seal(out,'offline-test')
+    checks.append(check('strict scoped seal succeeds',sealed['ok'] and (out/'outputs.lock.json').is_file()))
+    old_audit_lock=unblinder.gate.INPUT_LOCK;old_audit_root=unblinder.ROOT
+    unblinder.gate.INPUT_LOCK=root/'inputs.lock.json';unblinder.ROOT=root
+    try:
+     result=unblinder.audit(out)
+     checks.append(check('strict pre-unblind accepts sealed 160:'+str(result['errors'][:3]),result['ok']))
+    finally:unblinder.gate.INPUT_LOCK=old_audit_lock;unblinder.ROOT=old_audit_root
+   finally:sealer.preflight=old_pre;sealer.ROOT=old_seal_lock
   finally:runner.artifact=old_artifact;runner.gate.RUNNER_INPUTS=old_inputs;runner.gate.INPUT_LOCK=old_lock;runner.preflight=old_preflight
  print(json.dumps({'ok':True,'tests':len(checks),'checks':checks}));return 0
 if __name__=='__main__':sys.exit(main())

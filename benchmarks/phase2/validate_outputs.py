@@ -7,7 +7,7 @@ import scored_runner as runner
 
 def validate(out):
  out=Path(out); expected=set(gate.expected_output_names())
- actual={p.name for p in out.glob('*.json')}
+ actual={p.name for p in out.glob('*.json') if p.name!='outputs.lock.json'}
  errors=[]
  if actual!=expected:errors.append('output_set_mismatch')
  for name in sorted(actual):
