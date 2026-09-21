@@ -35,6 +35,7 @@ def main():
    x=task();x['task_id']=f'p2-score-en-{i:02d}'
    (synthetic/f"{x['task_id']}.json").write_text(json.dumps(x),encoding='utf-8')
   r.gate.RUNNER_INPUTS=synthetic
+  saved_lock=r.gate.INPUT_LOCK;r.gate.INPUT_LOCK=Path(td)/'inputs.lock.json';r.gate.INPUT_LOCK.write_text('{}')
   r.preflight=lambda: {'test_lock':True}
   out=Path(td)/'outputs'
   try:
@@ -44,7 +45,7 @@ def main():
    check('exactly 160 output JSON files',len(list(out.glob('*.json')))==160)
    failed=json.loads((out/'p2-score-en-01__B_winner_top8__rep1.json').read_text())
    check('failure is explicit abstention',failed['selection']['status']=='failed' and failed['answer']=='')
-  finally:r.preflight=saved;r.gate.RUNNER_INPUTS=saved_inputs
+  finally:r.preflight=saved;r.gate.RUNNER_INPUTS=saved_inputs;r.gate.INPUT_LOCK=saved_lock
  with tempfile.TemporaryDirectory() as td:
   saved=r.gate.INPUT_LOCK;r.gate.INPUT_LOCK=Path(td)/'nonexistent.json'
   try:
