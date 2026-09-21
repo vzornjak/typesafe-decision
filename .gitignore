@@ -11,3 +11,7 @@ benchmarks/phase2/private-development/
 # Temporary source downloads, extraction caches, and isolated scored outputs.
 benchmarks/phase2/source-cache/
 benchmarks/phase2/isolated-outputs/
+
+# Locally materialized scored corpus may contain third-party excerpts. Keep it
+# out of git until per-source reuse review is complete.
+benchmarks/phase2/materialized-scored/

@@ -1,0 +1,55 @@
+{
+  "task_id": "p2-score-hr-02",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.w3.org/WAI/test-evaluate/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}

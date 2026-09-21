@@ -1,0 +1,55 @@
+{
+  "task_id": "p2-score-en-07",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.cisa.gov/news-events/news/securing-wireless-networks",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.cisa.gov/news-events/news/home-network-security",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://consumer.ftc.gov/articles/how-secure-your-home-wi-fi-network",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://pages.nist.gov/IoT-Device-Cybersecurity-Requirement-Catalogs/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.nist.gov/publications/foundational-cybersecurity-activities-iot-device-manufacturers",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.nist.gov/publications/iot-device-cybersecurity-guidance-federal-government-establishing-iot-device",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.ncsc.gov.uk/collection/device-security-guidance",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.gov.uk/government/publications/the-uk-product-security-and-telecommunications-infrastructure-product-security-regime",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.gov.uk/government/publications/code-of-practice-for-consumer-iot-security",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}

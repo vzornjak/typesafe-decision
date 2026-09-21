@@ -1,0 +1,55 @@
+{
+  "task_id": "p2-score-en-03",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-pact",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects_en",
+      "reuse_class": "link-or-short-excerpt-only"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://eur-lex.europa.eu/eli/dir/2000/78/oj",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-governance-and-enforcement",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}

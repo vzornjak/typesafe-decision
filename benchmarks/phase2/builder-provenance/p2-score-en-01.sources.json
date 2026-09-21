@@ -1,0 +1,55 @@
+{
+  "task_id": "p2-score-en-01",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://docs.python.org/3/library/venv.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://docs.python.org/3/tutorial/venv.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://docs.python.org/3/installing/index.html",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://packaging.python.org/en/latest/tutorials/installing-packages/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://packaging.python.org/en/latest/specifications/externally-managed-environments/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://packaging.python.org/en/latest/discussions/install-requires-vs-requirements/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://pip.pypa.io/en/stable/user_guide/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://pip.pypa.io/en/stable/topics/dependency-resolution/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://pipx.pypa.io/stable/",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}

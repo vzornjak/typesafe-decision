@@ -1,0 +1,55 @@
+{
+  "task_id": "p2-score-en-04",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.section508.gov/manage/laws-and-policies/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.section508.gov/manage/program-roadmap/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.section508.gov/manage/understand-scope-technical-requirements/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.section508.gov/buy/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.section508.gov/buy/accessibility-in-procurement-solicitation-post-2/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.section508.gov/accessibility-conformance-reports/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.section508.gov/test/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.access-board.gov/ict/",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.acquisition.gov/far/39.203",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}

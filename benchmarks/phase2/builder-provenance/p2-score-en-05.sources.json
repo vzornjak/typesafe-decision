@@ -1,0 +1,55 @@
+{
+  "task_id": "p2-score-en-05",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.epa.gov/indoor-air-quality-iaq/ventilation-and-respiratory-viruses",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.epa.gov/iaq-schools",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.epa.gov/iaq-schools/framework-effective-school-iaq-management",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.who.int/publications/i/item/9789240021280",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.ashrae.org/technical-resources/filtration-disinfection",
+      "reuse_class": "link-or-short-excerpt-only"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.hse.gov.uk/ventilation/index.htm",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.hse.gov.uk/ventilation/assessing-the-risk-of-poor-ventilation.htm",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.hse.gov.uk/ventilation/how-to-improve-ventilation.htm",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.hse.gov.uk/ventilation/examples-of-improving-ventilation.htm",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}

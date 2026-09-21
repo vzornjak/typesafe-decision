@@ -1,0 +1,55 @@
+{
+  "task_id": "p2-score-en-02",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://kubernetes.io/docs/concepts/security/pod-security-standards/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://kubernetes.io/docs/concepts/security/pod-security-admission/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://kubernetes.io/docs/tasks/run-application/configure-pdb/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://kubernetes.io/docs/concepts/cluster-administration/node-shutdown/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "task_id": "p2-score-hr-08",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://energy-efficient-products.ec.europa.eu/product-list/space-heaters_en",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://eprel.ec.europa.eu/screen/product/spaceheaters",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2013/811/oj",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://eur-lex.europa.eu/eli/reg/2013/813/oj",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.energystar.gov/products/air_source_heat_pumps",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.energy.gov/cmei/femp/purchasing-energy-efficient-residential-air-source-heat-pumps",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.iea.org/reports/the-future-of-heat-pumps/how-a-heat-pump-works",
+      "reuse_class": "link-or-short-excerpt-only"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.gov.uk/government/publications/heat-pump-net-zero-investment-roadmap",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://energy-efficient-products.ec.europa.eu/product-list/boilers_en",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://energy-efficient-products.ec.europa.eu/product-list/heat-pumps_en",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}
