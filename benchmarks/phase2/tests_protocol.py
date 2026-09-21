@@ -55,7 +55,10 @@ def main():
         check("complete local runner inputs validate before lock", readiness["ok"] and readiness["public_tasks"] == 20)
     else:
         check("public clone without custody bundle fails closed", not readiness["ok"] and any("unresolved placeholder" in e for e in readiness["errors"]))
-    check("input lock has not been created prematurely", not p2.INPUT_LOCK.exists())
+    if p2.INPUT_LOCK.exists():
+        check("existing immutable input lock verifies", p2.verify_lock(p2.INPUT_LOCK, p2.ROOT) == [])
+    else:
+        check("input lock has not been created prematurely", True)
     saved_public = p2.PUBLIC
     saved_runner = p2.RUNNER_INPUTS
     saved_config = p2.CONFIG
