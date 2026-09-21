@@ -13,11 +13,11 @@ def sha(b): return hashlib.sha256(b).hexdigest()
 def load(p): return json.loads(Path(p).read_text(encoding='utf-8'))
 def schedule():
  return [(t.stem,arm,rep) for t in sorted(gate.RUNNER_INPUTS.glob('p2-score-*.json')) for arm in ARMS for rep in ([0] if arm==ARMS[0] else [1,2,3])]
-def seed(task,rep):
- return int.from_bytes(hashlib.sha256(f'phase2-v1-candidate-order:{task}:scored:{rep}'.encode()).digest()[:8],'big')
-def candidates(task,rep):
+def seed(task,arm,rep):
+ return int.from_bytes(hashlib.sha256(f'phase2-v1-candidate-order:{task}:{arm}:{rep}'.encode()).digest()[:8],'big')
+def candidates(task,arm,rep):
  c=list(task['candidates'])
- if rep: random.Random(seed(task['task_id'],rep)).shuffle(c)
+ random.Random(seed(task['task_id'],arm,rep)).shuffle(c)
  return c
 def rank_request(task,cands,arm,design):
  obj={'query':task['query'],'candidates':[{'id':c['candidate_id'],'title':c['title'],'url':c['url'],'domain':c['domain'],'text':c['content']} for c in cands]}
@@ -30,15 +30,17 @@ def choose(task,cands,arm,design,rank_fn):
  result=rank_fn(rank_request(task,cands,arm,design)); warnings=result.get('warnings',[])
  if result.get('model_requested')!= 'jev-1.13.0' or result.get('models_served')!=['jev-1.13.0']:
   raise RuntimeError('jev_model_contract_failed')
+ rows=result.get('ranking',[]); ids={c['candidate_id'] for c in cands}
+ if len(rows)!=len(cands) or {r.get('id') for r in rows}!=ids:raise RuntimeError('incomplete_or_duplicate_ranking')
  if arm=='B_winner_top8':
-  rows=result.get('ranking',[])
-  if len(rows)!=len(cands): raise RuntimeError('incomplete_winner_ranking')
+  if result.get('mode')!='winner':raise RuntimeError('wrong_winner_mode')
   eligible=[r for r in rows if r.get('eligible') is True]
   chosen=[r['id'] for r in sorted(eligible,key=lambda r:(-r['score'],r['id']))[:design['arms'][arm]['k']]]
+  if len(chosen)!=design['arms'][arm]['k']:raise RuntimeError('winner_not_exact_top_k')
  else:
-  if result.get('decision')!='selected': raise RuntimeError('shortlist_did_not_select')
+  if result.get('mode')!='shortlist' or result.get('decision')!='selected': raise RuntimeError('shortlist_did_not_select')
+  if result.get('selection')!=design['arms'][arm]['selection']:raise RuntimeError('shortlist_config_drift')
   chosen=result['selected']
- ids={c['candidate_id'] for c in cands}
  if not chosen or len(chosen)!=len(set(chosen)) or not set(chosen)<=ids: raise RuntimeError('invalid_selected_ids')
  return chosen,result,warnings
 
@@ -78,8 +80,10 @@ def preflight():
   raise RuntimeError('runner_commit_mismatch')
  for name,h in rlock.get('files',{}).items():
   if not (ROOT/name).is_file() or sha((ROOT/name).read_bytes())!=h: raise RuntimeError('runner_file_mismatch:'+name)
- if not {'scored_runner.py','tools/phase2.py','config/execution.json','config/design.json','prompts/main-system.md','prompts/main-user-template.md'}<=set(rlock.get('files',{})):
+ if not {'scored_runner.py','lock_runner.py','validate_outputs.py','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
   raise RuntimeError('incomplete_runner_lock')
+ if subprocess.check_output(['git','-C',str(REPO),'status','--porcelain'],text=True).strip():
+  raise RuntimeError('runner_worktree_dirty')
  paths={r['path'] for r in lock['files']}
  required={f'runner-inputs/{tid}.json' for tid,_,_ in schedule()}
  if not required<=paths:raise RuntimeError('runner_inputs_not_locked')
@@ -88,9 +92,12 @@ def preflight():
  return lock
 
 def artifact(task,arm,rep,design,execution,rank_fn,main_fn):
- started=time.monotonic(); cands=candidates(task,rep); t0=time.monotonic()
+ started=time.monotonic(); cands=candidates(task,arm,rep); t0=time.monotonic()
  selected,ranking,warnings=choose(task,cands,arm,design,rank_fn); jev_ms=round((time.monotonic()-t0)*1000)
  text=prompt(task,selected); prompt_hash=sha(text.encode()); t1=time.monotonic()
+ if arm=='A_no_rank' and sum(c['content_chars'] for c in task['candidates'])>design['arms'][arm]['candidate_content_ceiling_chars']:
+  raise RuntimeError('baseline_candidate_ceiling_exceeded')
+ if len(text)>150000:raise RuntimeError('main_prompt_ceiling_exceeded')
  answer,main_usage,model=main_fn(text,execution);main_ms=round((time.monotonic()-t1)*1000)
  if not isinstance(answer,str) or not answer.strip():raise RuntimeError('empty_main_answer')
  ju=(ranking or {}).get('usage') or {}
@@ -116,7 +123,7 @@ def execute(out,rank_fn=dw.rank,main_fn=main_call,dry_run=False):
    row=artifact(task,arm,rep,design,execution,rank_fn,main_fn)
   except Exception as e:
    row={'task_id':tid,'arm_id':arm,'repetition':rep,
-        'selection':{'selected_ids':[],'candidate_order':[c['candidate_id'] for c in candidates(task,rep)],
+        'selection':{'selected_ids':[],'candidate_order':[c['candidate_id'] for c in candidates(task,arm,rep)],
                      'prompt_sha256':None,'ranking':None,'status':'failed',
                      'error_type':type(e).__name__,'reason_code':'scored_run_failed'},
         'answer':'','models':{'jev_requested':None if arm=='A_no_rank' else 'jev-1.13.0',

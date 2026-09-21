@@ -13,17 +13,18 @@ def task():
  return json.loads((ROOT/'public'/'p2-dev-en-01.json').read_text())
 def stub_rank(obj):
  ids=[c['id'] for c in obj['candidates']]
- return {'model_requested':'jev-1.13.0','models_served':['jev-1.13.0'],'decision':'selected' if obj.get('mode')=='shortlist' else ids[0],
+ return {'model_requested':'jev-1.13.0','models_served':['jev-1.13.0'],'mode':'shortlist' if obj.get('mode')=='shortlist' else 'winner','selection':obj.get('selection'),'decision':'selected' if obj.get('mode')=='shortlist' else ids[0],
          'selected':ids[:4], 'ranking':[{'id':cid,'eligible':True,'score':.99-i*.03} for i,cid in enumerate(ids)],
          'usage':{'input_tokens':100,'output_tokens':20},'warnings':[]}
 def stub_main(text,config):return ('Synthetic response [c01]',{'input_tokens':500,'output_tokens':8},config['main']['model'])
 def main():
  t=task();t['task_id']='p2-score-en-01'
  design=json.loads((ROOT/'config'/'design.json').read_text());execution=json.loads((ROOT/'config'/'execution.json').read_text())
- check('different scored repetition seeds',r.seed(t['task_id'],1)!=r.seed(t['task_id'],2))
- check('deterministic candidate permutation',r.candidates(t,1)==r.candidates(t,1))
- check('winner scores top eight',len(r.choose(t,r.candidates(t,1),'B_winner_top8',design,stub_rank)[0])==8)
- check('shortlist selected four',len(r.choose(t,r.candidates(t,1),'C_shortlist_default',design,stub_rank)[0])==4)
+ check('different scored repetition seeds',r.seed(t['task_id'],'B_winner_top8',1)!=r.seed(t['task_id'],'B_winner_top8',2))
+ check('different arm seeds',r.seed(t['task_id'],'B_winner_top8',1)!=r.seed(t['task_id'],'C_shortlist_default',1))
+ check('deterministic candidate permutation',r.candidates(t,'B_winner_top8',1)==r.candidates(t,'B_winner_top8',1))
+ check('winner scores top eight',len(r.choose(t,r.candidates(t,'B_winner_top8',1),'B_winner_top8',design,stub_rank)[0])==8)
+ check('shortlist selected four',len(r.choose(t,r.candidates(t,'C_shortlist_default',1),'C_shortlist_default',design,stub_rank)[0])==4)
  for arm,rep in [('A_no_rank',0),('B_winner_top8',1),('C_shortlist_default',1),('D_shortlist_tuned',1)]:
   row=r.artifact(t,arm,rep,design,execution,stub_rank,stub_main)
   check('artifact '+arm,row['arm_id']==arm and row['models']['main']==execution['main']['model'] and row['usage']['main_input_tokens']==500)
