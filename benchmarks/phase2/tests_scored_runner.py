@@ -28,6 +28,10 @@ def main():
  for arm,rep in [('A_no_rank',0),('B_winner_top8',1),('C_shortlist_default',1),('D_shortlist_tuned',1)]:
   row=r.artifact(t,arm,rep,design,execution,stub_rank,stub_main)
   check('artifact '+arm,row['arm_id']==arm and row['models']['main']==execution['main']['model'] and row['usage']['main_input_tokens']==500)
+ check('MAIN CLI response parser accepts captured envelope',r.parse_main_response(json.loads((ROOT/'main-cli-contract.fixture.json').read_text()),execution)[2]==execution['main']['model'])
+ malformed=json.loads((ROOT/'main-cli-contract.fixture.json').read_text());malformed['data'].pop('usage')
+ try:r.parse_main_response(malformed,execution);raise AssertionError('missing usage accepted')
+ except RuntimeError as e:check('MAIN missing usage fails closed',str(e)=='main_usage_missing_or_invalid')
  check('schedule exactly 160 with local custody bundle',len(r.schedule())==160 if r.gate.RUNNER_INPUTS.exists() else len(r.schedule())==0)
  with tempfile.TemporaryDirectory() as td:
   saved=r.preflight; saved_inputs=r.gate.RUNNER_INPUTS

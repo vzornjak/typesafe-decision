@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Scored Phase 2 runner: locked inputs, uniform arms, no gold access."""
-import argparse, hashlib, json, os, random, subprocess, sys, time
+import argparse, hashlib, json, math, os, random, subprocess, sys, time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent.parent
 sys.path.insert(0,str(REPO/'scripts'))
@@ -51,6 +51,18 @@ def prompt(task,selected):
  sources='\n\n'.join(f"[{cid}] {byid[cid]['title']}\nURL: {byid[cid]['url']}\n{byid[cid]['content']}" for cid in selected)
  return tmpl.replace('{{query}}',task['query']).replace('{{requirements_numbered}}',req).replace('{{candidate_sources_with_exact_ids}}',sources)
 
+def parse_main_response(response,execution):
+ if not isinstance(response,dict) or response.get('ok') is not True:raise RuntimeError('main_response_not_ok')
+ data=response.get('data')
+ if not isinstance(data,dict):raise RuntimeError('main_data_missing')
+ model=data.get('model_id');usage=data.get('usage');text=data.get('output_text');stop=data.get('stop_reason')
+ if model!=execution['main']['model']:raise RuntimeError('main_model_drift')
+ if not isinstance(text,str) or not text.strip():raise RuntimeError('main_output_missing')
+ if stop!='end_turn':raise RuntimeError('main_stop_not_end_turn')
+ if not isinstance(usage,dict) or any(type(usage.get(k)) is not int or usage[k]<0 for k in ('input_tokens','output_tokens')):
+  raise RuntimeError('main_usage_missing_or_invalid')
+ return text,usage,model
+
 def main_call(prompt_text,execution):
  payload={'messages':[{'role':'user','content':prompt_text}]}
  import tempfile
@@ -60,11 +72,7 @@ def main_call(prompt_text,execution):
   p=subprocess.run(['minis-model-use','run','--model',execution['main']['model'],'--provider',execution['main']['provider'],'--input',str(inp),'--system-file',str(ROOT/'prompts/main-system.md'),'--max-tokens',str(execution['main']['max_output_tokens']),'--temperature',str(execution['main']['temperature'])],capture_output=True,text=True,env=env,timeout=600)
   if p.returncode: raise RuntimeError(f'main_cli_failed:{p.returncode}')
   response=json.loads(p.stdout)
-  if not response.get('ok'):raise RuntimeError('main_response_not_ok')
-  data=response['data']; usage=data.get('usage') or {}
-  model=data.get('model_id') or data.get('model')
-  if model!=execution['main']['model']:raise RuntimeError('main_model_drift')
-  return data.get('output_text',''),usage,model
+  return parse_main_response(response,execution)
 
 def preflight():
  if not gate.INPUT_LOCK.exists(): raise RuntimeError('missing_input_lock')
@@ -80,7 +88,7 @@ def preflight():
   raise RuntimeError('runner_commit_mismatch')
  for name,h in rlock.get('files',{}).items():
   if not (ROOT/name).is_file() or sha((ROOT/name).read_bytes())!=h: raise RuntimeError('runner_file_mismatch:'+name)
- if not {'scored_runner.py','lock_runner.py','validate_outputs.py','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
+ if not {'scored_runner.py','lock_runner.py','validate_outputs.py','seal_outputs.py','main-cli-contract.fixture.json','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
   raise RuntimeError('incomplete_runner_lock')
  if subprocess.check_output(['git','-C',str(REPO),'status','--porcelain'],text=True).strip():
   raise RuntimeError('runner_worktree_dirty')

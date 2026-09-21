@@ -18,9 +18,10 @@ def validate(out):
    if row.get('selection',{}).get('status') not in ('completed','failed'):errors.append('status:'+name)
    for key in ('answer','models','usage','timing','warnings'):
     if key not in row:errors.append('missing_'+key+':'+name)
-   if row.get('selection',{}).get('status')=='completed' and not row.get('answer','').strip():errors.append('empty_completed_answer:'+name)
+   if not row.get('answer','').strip():errors.append('empty_answer:'+name)
+   if row.get('selection',{}).get('status')=='failed':errors.append('failed_run_requires_inconclusive:'+name)
   except Exception as e:errors.append('invalid_json:'+name+':'+type(e).__name__)
  return {'ok':not errors,'errors':errors,'files':len(actual)}
 if __name__=='__main__':
  import sys
- print(json.dumps(validate(sys.argv[1]),indent=2))
+ result=validate(sys.argv[1]);print(json.dumps(result,indent=2));sys.exit(0 if result['ok'] else 1)

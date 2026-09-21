@@ -3,7 +3,7 @@
 import hashlib,json,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent.parent
-FILES=('scored_runner.py','tests_scored_runner.py','validate_outputs.py','lock_runner.py','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','schemas/run-output.schema.json','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py')
+FILES=('scored_runner.py','tests_scored_runner.py','validate_outputs.py','seal_outputs.py','main-cli-contract.fixture.json','lock_runner.py','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','schemas/run-output.schema.json','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  path=ROOT/'runner.lock.json';inp=ROOT/'inputs.lock.json'
