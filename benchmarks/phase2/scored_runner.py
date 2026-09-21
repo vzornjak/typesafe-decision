@@ -210,6 +210,7 @@ def execute(out,rank_fn=dw.rank,main_fn=main_call,dry_run=False):
  os.environ['TYPESAFE_DECISION_LOG']=str(out.parent/'scored-decisions.jsonl')
  for tid,arm,rep in schedule():
   task=load(gate.RUNNER_INPUTS/f'{tid}.json');attempt={}
+  if main_fn is main_call:main_call.last_usage=None
   instrument=arm!='A_no_rank' and rank_fn is dw.rank
   if instrument:bind_jev_transport()
   try:
