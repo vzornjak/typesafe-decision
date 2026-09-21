@@ -50,8 +50,11 @@ def main():
         check("valid lock verifies", p2.verify_lock(lock, base) == [])
         (base / "a").write_bytes(b"y")
         check("mutated file breaks lock", bool(p2.verify_lock(lock, base)))
-    ready = p2.validate()
-    check("complete local runner inputs validate before lock", ready["ok"] and ready["public_tasks"] == 20)
+    readiness = p2.validate()
+    if p2.RUNNER_INPUTS.exists():
+        check("complete local runner inputs validate before lock", readiness["ok"] and readiness["public_tasks"] == 20)
+    else:
+        check("public clone without custody bundle fails closed", not readiness["ok"] and any("unresolved placeholder" in e for e in readiness["errors"]))
     check("input lock has not been created prematurely", not p2.INPUT_LOCK.exists())
     saved_public = p2.PUBLIC
     saved_runner = p2.RUNNER_INPUTS
