@@ -14,7 +14,7 @@ def audit(out):
  historic=json.loads(lock.read_text()); proof=json.loads(seal.read_text())
  if proof.get('kind')!='phase2_strict_output_seal':errors.append('seal_kind_invalid')
  if proof.get('output_lock_sha256')!=sha(lock):errors.append('seal_output_lock_hash_mismatch')
- if proof.get('input_lock_sha256')!=sha(gate.INPUT_LOCK):errors.append('seal_input_lock_hash_mismatch')
+ if not gate.INPUT_LOCK.is_file() or proof.get('input_lock_sha256')!=sha(gate.INPUT_LOCK):errors.append('seal_input_lock_hash_mismatch')
  for row in historic.get('files',[]):
   p=out/row['path']
   if not p.is_file() or sha(p)!=row['sha256']:errors.append('output_file_mismatch:'+row['path'])
