@@ -190,7 +190,7 @@ def lock_inputs(args):
     if INPUT_LOCK.exists(): return {"ok": False, "errors": ["inputs.lock.json already exists; never overwrite a lock"]}
     report = validate()
     if not report["ok"]: return report
-    tracked = [ROOT / "PREREGISTRATION.md", ROOT / "ROLES.md", ROOT / "DEVELOPMENT-RECORD.md", ROOT / "CORPUS-STATUS.md"] + [CONFIG / x for x in REQUIRED_CONFIGS]
+    tracked = [ROOT / "PREREGISTRATION.md", ROOT / "ROLES.md", ROOT / "DEVELOPMENT-RECORD.md", ROOT / "CORPUS-STATUS.md", ROOT / "DEVIATIONS.md"] + [CONFIG / x for x in REQUIRED_CONFIGS]
     tracked += files_under(ROOT / "schemas") + files_under(ROOT / "prompts") + files_under(PUBLIC)
     tracked += files_under(RUNNER_INPUTS)
     tracked += files_under(ROOT / "builder-provenance")
