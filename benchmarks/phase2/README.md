@@ -33,13 +33,13 @@ python3 benchmarks/phase2/tools/phase2.py validate
 python3 benchmarks/phase2/tools/phase2.py lock-inputs \
   --actor dataset-builder --note 'Phase 2 v1 input freeze'
 
-# After every expected model/answer artifact exists
-python3 benchmarks/phase2/tools/phase2.py lock-outputs \
+# After every expected model/answer artifact exists, run the strict seal.
+# The historical lock-outputs command alone is INSUFFICIENT and cannot authorize unblinding.
+python3 benchmarks/phase2/seal_outputs.py \
   --outputs /path/to/isolated/outputs --actor experiment-runner
 
-# Before gold is made available to evaluation
-python3 benchmarks/phase2/tools/phase2.py audit-pre-unblind \
-  --outputs /path/to/isolated/outputs
+# The evaluator MUST run the supplementary pre-unblind verifier and require ok=true.
+python3 benchmarks/phase2/audit_unblind.py /path/to/isolated/outputs
 ```
 
 Commands fail closed while required configuration fields, prompts, tasks, role declarations, or output artifacts are missing.

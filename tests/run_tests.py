@@ -140,6 +140,10 @@ def stage_output_seal():
     return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_output_seal.py"))
 
 
+def stage_pre_unblind():
+    return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_audit_unblind.py"))
+
+
 def stage_main_anthropic():
     return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_main_anthropic.py"))
 
@@ -206,6 +210,7 @@ STAGES = [
     ("scored_runner", stage_scored_runner),
     ("scoped_inputs", stage_scoped_inputs),
     ("output_seal", stage_output_seal),
+    ("pre_unblind", stage_pre_unblind),
     ("main_anthropic", stage_main_anthropic),
     ("minis_relay", stage_minis_relay),
     ("cost_model", stage_cost_model),
@@ -236,7 +241,7 @@ def _summary(name, detail):
                                            "version", "schema_version")}
     if name == "selftest":
         return {k: detail.get(k) for k in ("tests", "version")}
-    if name in ("phase2_protocol", "scored_runner", "scoped_inputs", "output_seal", "main_anthropic", "minis_relay", "cost_model"):
+    if name in ("phase2_protocol", "scored_runner", "scoped_inputs", "output_seal", "pre_unblind", "main_anthropic", "minis_relay", "cost_model"):
         return {k: detail.get(k) for k in ("tests", "failures")}
     if name == "fixture_integrity":
         return {"files": detail.get("files"), "label": detail.get("label")}
