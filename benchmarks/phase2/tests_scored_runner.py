@@ -22,6 +22,7 @@ def main():
  design=json.loads((ROOT/'config'/'design.json').read_text());execution=json.loads((ROOT/'config'/'execution.json').read_text())
  check('different scored repetition seeds',r.seed(t['task_id'],'B_winner_top8',1)!=r.seed(t['task_id'],'B_winner_top8',2))
  check('different arm seeds',r.seed(t['task_id'],'B_winner_top8',1)!=r.seed(t['task_id'],'C_shortlist_default',1))
+ check('baseline retains exact corpus order',r.candidates(t,'A_no_rank',0)==t['candidates'])
  check('deterministic candidate permutation',r.candidates(t,'B_winner_top8',1)==r.candidates(t,'B_winner_top8',1))
  check('winner scores top eight',len(r.choose(t,r.candidates(t,'B_winner_top8',1),'B_winner_top8',design,stub_rank)[0])==8)
  check('shortlist selected four',len(r.choose(t,r.candidates(t,'C_shortlist_default',1),'C_shortlist_default',design,stub_rank)[0])==4)

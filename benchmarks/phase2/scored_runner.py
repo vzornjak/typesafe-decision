@@ -17,7 +17,7 @@ def seed(task,arm,rep):
  return int.from_bytes(hashlib.sha256(f'phase2-v1-candidate-order:{task}:{arm}:{rep}'.encode()).digest()[:8],'big')
 def candidates(task,arm,rep):
  c=list(task['candidates'])
- random.Random(seed(task['task_id'],arm,rep)).shuffle(c)
+ if arm!='A_no_rank': random.Random(seed(task['task_id'],arm,rep)).shuffle(c)
  return c
 def rank_request(task,cands,arm,design):
  obj={'query':task['query'],'candidates':[{'id':c['candidate_id'],'title':c['title'],'url':c['url'],'domain':c['domain'],'text':c['content']} for c in cands]}
