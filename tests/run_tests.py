@@ -148,6 +148,10 @@ def stage_minis_relay():
     return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_relay.py"))
 
 
+def stage_cost_model():
+    return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_cost_model.py"))
+
+
 def stage_secret_scan():
     hits = []
     for p in iter_files():
@@ -204,6 +208,7 @@ STAGES = [
     ("output_seal", stage_output_seal),
     ("main_anthropic", stage_main_anthropic),
     ("minis_relay", stage_minis_relay),
+    ("cost_model", stage_cost_model),
     ("fixture_integrity", stage_fixtures),
     ("secret_scan", stage_secret_scan),
     ("absolute_path_scan", stage_path_scan),
@@ -231,7 +236,7 @@ def _summary(name, detail):
                                            "version", "schema_version")}
     if name == "selftest":
         return {k: detail.get(k) for k in ("tests", "version")}
-    if name in ("phase2_protocol", "scored_runner", "scoped_inputs", "output_seal", "main_anthropic", "minis_relay"):
+    if name in ("phase2_protocol", "scored_runner", "scoped_inputs", "output_seal", "main_anthropic", "minis_relay", "cost_model"):
         return {k: detail.get(k) for k in ("tests", "failures")}
     if name == "fixture_integrity":
         return {"files": detail.get("files"), "label": detail.get("label")}

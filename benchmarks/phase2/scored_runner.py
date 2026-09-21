@@ -119,7 +119,7 @@ def preflight():
   raise RuntimeError('runner_commit_mismatch')
  for name,h in rlock.get('files',{}).items():
   if not (ROOT/name).is_file() or sha((ROOT/name).read_bytes())!=h: raise RuntimeError('runner_file_mismatch:'+name)
- if not {'scored_runner.py','scoped_inputs.py','main_relay.py','relay_minis.py','main_anthropic.py','tests_main_anthropic.py','lock_runner.py','validate_outputs.py','seal_outputs.py','main-cli-contract.fixture.json','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
+ if not {'scored_runner.py','cost_model.py','tests_cost_model.py','COST-GATE-AMENDMENT.md','scoped_inputs.py','main_relay.py','relay_minis.py','main_anthropic.py','tests_main_anthropic.py','lock_runner.py','validate_outputs.py','seal_outputs.py','main-cli-contract.fixture.json','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
   raise RuntimeError('incomplete_runner_lock')
  if os.environ.get('PHASE2_SCOPED_RUNNER')!='1' and subprocess.check_output(['git','-C',str(REPO),'status','--porcelain'],text=True).strip():
   raise RuntimeError('runner_worktree_dirty')
