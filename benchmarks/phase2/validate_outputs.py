@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Additional fail-closed Phase 2 output validation; does not edit input-locked tool."""
-import json,re
+import json,re,hashlib
 from pathlib import Path
 from tools import phase2 as gate
+import scored_runner as runner
 
 def validate(out):
  out=Path(out); expected=set(gate.expected_output_names())
@@ -30,6 +31,19 @@ def validate(out):
     if arm!='A_no_rank' and models.get('jev_served')!='jev-1.13.0':errors.append('jev_model_drift:'+name)
     if not isinstance(sel.get('prompt_sha256'),str) or len(sel['prompt_sha256'])!=64:errors.append('prompt_hash_missing:'+name)
     if not isinstance(sel.get('selected_ids'),list) or not sel['selected_ids']:errors.append('selection_missing:'+name)
+    else:
+     source=gate.RUNNER_INPUTS/(task+'.json')
+     if source.exists():
+      locked=json.loads(source.read_text(encoding='utf-8'))
+      allowed={c['candidate_id'] for c in locked['candidates']}
+      if locked['task_id']!=task or len(sel['selected_ids'])!=len(set(sel['selected_ids'])) or not set(sel['selected_ids'])<=allowed:
+       errors.append('selected_ids_invalid:'+name)
+      else:
+       expected_hash=hashlib.sha256(runner.prompt(locked,sel['selected_ids']).encode()).hexdigest()
+       if sel.get('prompt_sha256')!=expected_hash:errors.append('prompt_hash_mismatch:'+name)
+       expected_order=[c['candidate_id'] for c in runner.candidates(locked,arm,int(rep[3:]))]
+       if sel.get('candidate_order')!=expected_order:errors.append('candidate_order_mismatch:'+name)
+     else:errors.append('locked_task_missing:'+name)
   except Exception as e:errors.append('invalid_json:'+name+':'+type(e).__name__)
  return {'ok':not errors,'errors':errors,'files':len(actual)}
 if __name__=='__main__':

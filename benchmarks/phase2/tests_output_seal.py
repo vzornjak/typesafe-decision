@@ -33,6 +33,8 @@ def main():
    x['usage']['main_input_tokens']=None;p.write_text(json.dumps(x));checks.append(check('unknown usage rejected',not validator.validate(out)['ok']));p.write_text(original)
    x=json.loads(original);x['accounting_status']='unknown';p.write_text(json.dumps(x));checks.append(check('unknown billed attempt rejected',not validator.validate(out)['ok']));p.write_text(original)
    x=json.loads(original);x['usage']['main_cache_read_input_tokens']=None;p.write_text(json.dumps(x));checks.append(check('unknown cache usage rejected',not validator.validate(out)['ok']));p.write_text(original)
+   x=json.loads(original);x['selection']['prompt_sha256']='0'*64;p.write_text(json.dumps(x));checks.append(check('forged prompt hash rejected',not validator.validate(out)['ok']));p.write_text(original)
+   x=json.loads(original);x['selection']['candidate_order']=list(reversed(x['selection']['candidate_order']));p.write_text(json.dumps(x));checks.append(check('candidate order drift rejected',not validator.validate(out)['ok']));p.write_text(original)
    x=json.loads(original);x['selection']['status']='failed';p.write_text(json.dumps(x));checks.append(check('failed run rejected',not validator.validate(out)['ok']));p.write_text(original)
    p.unlink();checks.append(check('missing row rejected',not validator.validate(out)['ok']))
   finally:runner.gate.RUNNER_INPUTS=old_inputs;runner.gate.INPUT_LOCK=old_lock;runner.preflight=old_preflight
