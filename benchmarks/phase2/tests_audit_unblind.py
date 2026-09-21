@@ -14,6 +14,6 @@ def main():
   x=a.audit(out);assert not x['ok'] and 'strict_output_seal_missing' in x['errors'];checks.append('historical-only lock rejected')
   seal={'kind':'phase2_strict_output_seal','output_lock_sha256':hashlib.sha256((out/'outputs.lock.json').read_bytes()).hexdigest(),'input_lock_sha256':'wrong'}
   (Path(td)/'strict-output-seal.json').write_text(json.dumps(seal))
-  x=a.audit(out);assert not x['ok'] and 'seal_input_lock_hash_mismatch' in x['errors'];checks.append('wrong input hash rejected')
+  x=a.audit(out);assert not x['ok'] and 'historical_output_lock_not_authorized' in x['errors'];checks.append('historical output lock cannot authorize unblinding')
  print(json.dumps({'ok':True,'tests':len(checks),'checks':checks}));return 0
 if __name__=='__main__':sys.exit(main())

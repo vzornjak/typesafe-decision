@@ -434,7 +434,14 @@ Not currently approved. It additionally requires domain calibration, consequence
 - **Protocol compatibility:** The original 91-file `inputs.lock.json` is immutable and is **not** rewritten. `benchmarks/phase2/COST-GATE-AMENDMENT.md` and `cost_model.py` are a separately hash-locked, preregistered supplement that must be frozen before any scored calls.
 
 
-An amendment must include:
+### A-002 — Phase 2 minimal scored execution boundary (approved 2026-09-21)
+
+- **Reason/evidence:** The first immutable 91-file input lock includes `DEVIATIONS.md` with gold-curator-derived task IDs. A scored runner cannot both mount all 91 files and remain blind. The separately attested Docker allowlist verifies all 91 outside, exactly 48 included inside and 43 deliberately excluded. Repeated read-only audits confirmed the legacy output-lock command cannot run in that scoped environment.
+- **Change:** Preserve the original input lock unchanged as historical provenance. Before scored execution, externally attest its 91 bytes, then use the minimal gold-free snapshot with the `CUSTODY-MANIFEST.json` partition and a supplementary runner lock for the exact executable commit. The scored container verifies the included bytes and proves excluded bytes absent. For results, only `seal_outputs.py` creates the strict 160-file lock; only `audit_unblind.py` may authorize gold access. Legacy `tools/phase2.py lock-outputs` and `audit-pre-unblind` are historical diagnostics and have no authorization under A-002.
+- **Unchanged gates:** 16 locked scored tasks, A/B/C/D arms, repetitions, prompts, model, quality/recall thresholds, A-001 modeled price and unknown-usage abstention all remain as frozen. This is a prospective execution/custody amendment before any scored calls, not a post-hoc change of observations.
+- **Risk and controls:** A locally created scoped manifest could omit required data; outside 91/91 verification, a complete included/excluded partition, all 16 runner tasks, exact runner-code hash and inside-container absence checks are mandatory. A strict output lock must include 160 content hashes and the input, runner and custody attestation hashes; the evaluator independently revalidates bytes and prompt reconstruction before unblinding. Unknown potentially billed usage is `INCONCLUSIVE`, never zero.
+- **Migration/rollback:** No original lock, gold, or historical failures are erased. Restore the previous full-checkout procedure only for a newly approved and newly blinded holdout with no gold-derived files in its input lock; never add excluded files to this holdout to make a legacy command pass.
+
 
 1. the reason and evidence;
 2. affected phases, gates, interfaces, and risks;

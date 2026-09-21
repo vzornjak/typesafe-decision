@@ -57,6 +57,9 @@ Commands fail closed while required configuration fields, prompts, tasks, role d
 - `DEVELOPMENT-RECORD.md` — public summary of synthetic tuning, without curator labels or raw outputs.
 - `private-development/` — gitignored local custody; never confirmatory evidence.
 - `source-cache/`, `materialized-scored/`, `runner-inputs/` — gitignored local source text and final scored runner input, committed by hash rather than republished.
-- `tools/` — local validation, hashing, and leakage-audit utilities.
+- `EXECUTION-AMENDMENT.md` — approved A-002: minimal scoped execution boundary, historical lock preserved.
+- `seal_outputs.py` — only authorized strict 160-output locking route; never use legacy `tools/phase2.py lock-outputs` for scored results.
+- `audit_unblind.py` — the only gate whose `ok=true` may authorize gold access; historical `audit-pre-unblind` is not an authorization under A-002.
+- `tools/` — historical input-lock validation, local hashing, and leakage-audit utilities.
 
 The old contaminated shortlist experiment is excluded by design and remains only a documented retraction elsewhere in the repository.
