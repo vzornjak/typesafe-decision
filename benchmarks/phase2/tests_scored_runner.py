@@ -27,9 +27,14 @@ def main():
  for arm,rep in [('A_no_rank',0),('B_winner_top8',1),('C_shortlist_default',1),('D_shortlist_tuned',1)]:
   row=r.artifact(t,arm,rep,design,execution,stub_rank,stub_main)
   check('artifact '+arm,row['arm_id']==arm and row['models']['main']==execution['main']['model'] and row['usage']['main_input_tokens']==500)
- check('schedule exactly 160',len(r.schedule())==160)
+ check('schedule exactly 160 with local custody bundle',len(r.schedule())==160 if r.gate.RUNNER_INPUTS.exists() else len(r.schedule())==0)
  with tempfile.TemporaryDirectory() as td:
-  saved=r.preflight
+  saved=r.preflight; saved_inputs=r.gate.RUNNER_INPUTS
+  synthetic=Path(td)/'runner-inputs';synthetic.mkdir()
+  for i in range(1,17):
+   x=task();x['task_id']=f'p2-score-en-{i:02d}'
+   (synthetic/f"{x['task_id']}.json").write_text(json.dumps(x),encoding='utf-8')
+  r.gate.RUNNER_INPUTS=synthetic
   r.preflight=lambda: {'test_lock':True}
   out=Path(td)/'outputs'
   try:
@@ -39,7 +44,7 @@ def main():
    check('exactly 160 output JSON files',len(list(out.glob('*.json')))==160)
    failed=json.loads((out/'p2-score-en-01__B_winner_top8__rep1.json').read_text())
    check('failure is explicit abstention',failed['selection']['status']=='failed' and failed['answer']=='')
-  finally:r.preflight=saved
+  finally:r.preflight=saved;r.gate.RUNNER_INPUTS=saved_inputs
  with tempfile.TemporaryDirectory() as td:
   saved=r.gate.INPUT_LOCK;r.gate.INPUT_LOCK=Path(td)/'nonexistent.json'
   try:
