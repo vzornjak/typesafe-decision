@@ -15,7 +15,8 @@ def main():
     rows=[]
     for i in range(16):
         for arm,reps,u in [('A_no_rank',1,a),('C_shortlist_default',3,c)]:
-            rows.extend({'task_id':f't{i:02}', 'arm_id':arm,'selection':{'status':'completed'},'usage':u,'accounting_status':'complete','accounting_attempts':[{'status':'accepted','usage_complete':True}]} for _ in range(reps))
+            attempt={'provider':'main','status':'accepted','usage_complete':True} if arm=='A_no_rank' else {'provider':'jev','status':'received','usage_complete':True}
+            rows.extend({'task_id':f't{i:02}', 'arm_id':arm,'selection':{'status':'completed'},'usage':u,'accounting_status':'complete','accounting_attempts':[attempt]} for _ in range(reps))
     result=m.paired_gate(rows,prices)
     check('paired positive modeled gate',result['decision']=='PASS')
     check('mean and A/C ratio reported',float(result['modeled_mean_savings_usd_per_task'])>0 and 0<float(result['modeled_cost_ratio_shortlist_to_baseline'])<1)

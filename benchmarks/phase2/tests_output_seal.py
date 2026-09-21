@@ -16,8 +16,24 @@ def check(name,value):
  if not value:raise AssertionError(name)
  return name
 
+def _transport_probe():
+ old=runner.tsc.TRANSPORT
+ class Fake:
+  def __call__(self,url,body,headers,timeout):
+   return 200,{},json.dumps({'usage':{'input_tokens':11,'output_tokens':2}}).encode()
+ runner.tsc.set_transport(Fake())
+ try:
+  runner.bind_jev_transport()
+  status,_,raw=runner.tsc.TRANSPORT('https://unit.invalid',b'{}',{},1)
+  attempts=list(runner.recorded_transport.attempts)
+  ranking={'api_attempts':1,'api_responses_received':1,'api_calls':1,'total_usage':{'input_tokens':11,'output_tokens':2}}
+  return status==200 and attempts[0]['status']=='received' and runner.reconciled_jev_attempts(ranking,attempts)
+ finally:
+  runner.unbind_jev_transport();runner.tsc.set_transport(old)
+
 def main():
  checks=[]
+ checks.append(check('recorded Jev transport closes on actual 200 envelope',_transport_probe()))
  with tempfile.TemporaryDirectory() as td:
   root=Path(td); inputs=root/'runner-inputs';inputs.mkdir()
   for i in range(16):
@@ -28,7 +44,7 @@ def main():
    row=old_artifact(task,arm,rep,design,execution,rank_fn,main_fn,attempt)
    if arm!='A_no_rank':
     row['accounting_status']='complete'
-    row['accounting_attempts']=[{'provider':'jev','status':'accepted','usage_complete':True,'usage':{'input_tokens':100,'output_tokens':20}} for _ in range(1)]+row['accounting_attempts']
+    row['accounting_attempts']=[{'provider':'jev','status':'received','http_status':200,'usage_complete':True,'usage':{'input_tokens':100,'output_tokens':20}} for _ in range(1)]+row['accounting_attempts']
    return row
   runner.artifact=synthetic_artifact
   try:

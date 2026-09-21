@@ -46,7 +46,7 @@ def paired_gate(rows,prices):
         if row.get('accounting_status')!='complete':raise CostUnknown('unreconciled_attempts')
         attempts=row.get('accounting_attempts')
         if not isinstance(attempts,list) or not attempts:raise CostUnknown('attempt_ledger_missing')
-        if any(not isinstance(a,dict) or a.get('status')!='accepted' or a.get('usage_complete') is not True for a in attempts):raise CostUnknown('unreconciled_attempts')
+        if any(not isinstance(a,dict) or a.get('usage_complete') is not True or a.get('status')!=('received' if a.get('provider')=='jev' else 'accepted') for a in attempts):raise CostUnknown('unreconciled_attempts')
         tasks.setdefault(task,{}).setdefault(arm,[]).append(modeled_run(row.get('usage'),prices,arm))
     if len(tasks)!=16:raise CostUnknown('expected_16_tasks')
     diffs=[];baselines=[];shortlists=[]

@@ -25,7 +25,7 @@ def validate(out):
     usage=row.get('usage',{});models=row.get('models',{});sel=row.get('selection',{})
     if not isinstance(usage,dict) or any(type(usage.get(k)) is not int or usage[k]<0 for k in ('jev_input_tokens','jev_output_tokens','main_input_tokens','main_output_tokens','main_cache_read_input_tokens','main_cache_creation_input_tokens')):errors.append('invalid_usage:'+name)
     attempts=row.get('accounting_attempts')
-    if row.get('accounting_status')!='complete' or not isinstance(attempts,list) or not attempts or any(not isinstance(a,dict) or a.get('status')!='accepted' or a.get('usage_complete') is not True for a in attempts):
+    if row.get('accounting_status')!='complete' or not isinstance(attempts,list) or not attempts or any(not isinstance(a,dict) or a.get('usage_complete') is not True or a.get('status')!=('received' if a.get('provider')=='jev' else 'accepted') for a in attempts):
      errors.append('incomplete_accounting:'+name)
     if arm!='A_no_rank':
      ranking=sel.get('ranking') or {};jev=[a for a in attempts if isinstance(a,dict) and a.get('provider')=='jev'];main=[a for a in attempts if isinstance(a,dict) and a.get('provider')=='main']
