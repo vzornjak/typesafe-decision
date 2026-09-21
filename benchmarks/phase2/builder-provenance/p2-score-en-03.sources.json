@@ -43,8 +43,10 @@
     },
     {
       "candidate_id": "c09",
-      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act",
-      "reuse_class": "open-reuse"
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-governance-and-enforcement",
+      "reuse_class": "open-reuse",
+      "replaces_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act",
+      "replacement_reason": "replacement-1 soft-error; official governance page browser-verified"
     },
     {
       "candidate_id": "c10",

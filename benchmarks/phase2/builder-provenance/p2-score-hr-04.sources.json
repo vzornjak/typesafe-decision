@@ -8,18 +8,24 @@
     },
     {
       "candidate_id": "c02",
-      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-data-protection-impact-assessment-dpia-and_en",
-      "reuse_class": "link-or-short-excerpt-only"
+      "url": "https://www.edpb.europa.eu/sme-data-protection-guide/secure-personal-data_en",
+      "reuse_class": "link-or-short-excerpt-only",
+      "replaces_url": "https://www.edpb.europa.eu/sme-data-protection-guide/respect-individuals-rights/data-protection-impact-assessment_en",
+      "replacement_reason": "DPIA route soft-error; current EDPB security/DPIA context browser-verified"
     },
     {
       "candidate_id": "c03",
-      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-42019-article-25-data-protection-design-and_en",
-      "reuse_class": "link-or-short-excerpt-only"
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/art_25/oj",
+      "reuse_class": "open-reuse",
+      "replaces_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-42019-article-25-data-protection-design-and_en",
+      "replacement_reason": "EDPB Article 25 route thin/soft-error; use browser-verified official Article 25 as intentional near-duplicate"
     },
     {
       "candidate_id": "c04",
-      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-012021-examples-regarding-data-breach_en",
-      "reuse_class": "link-or-short-excerpt-only"
+      "url": "https://www.edpb.europa.eu/sme-data-protection-guide/data-breaches_en",
+      "reuse_class": "link-or-short-excerpt-only",
+      "replaces_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-012021-examples-regarding-data-breach_en",
+      "replacement_reason": "old examples guideline route soft-errors; reuse current live breach guide as intentional near-duplicate"
     },
     {
       "candidate_id": "c05",

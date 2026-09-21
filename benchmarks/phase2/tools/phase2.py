@@ -15,6 +15,7 @@ ROOT = HERE.parent
 REPO = ROOT.parent.parent
 CONFIG = ROOT / "config"
 PUBLIC = ROOT / "public"
+RUNNER_INPUTS = ROOT / "runner-inputs"
 INPUT_LOCK = ROOT / "inputs.lock.json"
 OUTPUT_LOCK_NAME = "outputs.lock.json"
 GOLD_NAMES = {"gold", "gold.json", "gold.jsonl", "labels", "answer_key"}
@@ -136,7 +137,11 @@ def validate():
     if incomplete: errors.append("execution config incomplete: " + ", ".join(incomplete))
     tasks = []
     if PUBLIC.exists():
-        tasks = sorted(p for p in PUBLIC.glob("*.json") if p.name != "MANIFEST.json")
+        tasks.extend(sorted(PUBLIC.glob("p2-dev-*.json")))
+    if RUNNER_INPUTS.exists():
+        tasks.extend(sorted(p for p in RUNNER_INPUTS.glob("p2-score-*.json")))
+    elif PUBLIC.exists():
+        tasks.extend(sorted(PUBLIC.glob("p2-score-*.json")))
     for p in tasks:
         try:
             doc = load(p); errors.extend(validate_task(doc, p.relative_to(REPO))); hits = scan_gold(doc)
@@ -187,6 +192,7 @@ def lock_inputs(args):
     if not report["ok"]: return report
     tracked = [ROOT / "PREREGISTRATION.md", ROOT / "ROLES.md", ROOT / "DEVELOPMENT-RECORD.md", ROOT / "CORPUS-STATUS.md"] + [CONFIG / x for x in REQUIRED_CONFIGS]
     tracked += files_under(ROOT / "schemas") + files_under(ROOT / "prompts") + files_under(PUBLIC)
+    tracked += files_under(RUNNER_INPUTS)
     tracked += files_under(ROOT / "builder-provenance")
     rows = manifest(ROOT, sorted(set(tracked)))
     doc = {
@@ -215,7 +221,8 @@ def verify_lock(lock_path, base):
 
 def expected_output_names():
     design = load(CONFIG / "design.json")
-    task_ids = [load(p)["task_id"] for p in sorted(PUBLIC.glob("*.json")) if load(p)["task_id"].startswith("p2-score-")]
+    task_root = RUNNER_INPUTS if RUNNER_INPUTS.exists() else PUBLIC
+    task_ids = [load(p)["task_id"] for p in sorted(task_root.glob("p2-score-*.json"))]
     names = []
     for tid in task_ids:
         names.append(f"{tid}__A_no_rank__rep0.json")
@@ -252,7 +259,7 @@ def audit_pre_unblind(args):
     else: errors.extend(verify_lock(INPUT_LOCK, ROOT))
     if not lock.exists(): errors.append("missing outputs.lock.json")
     else: errors.extend(verify_lock(lock, out))
-    for p in files_under(PUBLIC):
+    for p in files_under(RUNNER_INPUTS if RUNNER_INPUTS.exists() else PUBLIC):
         if p.suffix.lower() == ".json":
             try:
                 hits = scan_gold(load(p))

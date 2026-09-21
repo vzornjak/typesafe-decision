@@ -43,8 +43,10 @@
     },
     {
       "candidate_id": "c09",
-      "url": "https://www.who.int/publications/i/item/9789240091913",
-      "reuse_class": "open-reuse"
+      "url": "https://www.osha.gov/heat-exposure",
+      "reuse_class": "public-domain",
+      "replaces_url": "https://www.who.int/europe/news-room/fact-sheets/item/heat-and-health",
+      "replacement_reason": "WHO replacement 404; OSHA heat overview browser-verified"
     },
     {
       "candidate_id": "c10",

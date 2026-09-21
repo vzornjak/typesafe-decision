@@ -48,8 +48,10 @@
     },
     {
       "candidate_id": "c10",
-      "url": "https://www.fda.gov/medical-devices/vitro-diagnostics/blood-pressure-monitoring-devices",
-      "reuse_class": "public-domain"
+      "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/treatment",
+      "reuse_class": "public-domain",
+      "replaces_url": "https://www.fda.gov/medical-devices/vitro-diagnostics/blood-pressure-monitoring-devices",
+      "replacement_reason": "browser-confirmed FDA 404; use adjacent NHLBI treatment/lifestyle context"
     }
   ]
 }

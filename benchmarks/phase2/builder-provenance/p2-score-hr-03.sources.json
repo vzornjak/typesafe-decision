@@ -28,8 +28,10 @@
     },
     {
       "candidate_id": "c06",
-      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/passenger-rights-campaign/air-passenger-rights_en",
-      "reuse_class": "open-reuse"
+      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights_en",
+      "reuse_class": "open-reuse",
+      "replaces_url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/passenger-rights-campaign/air-passenger-rights_en",
+      "replacement_reason": "browser-confirmed 404; use official general passenger-rights overview as partial candidate"
     },
     {
       "candidate_id": "c07",
@@ -38,8 +40,10 @@
     },
     {
       "candidate_id": "c08",
-      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/legislation-air-passenger-rights_en",
-      "reuse_class": "open-reuse"
+      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/air-passenger-rights_en",
+      "reuse_class": "open-reuse",
+      "replaces_url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/legislation-air-passenger-rights_en",
+      "replacement_reason": "browser-confirmed 404; use current official air-passenger-rights overview"
     },
     {
       "candidate_id": "c09",

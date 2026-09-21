@@ -50,21 +50,23 @@ def main():
         check("valid lock verifies", p2.verify_lock(lock, base) == [])
         (base / "a").write_bytes(b"y")
         check("mutated file breaks lock", bool(p2.verify_lock(lock, base)))
-    draft = p2.validate()
-    check("draft cannot lock with incomplete execution and tasks", not draft["ok"] and bool(draft["errors"]))
+    ready = p2.validate()
+    check("complete local runner inputs validate before lock", ready["ok"] and ready["public_tasks"] == 20)
+    check("input lock has not been created prematurely", not p2.INPUT_LOCK.exists())
     saved_public = p2.PUBLIC
+    saved_runner = p2.RUNNER_INPUTS
     saved_config = p2.CONFIG
     with tempfile.TemporaryDirectory() as td:
         base = Path(td); pub = base / "public"; cfg = base / "config"; pub.mkdir(); cfg.mkdir()
         (cfg / "design.json").write_text(json.dumps({"scored_tasks": 1}), encoding="utf-8")
         scored = task(); scored["task_id"] = "p2-score-en-01"
-        (pub / "task.json").write_text(json.dumps(scored), encoding="utf-8")
-        p2.PUBLIC = pub; p2.CONFIG = cfg
+        (pub / "p2-score-en-01.json").write_text(json.dumps(scored), encoding="utf-8")
+        p2.PUBLIC = pub; p2.RUNNER_INPUTS = pub; p2.CONFIG = cfg
         names = p2.expected_output_names()
         check("output schedule has ten artifacts per scored task", len(names) == 10)
         check("output schedule has one baseline artifact", sum("A_no_rank" in n for n in names) == 1)
         check("output schedule has three repetitions per model arm", all(sum(arm in n for n in names) == 3 for arm in ("B_winner_top8", "C_shortlist_default", "D_shortlist_tuned")))
-        p2.PUBLIC = saved_public; p2.CONFIG = saved_config
+        p2.PUBLIC = saved_public; p2.RUNNER_INPUTS = saved_runner; p2.CONFIG = saved_config
     result = {"ok": all(x["ok"] for x in checks), "tests": len(checks), "failures": [x for x in checks if not x["ok"]]}
     print(json.dumps(result, indent=2))
     return 0 if result["ok"] else 1

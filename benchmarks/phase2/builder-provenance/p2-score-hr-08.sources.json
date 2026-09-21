@@ -43,13 +43,17 @@
     },
     {
       "candidate_id": "c09",
-      "url": "https://energy-efficient-products.ec.europa.eu/product-list/boilers_en",
-      "reuse_class": "open-reuse"
+      "url": "https://energy-efficient-products.ec.europa.eu/product-list/local-space-heaters_en",
+      "reuse_class": "open-reuse",
+      "replaces_url": "https://energy-efficient-products.ec.europa.eu/product-list/boilers_en",
+      "replacement_reason": "old boilers slug 404; use related official heater category as partial candidate"
     },
     {
       "candidate_id": "c10",
-      "url": "https://energy-efficient-products.ec.europa.eu/product-list/heat-pumps_en",
-      "reuse_class": "open-reuse"
+      "url": "https://www.energystar.gov/products/clothes_dryers",
+      "reuse_class": "public-domain",
+      "replaces_url": "https://www.energystar.gov/products/heat_pumps",
+      "replacement_reason": "heat-pump replacement 404; intentional off-topic appliance-energy distractor browser-verified"
     }
   ]
 }

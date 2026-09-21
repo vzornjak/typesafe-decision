@@ -14,7 +14,7 @@
   "complexity": {"moderate_2_to_3_requirements": 8, "complex_4_to_6_requirements": 8},
   "candidate_count": {"minimum": 10, "maximum": 16},
   "arms": {
-    "A_no_rank": {"jev_runs": 0, "main_runs_per_task": 1},
+    "A_no_rank": {"jev_runs": 0, "main_runs_per_task": 1, "candidate_content_ceiling_chars": 120000, "truncation_forbidden": true},
     "B_winner_top8": {"jev_runs": 3, "main_runs_per_task": 3, "k": 8},
     "C_shortlist_default": {
       "jev_runs": 3,

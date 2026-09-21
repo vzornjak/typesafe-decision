@@ -52,10 +52,11 @@ Commands fail closed while required configuration fields, prompts, tasks, role d
 - `config/decision-gates.json` — confirmatory PASS/FAIL/INCONCLUSIVE thresholds.
 - `config/metadata-policy.json` — public/gold field boundary.
 - `schemas/` — public input and sealed-gold schemas.
-- `public/` — runner-visible input bundle, containing development tasks and unresolved scored stubs until source extraction is complete.
-- `builder-provenance/` — no-gold task-construction lineage.
+- `public/` — public development tasks plus scored placeholders; when a local `runner-inputs/` bundle exists, scored lock validation uses that bundle instead.
+- `builder-provenance/` — no-gold task/source lineage and content-free corpus hash commitments.
 - `DEVELOPMENT-RECORD.md` — public summary of synthetic tuning, without curator labels or raw outputs.
 - `private-development/` — gitignored local custody; never confirmatory evidence.
+- `source-cache/`, `materialized-scored/`, `runner-inputs/` — gitignored local source text and final scored runner input, committed by hash rather than republished.
 - `tools/` — local validation, hashing, and leakage-audit utilities.
 
 The old contaminated shortlist experiment is excluded by design and remains only a documented retraction elsewhere in the repository.

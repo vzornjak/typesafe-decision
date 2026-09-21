@@ -1,0 +1,10 @@
+{
+  "kind": "content_free_local_corpus_commitment",
+  "gold_visible": false,
+  "third_party_text_included": false,
+  "materialized_rows": 160,
+  "materialized_aggregate_sha256": "1f2bfc8f13ea4860c6f9803dd94489baa80fdb3a48c1c42aee6a1bea7c2baa1b",
+  "runner_tasks": 16,
+  "runner_candidates": 160,
+  "runner_aggregate_sha256": "bab794731534bea13d483adbafe09dade6a1b46edf935f845bb04da658c38ad8"
+}

@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
-  "status": "draft_values_must_be_completed_before_lock",
+  "status": "ready_for_input_lock_after_clean_commit",
   "software": {
     "repository": "https://github.com/vzornjak/typesafe-decision",
     "required_base_release": "v2.5.0",
-    "commit": "effd0284b1d84d34674cf49ca80ecbb78aa9fc23",
+    "commit": "b349a007d5ff44e299b4904d3a255f257cca6f8f",
     "package_version": "2.5.0",
     "policy_version": "2.5.0",
-    "schema_version": 4
+    "schema_version": 4,
+    "commit_meaning": "audited production algorithm release v2.5.0; input lock separately records preregistration commit"
   },
   "jev": {
     "requested_model": "jev-1.13.0",

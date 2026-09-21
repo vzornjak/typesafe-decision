@@ -38,8 +38,10 @@
     },
     {
       "candidate_id": "c08",
-      "url": "https://www.ftc.gov/legal-library/browse/rules/energy-labeling-rule",
-      "reuse_class": "public-domain"
+      "url": "https://www.energystar.gov/products/clothes_dryers",
+      "reuse_class": "public-domain",
+      "replaces_url": "https://www.ftc.gov/business-guidance/resources/shopping-home-appliances-use-energyguide-label",
+      "replacement_reason": "FTC blocked in both transports; related appliance-label distractor browser-verified"
     },
     {
       "candidate_id": "c09",
