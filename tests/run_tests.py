@@ -132,6 +132,10 @@ def stage_scored_runner():
     return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_scored_runner.py"))
 
 
+def stage_scoped_inputs():
+    return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_scoped_inputs.py"))
+
+
 def stage_output_seal():
     return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_output_seal.py"))
 
@@ -196,6 +200,7 @@ STAGES = [
     ("regressions", stage_regressions),
     ("phase2_protocol", stage_phase2_protocol),
     ("scored_runner", stage_scored_runner),
+    ("scoped_inputs", stage_scoped_inputs),
     ("output_seal", stage_output_seal),
     ("main_anthropic", stage_main_anthropic),
     ("minis_relay", stage_minis_relay),
@@ -226,7 +231,7 @@ def _summary(name, detail):
                                            "version", "schema_version")}
     if name == "selftest":
         return {k: detail.get(k) for k in ("tests", "version")}
-    if name in ("phase2_protocol", "scored_runner", "output_seal", "main_anthropic", "minis_relay"):
+    if name in ("phase2_protocol", "scored_runner", "scoped_inputs", "output_seal", "main_anthropic", "minis_relay"):
         return {k: detail.get(k) for k in ("tests", "failures")}
     if name == "fixture_integrity":
         return {"files": detail.get("files"), "label": detail.get("label")}

@@ -97,20 +97,31 @@ def main_call(prompt_text,execution):
 def preflight():
  if not gate.INPUT_LOCK.exists(): raise RuntimeError('missing_input_lock')
  lock=load(gate.INPUT_LOCK)
- if gate.verify_lock(gate.INPUT_LOCK,gate.ROOT): raise RuntimeError('input_lock_mismatch')
+ if os.environ.get('PHASE2_SCOPED_RUNNER')=='1':
+  import scoped_inputs
+  commit=os.environ.get('PHASE2_ATTESTED_COMMIT')
+  if not commit:raise RuntimeError('missing_attested_runner_commit')
+  try:scoped_inputs.verify(REPO,REPO/'CUSTODY-MANIFEST.json',gate.INPUT_LOCK,commit)
+  except ValueError as e:raise RuntimeError('scoped_input_mismatch:'+str(e)) from None
+ else:
+  if gate.verify_lock(gate.INPUT_LOCK,gate.ROOT): raise RuntimeError('input_lock_mismatch')
  # The original immutable input lock predates this executable. A supplementary
  # runner lock binds the audited code without rewriting that historical lock.
  runner_lock=ROOT/'runner.lock.json'
  if not runner_lock.exists(): raise RuntimeError('missing_runner_lock')
  rlock=load(runner_lock)
  if rlock.get('input_lock_sha256')!=sha(gate.INPUT_LOCK.read_bytes()): raise RuntimeError('runner_input_lock_mismatch')
- if rlock.get('git_commit')!=subprocess.check_output(['git','-C',str(REPO),'rev-parse','HEAD'],text=True).strip():
+ if os.environ.get('PHASE2_SCOPED_RUNNER')=='1':
+  commit=os.environ.get('PHASE2_ATTESTED_COMMIT')
+ else:
+  commit=subprocess.check_output(['git','-C',str(REPO),'rev-parse','HEAD'],text=True).strip()
+ if rlock.get('git_commit')!=commit:
   raise RuntimeError('runner_commit_mismatch')
  for name,h in rlock.get('files',{}).items():
   if not (ROOT/name).is_file() or sha((ROOT/name).read_bytes())!=h: raise RuntimeError('runner_file_mismatch:'+name)
- if not {'scored_runner.py','main_relay.py','relay_minis.py','main_anthropic.py','tests_main_anthropic.py','lock_runner.py','validate_outputs.py','seal_outputs.py','main-cli-contract.fixture.json','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
+ if not {'scored_runner.py','scoped_inputs.py','main_relay.py','relay_minis.py','main_anthropic.py','tests_main_anthropic.py','lock_runner.py','validate_outputs.py','seal_outputs.py','main-cli-contract.fixture.json','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
   raise RuntimeError('incomplete_runner_lock')
- if subprocess.check_output(['git','-C',str(REPO),'status','--porcelain'],text=True).strip():
+ if os.environ.get('PHASE2_SCOPED_RUNNER')!='1' and subprocess.check_output(['git','-C',str(REPO),'status','--porcelain'],text=True).strip():
   raise RuntimeError('runner_worktree_dirty')
  paths={r['path'] for r in lock['files']}
  required={f'runner-inputs/{tid}.json' for tid,_,_ in schedule()}
