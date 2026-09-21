@@ -130,6 +130,45 @@ def preflight():
  if any(k for k in os.environ if 'GOLD' in k.upper() or 'SEALED' in k.upper()): raise RuntimeError('gold_environment_exposure')
  return lock
 
+def recorded_transport(url,body,headers,timeout):
+ """Capture each Jev HTTP attempt; never retain URL/body/header or task text."""
+ recorded_transport.attempts.append({'status':'started','usage_complete':False})
+ row=recorded_transport.attempts[-1]
+ try:
+  status,response_headers,raw=recorded_transport.base(url,body,headers,timeout)
+  row['http_status']=status
+  try:
+   envelope=json.loads(raw.decode('utf-8') if isinstance(raw,(bytes,bytearray)) else raw)
+   usage=envelope.get('usage') if isinstance(envelope,dict) else None
+  except Exception:usage=None
+  if isinstance(usage,dict) and all(type(usage.get(k)) is int and usage[k]>=0 for k in ('input_tokens','output_tokens')):
+   row.update(status='received',usage_complete=True,usage={'input_tokens':usage['input_tokens'],'output_tokens':usage['output_tokens']})
+  else:row.update(status='received',usage_complete=False)
+  return status,response_headers,raw
+ except Exception:
+  row['status']='transport_error';raise
+
+def bind_jev_transport():
+ recorded_transport.attempts=[]
+ recorded_transport.base=tsc.TRANSPORT
+ tsc.set_transport(recorded_transport)
+
+def unbind_jev_transport():
+ if getattr(recorded_transport,'base',None) is not None:
+  tsc.set_transport(recorded_transport.base)
+  recorded_transport.base=None
+
+def reconciled_jev_attempts(ranking,attempts):
+ if not isinstance(attempts,list):return False
+ if not isinstance(ranking,dict):return not attempts
+ count=ranking.get('api_attempts');responses=ranking.get('api_responses_received');accepted=ranking.get('api_calls')
+ if any(type(v) is not int or v<0 for v in (count,responses,accepted)):return False
+ if count!=len(attempts) or responses!=count or accepted!=count:return False
+ if any(a.get('http_status')!=200 or a.get('status')!='received' or a.get('usage_complete') is not True for a in attempts):return False
+ total=ranking.get('total_usage')
+ if not isinstance(total,dict):return False
+ return all(type(total.get(k)) is int and sum(a['usage'][k] for a in attempts)==total[k] for k in ('input_tokens','output_tokens'))
+
 def artifact(task,arm,rep,design,execution,rank_fn,main_fn,attempt=None):
  attempt = attempt if attempt is not None else {}
  started=time.monotonic(); cands=candidates(task,arm,rep); t0=time.monotonic()
@@ -158,8 +197,8 @@ def artifact(task,arm,rep,design,execution,rank_fn,main_fn,attempt=None):
     'main_input_tokens':main_usage['input_tokens'],'main_output_tokens':main_usage['output_tokens'],
     'main_cache_read_input_tokens':main_usage.get('cache_read_input_tokens',0),
     'main_cache_creation_input_tokens':main_usage.get('cache_creation_input_tokens',0)},
-  'accounting_status':'complete' if arm=='A_no_rank' or ((ranking or {}).get('api_attempts')==(ranking or {}).get('api_responses_received')==(ranking or {}).get('api_calls')) else 'unknown',
-  'accounting_attempts':[{'status':'accepted','usage_complete':True}] if arm=='A_no_rank' else [{'status':'accepted' if (ranking or {}).get('api_attempts')==(ranking or {}).get('api_responses_received')==(ranking or {}).get('api_calls') else 'unknown','usage_complete':(ranking or {}).get('api_attempts')==(ranking or {}).get('api_responses_received')==(ranking or {}).get('api_calls')}],
+  'accounting_status':'complete' if arm=='A_no_rank' else 'unknown',
+  'accounting_attempts':[{'provider':'main','status':'accepted','usage_complete':True,'usage':main_usage}],
   'timing':{'jev_ms':jev_ms if arm!='A_no_rank' else 0,'main_ms':main_ms,'end_to_end_ms':round((time.monotonic()-started)*1000)},
   'warnings':warnings}
 
@@ -171,8 +210,14 @@ def execute(out,rank_fn=dw.rank,main_fn=main_call,dry_run=False):
  os.environ['TYPESAFE_DECISION_LOG']=str(out.parent/'scored-decisions.jsonl')
  for tid,arm,rep in schedule():
   task=load(gate.RUNNER_INPUTS/f'{tid}.json');attempt={}
+  instrument=arm!='A_no_rank' and rank_fn is dw.rank
+  if instrument:bind_jev_transport()
   try:
    row=artifact(task,arm,rep,design,execution,rank_fn,main_fn,attempt)
+   if instrument:
+    attempt['jev_transport_attempts']=list(recorded_transport.attempts)
+    row['accounting_attempts']=[{'provider':'jev',**a} for a in attempt['jev_transport_attempts']]+row['accounting_attempts'][-1:]
+    row['accounting_status']='complete' if reconciled_jev_attempts(attempt.get('ranking'),attempt['jev_transport_attempts']) else 'unknown'
   except Exception as e:
    ranking=attempt.get('ranking') or {}; billed=ranking.get('total_usage') or ranking.get('usage') or {}
    mu=attempt.get('main_usage') or (getattr(main_call,'last_usage',None) if main_fn is main_call else None)
@@ -193,6 +238,9 @@ def execute(out,rank_fn=dw.rank,main_fn=main_call,dry_run=False):
         'timing':{'jev_ms':attempt.get('jev_ms'),'main_ms':attempt.get('main_ms'),'end_to_end_ms':None},
         'warnings':['scored_run_failed','usage_unknown_if_null']}
   name=f'{tid}__{arm}__rep{rep}.json';p=out/name
+  if instrument:
+   if row['selection']['status']=='failed':row['accounting_attempts']=[{'provider':'jev',**a} for a in recorded_transport.attempts]
+   unbind_jev_transport()
   with p.open('x',encoding='utf-8') as f:json.dump(row,f,ensure_ascii=False,indent=2);f.write('\n')
   print(json.dumps({'output':name,'completed':len(list(out.glob("*.json"))),'total':160,'status':row['selection']['status']}),flush=True)
  return {'ok':True,'outputs':len(list(out.glob('*.json'))),'input_lock_sha256':sha(gate.INPUT_LOCK.read_bytes())}

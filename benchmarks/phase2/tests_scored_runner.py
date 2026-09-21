@@ -33,6 +33,9 @@ def main():
  malformed=json.loads((ROOT/'main-cli-contract.fixture.json').read_text());malformed['data'].pop('usage')
  try:r.parse_main_response(malformed,execution);raise AssertionError('missing usage accepted')
  except RuntimeError as e:check('MAIN missing usage fails closed',str(e)=='main_usage_missing_or_invalid')
+ check('missing counters cannot reconcile',not r.reconciled_jev_attempts({'total_usage':{'input_tokens':5,'output_tokens':1}},[{'http_status':200,'status':'received','usage_complete':True,'usage':{'input_tokens':5,'output_tokens':1}}]))
+ check('one captured attempt reconciles',r.reconciled_jev_attempts({'api_attempts':1,'api_responses_received':1,'api_calls':1,'total_usage':{'input_tokens':5,'output_tokens':1}},[{'http_status':200,'status':'received','usage_complete':True,'usage':{'input_tokens':5,'output_tokens':1}}]))
+ check('retry without usage cannot reconcile',not r.reconciled_jev_attempts({'api_attempts':2,'api_responses_received':2,'api_calls':1,'total_usage':{'input_tokens':5,'output_tokens':1}},[{'http_status':429,'status':'received','usage_complete':False},{'http_status':200,'status':'received','usage_complete':True,'usage':{'input_tokens':5,'output_tokens':1}}]))
  check('schedule exactly 160 with local custody bundle',len(r.schedule())==160 if r.gate.RUNNER_INPUTS.exists() else len(r.schedule())==0)
  with tempfile.TemporaryDirectory() as td:
   saved=r.preflight; saved_inputs=r.gate.RUNNER_INPUTS

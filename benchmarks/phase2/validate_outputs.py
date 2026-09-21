@@ -27,6 +27,18 @@ def validate(out):
     attempts=row.get('accounting_attempts')
     if row.get('accounting_status')!='complete' or not isinstance(attempts,list) or not attempts or any(not isinstance(a,dict) or a.get('status')!='accepted' or a.get('usage_complete') is not True for a in attempts):
      errors.append('incomplete_accounting:'+name)
+    if arm!='A_no_rank':
+     ranking=sel.get('ranking') or {};jev=[a for a in attempts if isinstance(a,dict) and a.get('provider')=='jev'];main=[a for a in attempts if isinstance(a,dict) and a.get('provider')=='main']
+     n=ranking.get('api_attempts')
+     if type(n) is not int or n<=0 or n!=ranking.get('api_calls') or n!=ranking.get('api_responses_received') or n!=len(jev) or len(main)!=1:
+      errors.append('attempt_count_mismatch:'+name)
+     if any(type(a.get('usage',{}).get(k)) is not int for a in jev for k in ('input_tokens','output_tokens')):
+      errors.append('attempt_usage_missing:'+name)
+     if jev and all(isinstance(a.get('usage'),dict) for a in jev):
+      if sum(a['usage'].get('input_tokens',-1) for a in jev)!=usage.get('jev_input_tokens') or sum(a['usage'].get('output_tokens',-1) for a in jev)!=usage.get('jev_output_tokens'):
+       errors.append('attempt_usage_mismatch:'+name)
+    else:
+     if len(attempts)!=1 or attempts[0].get('provider')!='main':errors.append('baseline_attempt_mismatch:'+name)
     if models.get('main')!='claude-opus-5':errors.append('main_model_drift:'+name)
     if arm!='A_no_rank' and models.get('jev_served')!='jev-1.13.0':errors.append('jev_model_drift:'+name)
     if not isinstance(sel.get('prompt_sha256'),str) or len(sel['prompt_sha256'])!=64:errors.append('prompt_hash_missing:'+name)
