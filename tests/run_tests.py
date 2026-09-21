@@ -128,6 +128,10 @@ def stage_phase2_protocol():
     return ok, doc
 
 
+def stage_scored_runner():
+    return _run_json(os.path.join(ROOT, "benchmarks", "phase2", "tests_scored_runner.py"))
+
+
 def stage_secret_scan():
     hits = []
     for p in iter_files():
@@ -179,6 +183,7 @@ STAGES = [
     ("selftest", stage_selftest),
     ("regressions", stage_regressions),
     ("phase2_protocol", stage_phase2_protocol),
+    ("scored_runner", stage_scored_runner),
     ("fixture_integrity", stage_fixtures),
     ("secret_scan", stage_secret_scan),
     ("absolute_path_scan", stage_path_scan),
@@ -206,7 +211,7 @@ def _summary(name, detail):
                                            "version", "schema_version")}
     if name == "selftest":
         return {k: detail.get(k) for k in ("tests", "version")}
-    if name == "phase2_protocol":
+    if name in ("phase2_protocol", "scored_runner"):
         return {k: detail.get(k) for k in ("tests", "failures")}
     if name == "fixture_integrity":
         return {"files": detail.get("files"), "label": detail.get("label")}
