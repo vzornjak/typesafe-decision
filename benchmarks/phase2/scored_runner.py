@@ -64,6 +64,14 @@ def parse_main_response(response,execution):
  return text,usage,model
 
 def main_call(prompt_text,execution):
+ if os.environ.get('PHASE2_MAIN_TRANSPORT')=='anthropic_direct':
+  import main_anthropic
+  main_call.last_usage=None
+  try:
+   return main_anthropic.call(prompt_text,execution,(ROOT/'prompts/main-system.md').read_text(encoding='utf-8'))
+  except main_anthropic.MainTransportError as e:
+   main_call.last_usage=e.usage
+   raise RuntimeError('main_transport_'+str(e)) from None
  payload={'messages':[{'role':'user','content':prompt_text}]}
  import tempfile
  with tempfile.TemporaryDirectory(prefix='p2-main-') as td:
@@ -93,7 +101,7 @@ def preflight():
   raise RuntimeError('runner_commit_mismatch')
  for name,h in rlock.get('files',{}).items():
   if not (ROOT/name).is_file() or sha((ROOT/name).read_bytes())!=h: raise RuntimeError('runner_file_mismatch:'+name)
- if not {'scored_runner.py','lock_runner.py','validate_outputs.py','seal_outputs.py','main-cli-contract.fixture.json','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
+ if not {'scored_runner.py','main_anthropic.py','tests_main_anthropic.py','lock_runner.py','validate_outputs.py','seal_outputs.py','main-cli-contract.fixture.json','tools/phase2.py','config/execution.json','config/design.json','config/decision-gates.json','config/tuned-arm.json','prompts/main-system.md','prompts/main-user-template.md','../../archi.ai','../../scripts/decision_workflows.py','../../scripts/ts_common.py'}<=set(rlock.get('files',{})):
   raise RuntimeError('incomplete_runner_lock')
  if subprocess.check_output(['git','-C',str(REPO),'status','--porcelain'],text=True).strip():
   raise RuntimeError('runner_worktree_dirty')
