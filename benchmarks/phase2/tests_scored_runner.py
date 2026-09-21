@@ -15,8 +15,8 @@ def stub_rank(obj):
  ids=[c['id'] for c in obj['candidates']]
  return {'model_requested':'jev-1.13.0','models_served':['jev-1.13.0'],'mode':'shortlist' if obj.get('mode')=='shortlist' else 'winner','selection':obj.get('selection'),'decision':'selected' if obj.get('mode')=='shortlist' else ids[0],
          'selected':ids[:4], 'ranking':[{'id':cid,'eligible':True,'score':.99-i*.03} for i,cid in enumerate(ids)],
-         'usage':{'input_tokens':100,'output_tokens':20},'warnings':[]}
-def stub_main(text,config):return ('Synthetic response [c01]',{'input_tokens':500,'output_tokens':8},config['main']['model'])
+         'usage':{'input_tokens':100,'output_tokens':20},'api_attempts':1,'api_responses_received':1,'api_calls':1,'warnings':[]}
+def stub_main(text,config):return ('Synthetic response [c01]',{'input_tokens':500,'output_tokens':8,'cache_read_input_tokens':0,'cache_creation_input_tokens':0},config['main']['model'])
 def main():
  t=task();t['task_id']='p2-score-en-01'
  design=json.loads((ROOT/'config'/'design.json').read_text());execution=json.loads((ROOT/'config'/'execution.json').read_text())

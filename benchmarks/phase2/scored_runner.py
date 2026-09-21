@@ -155,7 +155,11 @@ def artifact(task,arm,rep,design,execution,rank_fn,main_fn,attempt=None):
      'jev_served':None if arm=='A_no_rank' else 'jev-1.13.0','main':model},
   'usage':{'jev_input_tokens':0 if arm=='A_no_rank' else ju.get('input_tokens'),
     'jev_output_tokens':0 if arm=='A_no_rank' else ju.get('output_tokens'),
-    'main_input_tokens':main_usage['input_tokens'],'main_output_tokens':main_usage['output_tokens']},
+    'main_input_tokens':main_usage['input_tokens'],'main_output_tokens':main_usage['output_tokens'],
+    'main_cache_read_input_tokens':main_usage.get('cache_read_input_tokens',0),
+    'main_cache_creation_input_tokens':main_usage.get('cache_creation_input_tokens',0)},
+  'accounting_status':'complete' if arm=='A_no_rank' or ((ranking or {}).get('api_attempts')==(ranking or {}).get('api_responses_received')==(ranking or {}).get('api_calls')) else 'unknown',
+  'accounting_attempts':[{'status':'accepted','usage_complete':True}] if arm=='A_no_rank' else [{'status':'accepted' if (ranking or {}).get('api_attempts')==(ranking or {}).get('api_responses_received')==(ranking or {}).get('api_calls') else 'unknown','usage_complete':(ranking or {}).get('api_attempts')==(ranking or {}).get('api_responses_received')==(ranking or {}).get('api_calls')}],
   'timing':{'jev_ms':jev_ms if arm!='A_no_rank' else 0,'main_ms':main_ms,'end_to_end_ms':round((time.monotonic()-started)*1000)},
   'warnings':warnings}
 
@@ -179,9 +183,13 @@ def execute(out,rank_fn=dw.rank,main_fn=main_call,dry_run=False):
         'answer':'','models':{'jev_requested':None if arm=='A_no_rank' else 'jev-1.13.0',
                             'jev_served':(ranking.get('models_served') or [None])[0],
                             'main':attempt.get('main_model')},
-        'usage':{'jev_input_tokens':billed.get('input_tokens'),'jev_output_tokens':billed.get('output_tokens'),
+        'accounting_status':'unknown',
+  'accounting_attempts':[],
+  'usage':{'jev_input_tokens':billed.get('input_tokens'),'jev_output_tokens':billed.get('output_tokens'),
                  'main_input_tokens':mu.get('input_tokens') if isinstance(mu,dict) else None,
-                 'main_output_tokens':mu.get('output_tokens') if isinstance(mu,dict) else None},
+                 'main_output_tokens':mu.get('output_tokens') if isinstance(mu,dict) else None,
+                 'main_cache_read_input_tokens':mu.get('cache_read_input_tokens') if isinstance(mu,dict) else None,
+                 'main_cache_creation_input_tokens':mu.get('cache_creation_input_tokens') if isinstance(mu,dict) else None},
         'timing':{'jev_ms':attempt.get('jev_ms'),'main_ms':attempt.get('main_ms'),'end_to_end_ms':None},
         'warnings':['scored_run_failed','usage_unknown_if_null']}
   name=f'{tid}__{arm}__rep{rep}.json';p=out/name

@@ -23,6 +23,8 @@ def main():
                              'usage':{'input_tokens':12,'output_tokens':3}})
         a,u,model=m.call('user sample',cfg,'system sample',stub)
         check('parsed response usage',a=='test answer' and u['input_tokens']==12 and model==cfg['main']['model'])
+        check('missing cache usage is explicit zero in uncached request',u['cache_read_input_tokens']==0 and u['cache_creation_input_tokens']==0)
+        check('invalid cache usage is rejected',m.usage_of({'usage':{'input_tokens':12,'output_tokens':3,'cache_read_input_tokens':-1}}) is None)
         try:m.parse({'model':cfg['main']['model'],'stop_reason':'max_tokens','content':[{'type':'text','text':'cut'}],'usage':{'input_tokens':5,'output_tokens':3}},cfg['main']['model']);raise AssertionError('accepted truncation')
         except m.MainTransportError as e:check('truncation retains known usage',e.usage['input_tokens']==5)
         def failed(request,timeout):raise urllib.error.HTTPError(m.API,429,'limited',{},io.BytesIO(b'{}'))

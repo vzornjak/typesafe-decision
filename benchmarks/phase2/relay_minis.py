@@ -46,7 +46,12 @@ class Handler(BaseHTTPRequestHandler):
    if run.returncode or result.get('ok') is not True:return self.send(502,{'ok':False,'code':'provider_failure','usage':usage,'billing':'unknown' if usage is None else 'reported'})
    if d.get('model_id')!=x['model'] or d.get('stop_reason')!='end_turn' or not isinstance(d.get('output_text'),str) or not d['output_text'].strip():
     return self.send(502,{'ok':False,'code':'provider_contract_failure','usage':usage,'billing':'unknown' if usage is None else 'reported'})
-   if not isinstance(usage,dict) or any(type(usage.get(k)) is not int or usage[k]<0 for k in ('input_tokens','output_tokens')):return self.send(502,{'ok':False,'code':'invalid_usage','billing':'unknown'})
+   u=d.get('usage')
+   if not isinstance(u,dict) or any(type(u.get(k)) is not int or u[k]<0 for k in ('input_tokens','output_tokens')):return self.send(502,{'ok':False,'code':'invalid_usage','billing':'unknown'})
+   if any(type(u.get(k,0)) is not int or u.get(k,0)<0 for k in ('cache_read_input_tokens','cache_creation_input_tokens')):return self.send(502,{'ok':False,'code':'invalid_cache_usage','billing':'unknown'})
+   usage={'input_tokens':u['input_tokens'],'output_tokens':u['output_tokens'],
+          'cache_read_input_tokens':u.get('cache_read_input_tokens',0),
+          'cache_creation_input_tokens':u.get('cache_creation_input_tokens',0)}
    return self.send(200,{'ok':True,'model_id':d['model_id'],'stop_reason':d['stop_reason'],'output_text':d['output_text'],'usage':usage,'user_sha256':x['user_sha256'],'system_sha256':x['system_sha256']})
   except (ValueError,TypeError) as e:return self.send(400,{'ok':False,'code':str(e)[:80]})
   except Exception:return self.send(502,{'ok':False,'code':'relay_error','billing':'unknown'})

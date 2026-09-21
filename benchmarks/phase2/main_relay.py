@@ -27,5 +27,8 @@ def call(user,execution,system):
  if d.get('ok') is not True or d.get('model_id')!=execution['main']['model'] or d.get('user_sha256')!=obj['user_sha256'] or d.get('system_sha256')!=system_sha:raise RelayError('relay_contract_mismatch',d.get('usage'))
  u=d.get('usage')
  if not isinstance(u,dict) or any(type(u.get(k)) is not int or u[k]<0 for k in ('input_tokens','output_tokens')):raise RelayError('relay_usage_invalid')
+ if any(type(u.get(k,0)) is not int or u.get(k,0)<0 for k in ('cache_read_input_tokens','cache_creation_input_tokens')):raise RelayError('relay_cache_usage_invalid')
+ u={'input_tokens':u['input_tokens'],'output_tokens':u['output_tokens'],
+    'cache_read_input_tokens':u.get('cache_read_input_tokens',0),'cache_creation_input_tokens':u.get('cache_creation_input_tokens',0)}
  if d.get('stop_reason')!='end_turn' or not d.get('output_text'):raise RelayError('relay_incomplete',u)
  return d['output_text'],u,d['model_id']

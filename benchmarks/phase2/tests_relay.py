@@ -31,6 +31,7 @@ def main():
    srv.subprocess.run=fake
    text,usage,model=client.call('synthetic prompt',cfg,system)
    check('model and usage round trip',text=='synthetic response' and usage['input_tokens']==15 and model==cfg['main']['model'])
+   check('relay reports uncached buckets explicitly',usage['cache_read_input_tokens']==0 and usage['cache_creation_input_tokens']==0)
    check('one successful nonce',len(srv.NONCES)==1)
   finally:
    srv.subprocess.run=original;server.shutdown();server.server_close();th.join(timeout=3)

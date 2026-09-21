@@ -20,8 +20,8 @@ def modeled_run(usage,prices,arm,cache_semantics='separate_additive'):
     required=('jev_input_tokens','jev_output_tokens','main_input_tokens','main_output_tokens')
     if not isinstance(usage,dict):raise CostUnknown('usage_not_object')
     u={key:nonnegative_int(usage.get(key),key) for key in required}
-    read=nonnegative_int(usage.get('main_cache_read_input_tokens',0),'main_cache_read_input_tokens')
-    write=nonnegative_int(usage.get('main_cache_creation_input_tokens',0),'main_cache_creation_input_tokens')
+    read=nonnegative_int(usage.get('main_cache_read_input_tokens'),'main_cache_read_input_tokens')
+    write=nonnegative_int(usage.get('main_cache_creation_input_tokens'),'main_cache_creation_input_tokens')
     if write:raise CostUnknown('cache_write_price_not_frozen')
     if arm=='A_no_rank' and (u['jev_input_tokens'] or u['jev_output_tokens']):raise CostUnknown('baseline_jev_usage_nonzero')
     def rate(key):
@@ -43,17 +43,24 @@ def paired_gate(rows,prices):
         task=row.get('task_id');arm=row.get('arm_id')
         if arm not in ('A_no_rank','C_shortlist_default') or not isinstance(task,str):continue
         if row.get('selection',{}).get('status')!='completed':raise CostUnknown('incomplete_run')
-        if row.get('accounting_status','complete')!='complete':raise CostUnknown('unreconciled_attempts')
+        if row.get('accounting_status')!='complete':raise CostUnknown('unreconciled_attempts')
+        attempts=row.get('accounting_attempts')
+        if not isinstance(attempts,list) or not attempts:raise CostUnknown('attempt_ledger_missing')
+        if any(not isinstance(a,dict) or a.get('status')!='accepted' or a.get('usage_complete') is not True for a in attempts):raise CostUnknown('unreconciled_attempts')
         tasks.setdefault(task,{}).setdefault(arm,[]).append(modeled_run(row.get('usage'),prices,arm))
     if len(tasks)!=16:raise CostUnknown('expected_16_tasks')
-    diffs=[]
+    diffs=[];baselines=[];shortlists=[]
     for task,arms in sorted(tasks.items()):
         if len(arms.get('A_no_rank',[]))!=1 or len(arms.get('C_shortlist_default',[]))!=3:
             raise CostUnknown('missing_or_duplicate_arm_runs_'+task)
         a=arms['A_no_rank'][0];c=sum(arms['C_shortlist_default'])/3
-        diffs.append(a-c)
-    total=sum(diffs)
+        baselines.append(a);shortlists.append(c);diffs.append(a-c)
+    total=sum(diffs);base=sum(baselines);short=sum(shortlists)
+    if base<=0:raise CostUnknown('nonpositive_baseline_cost')
     return {'decision':'PASS' if total>0 else 'FAIL','unit':'modeled_public_list_price_usd',
             'task_count':16,'modeled_total_savings_usd':str(total),
+            'modeled_mean_savings_usd_per_task':str(total/16),
+            'modeled_baseline_total_usd':str(base),'modeled_shortlist_total_usd':str(short),
+            'modeled_cost_ratio_shortlist_to_baseline':str(short/base),
             'task_savings_usd':[str(x) for x in diffs],
             'actual_account_charge':'unknown_not_measured'}

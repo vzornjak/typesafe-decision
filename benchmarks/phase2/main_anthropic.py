@@ -15,6 +15,7 @@ def usage_of(payload):
     if not isinstance(payload, dict) or not isinstance(payload.get('usage'), dict): return None
     u=payload['usage']; a=u.get('input_tokens'); b=u.get('output_tokens')
     if type(a) is not int or type(b) is not int or a<0 or b<0:return None
+    if not isinstance(u.get('cache_read_input_tokens',0),int) or not isinstance(u.get('cache_creation_input_tokens',0),int) or u.get('cache_read_input_tokens',0)<0 or u.get('cache_creation_input_tokens',0)<0:return None
     return {'input_tokens':a,'output_tokens':b,
             'cache_creation_input_tokens':u.get('cache_creation_input_tokens',0),
             'cache_read_input_tokens':u.get('cache_read_input_tokens',0)}

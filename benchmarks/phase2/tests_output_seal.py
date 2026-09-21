@@ -10,8 +10,8 @@ import validate_outputs as validator
 def task():return json.loads((ROOT/'public/p2-dev-en-01.json').read_text())
 def rank(obj):
  ids=[c['id'] for c in obj['candidates']]
- return {'model_requested':'jev-1.13.0','models_served':['jev-1.13.0'],'mode':'shortlist' if obj.get('mode')=='shortlist' else 'winner','decision':'selected' if obj.get('mode')=='shortlist' else ids[0], 'selection':obj.get('selection'),'selected':ids[:4], 'ranking':[{'id':cid,'eligible':True,'score':.95-i*.02} for i,cid in enumerate(ids)], 'usage':{'input_tokens':100,'output_tokens':20},'total_usage':{'input_tokens':100,'output_tokens':20},'warnings':[]}
-def main_model(text,config):return 'Offline synthetic answer [c01]',{'input_tokens':500,'output_tokens':10},config['main']['model']
+ return {'model_requested':'jev-1.13.0','models_served':['jev-1.13.0'],'mode':'shortlist' if obj.get('mode')=='shortlist' else 'winner','decision':'selected' if obj.get('mode')=='shortlist' else ids[0], 'selection':obj.get('selection'),'selected':ids[:4], 'ranking':[{'id':cid,'eligible':True,'score':.95-i*.02} for i,cid in enumerate(ids)], 'usage':{'input_tokens':100,'output_tokens':20},'total_usage':{'input_tokens':100,'output_tokens':20},'api_attempts':1,'api_responses_received':1,'api_calls':1,'warnings':[]}
+def main_model(text,config):return 'Offline synthetic answer [c01]',{'input_tokens':500,'output_tokens':10,'cache_read_input_tokens':0,'cache_creation_input_tokens':0},config['main']['model']
 def check(name,value):
  if not value:raise AssertionError(name)
  return name
@@ -31,6 +31,8 @@ def main():
    checks.append(check('positive output gate',validator.validate(out)['ok']))
    p=out/'p2-score-en-01__C_shortlist_default__rep1.json';original=p.read_text();x=json.loads(original)
    x['usage']['main_input_tokens']=None;p.write_text(json.dumps(x));checks.append(check('unknown usage rejected',not validator.validate(out)['ok']));p.write_text(original)
+   x=json.loads(original);x['accounting_status']='unknown';p.write_text(json.dumps(x));checks.append(check('unknown billed attempt rejected',not validator.validate(out)['ok']));p.write_text(original)
+   x=json.loads(original);x['usage']['main_cache_read_input_tokens']=None;p.write_text(json.dumps(x));checks.append(check('unknown cache usage rejected',not validator.validate(out)['ok']));p.write_text(original)
    x=json.loads(original);x['selection']['status']='failed';p.write_text(json.dumps(x));checks.append(check('failed run rejected',not validator.validate(out)['ok']));p.write_text(original)
    p.unlink();checks.append(check('missing row rejected',not validator.validate(out)['ok']))
   finally:runner.gate.RUNNER_INPUTS=old_inputs;runner.gate.INPUT_LOCK=old_lock;runner.preflight=old_preflight
