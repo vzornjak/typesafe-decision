@@ -50,6 +50,7 @@ def main():
    check('exactly 160 output JSON files',len(list(out.glob('*.json')))==160)
    failed=json.loads((out/'p2-score-en-01__B_winner_top8__rep1.json').read_text())
    check('failure is explicit abstention',failed['selection']['status']=='failed' and failed['answer']=='')
+   check('unknown billed usage is null, not zero',failed['usage']['jev_input_tokens'] is None and failed['usage']['main_input_tokens'] is None)
   finally:r.preflight=saved;r.gate.RUNNER_INPUTS=saved_inputs;r.gate.INPUT_LOCK=saved_lock
  with tempfile.TemporaryDirectory() as td:
   saved=r.gate.INPUT_LOCK;r.gate.INPUT_LOCK=Path(td)/'nonexistent.json'

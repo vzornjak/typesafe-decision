@@ -71,7 +71,12 @@ def main_call(prompt_text,execution):
   env={k:v for k,v in os.environ.items() if not any(s in k.upper() for s in ('GOLD','CURATOR','SEALED'))}
   p=subprocess.run(['minis-model-use','run','--model',execution['main']['model'],'--provider',execution['main']['provider'],'--input',str(inp),'--system-file',str(ROOT/'prompts/main-system.md'),'--max-tokens',str(execution['main']['max_output_tokens']),'--temperature',str(execution['main']['temperature'])],capture_output=True,text=True,env=env,timeout=600)
   if p.returncode: raise RuntimeError(f'main_cli_failed:{p.returncode}')
-  response=json.loads(p.stdout)
+  try:response=json.loads(p.stdout)
+  except (ValueError,TypeError):raise RuntimeError('main_unparseable_usage_unknown')
+  data=(response or {}).get('data') if isinstance(response,dict) else None
+  raw_usage=(data or {}).get('usage') if isinstance(data,dict) else None
+  if isinstance(raw_usage,dict) and all(type(raw_usage.get(k)) is int and raw_usage[k]>=0 for k in ('input_tokens','output_tokens')):
+   main_call.last_usage=raw_usage
   return parse_main_response(response,execution)
 
 def preflight():
@@ -99,23 +104,32 @@ def preflight():
  if any(k for k in os.environ if 'GOLD' in k.upper() or 'SEALED' in k.upper()): raise RuntimeError('gold_environment_exposure')
  return lock
 
-def artifact(task,arm,rep,design,execution,rank_fn,main_fn):
+def artifact(task,arm,rep,design,execution,rank_fn,main_fn,attempt=None):
+ attempt = attempt if attempt is not None else {}
  started=time.monotonic(); cands=candidates(task,arm,rep); t0=time.monotonic()
- selected,ranking,warnings=choose(task,cands,arm,design,rank_fn); jev_ms=round((time.monotonic()-t0)*1000)
+ def recorded_rank(request):
+  result=rank_fn(request);attempt['ranking']=result;return result
+ selected,ranking,warnings=choose(task,cands,arm,design,recorded_rank); jev_ms=round((time.monotonic()-t0)*1000)
+ attempt['selected_ids']=selected;attempt['jev_ms']=jev_ms
+ if main_fn is main_call: main_call.last_usage=None
  text=prompt(task,selected); prompt_hash=sha(text.encode()); t1=time.monotonic()
  if arm=='A_no_rank' and sum(c['content_chars'] for c in task['candidates'])>design['arms'][arm]['candidate_content_ceiling_chars']:
   raise RuntimeError('baseline_candidate_ceiling_exceeded')
  if len(text)>150000:raise RuntimeError('main_prompt_ceiling_exceeded')
  answer,main_usage,model=main_fn(text,execution);main_ms=round((time.monotonic()-t1)*1000)
+ attempt['main_usage']=main_usage;attempt['main_model']=model;attempt['main_ms']=main_ms
  if not isinstance(answer,str) or not answer.strip():raise RuntimeError('empty_main_answer')
- ju=(ranking or {}).get('usage') or {}
+ ju=(ranking or {}).get('total_usage') or (ranking or {}).get('usage') or {}
+ if arm!='A_no_rank' and any(type(ju.get(k)) is not int or ju[k]<0 for k in ('input_tokens','output_tokens')):
+  raise RuntimeError('jev_usage_missing_or_invalid')
  return {'task_id':task['task_id'],'arm_id':arm,'repetition':rep,
   'selection':{'selected_ids':selected,'candidate_order':[c['candidate_id'] for c in cands],
      'prompt_sha256':prompt_hash,'ranking':ranking,'status':'completed'},
   'answer':answer,'models':{'jev_requested':None if arm=='A_no_rank' else 'jev-1.13.0',
      'jev_served':None if arm=='A_no_rank' else 'jev-1.13.0','main':model},
-  'usage':{'jev_input_tokens':int(ju.get('input_tokens',0)),'jev_output_tokens':int(ju.get('output_tokens',0)),
-    'main_input_tokens':int(main_usage.get('input_tokens',0)),'main_output_tokens':int(main_usage.get('output_tokens',0))},
+  'usage':{'jev_input_tokens':0 if arm=='A_no_rank' else ju.get('input_tokens'),
+    'jev_output_tokens':0 if arm=='A_no_rank' else ju.get('output_tokens'),
+    'main_input_tokens':main_usage['input_tokens'],'main_output_tokens':main_usage['output_tokens']},
   'timing':{'jev_ms':jev_ms if arm!='A_no_rank' else 0,'main_ms':main_ms,'end_to_end_ms':round((time.monotonic()-started)*1000)},
   'warnings':warnings}
 
@@ -126,18 +140,24 @@ def execute(out,rank_fn=dw.rank,main_fn=main_call,dry_run=False):
  out.mkdir(parents=True,exist_ok=True)
  os.environ['TYPESAFE_DECISION_LOG']=str(out.parent/'scored-decisions.jsonl')
  for tid,arm,rep in schedule():
-  task=load(gate.RUNNER_INPUTS/f'{tid}.json')
+  task=load(gate.RUNNER_INPUTS/f'{tid}.json');attempt={}
   try:
-   row=artifact(task,arm,rep,design,execution,rank_fn,main_fn)
+   row=artifact(task,arm,rep,design,execution,rank_fn,main_fn,attempt)
   except Exception as e:
+   ranking=attempt.get('ranking') or {}; billed=ranking.get('total_usage') or ranking.get('usage') or {}
+   mu=attempt.get('main_usage') or (getattr(main_call,'last_usage',None) if main_fn is main_call else None)
    row={'task_id':tid,'arm_id':arm,'repetition':rep,
-        'selection':{'selected_ids':[],'candidate_order':[c['candidate_id'] for c in candidates(task,arm,rep)],
-                     'prompt_sha256':None,'ranking':None,'status':'failed',
+        'selection':{'selected_ids':attempt.get('selected_ids',[]),'candidate_order':[c['candidate_id'] for c in candidates(task,arm,rep)],
+                     'prompt_sha256':None,'ranking':ranking or None,'status':'failed',
                      'error_type':type(e).__name__,'reason_code':'scored_run_failed'},
         'answer':'','models':{'jev_requested':None if arm=='A_no_rank' else 'jev-1.13.0',
-                            'jev_served':None,'main':execution['main']['model']},
-        'usage':{'jev_input_tokens':0,'jev_output_tokens':0,'main_input_tokens':0,'main_output_tokens':0},
-        'timing':{'jev_ms':0,'main_ms':0,'end_to_end_ms':0},'warnings':['scored_run_failed']}
+                            'jev_served':(ranking.get('models_served') or [None])[0],
+                            'main':attempt.get('main_model')},
+        'usage':{'jev_input_tokens':billed.get('input_tokens'),'jev_output_tokens':billed.get('output_tokens'),
+                 'main_input_tokens':mu.get('input_tokens') if isinstance(mu,dict) else None,
+                 'main_output_tokens':mu.get('output_tokens') if isinstance(mu,dict) else None},
+        'timing':{'jev_ms':attempt.get('jev_ms'),'main_ms':attempt.get('main_ms'),'end_to_end_ms':None},
+        'warnings':['scored_run_failed','usage_unknown_if_null']}
   name=f'{tid}__{arm}__rep{rep}.json';p=out/name
   with p.open('x',encoding='utf-8') as f:json.dump(row,f,ensure_ascii=False,indent=2);f.write('\n')
   print(json.dumps({'output':name,'completed':len(list(out.glob("*.json"))),'total':160,'status':row['selection']['status']}),flush=True)

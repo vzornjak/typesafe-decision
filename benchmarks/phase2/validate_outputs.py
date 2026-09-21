@@ -20,6 +20,13 @@ def validate(out):
     if key not in row:errors.append('missing_'+key+':'+name)
    if not row.get('answer','').strip():errors.append('empty_answer:'+name)
    if row.get('selection',{}).get('status')=='failed':errors.append('failed_run_requires_inconclusive:'+name)
+   if row.get('selection',{}).get('status')=='completed':
+    usage=row.get('usage',{});models=row.get('models',{});sel=row.get('selection',{})
+    if not isinstance(usage,dict) or any(type(usage.get(k)) is not int or usage[k]<0 for k in ('jev_input_tokens','jev_output_tokens','main_input_tokens','main_output_tokens')):errors.append('invalid_usage:'+name)
+    if models.get('main')!='claude-opus-5':errors.append('main_model_drift:'+name)
+    if arm!='A_no_rank' and models.get('jev_served')!='jev-1.13.0':errors.append('jev_model_drift:'+name)
+    if not isinstance(sel.get('prompt_sha256'),str) or len(sel['prompt_sha256'])!=64:errors.append('prompt_hash_missing:'+name)
+    if not isinstance(sel.get('selected_ids'),list) or not sel['selected_ids']:errors.append('selection_missing:'+name)
   except Exception as e:errors.append('invalid_json:'+name+':'+type(e).__name__)
  return {'ok':not errors,'errors':errors,'files':len(actual)}
 if __name__=='__main__':
