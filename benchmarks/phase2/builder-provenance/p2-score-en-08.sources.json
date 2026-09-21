@@ -1,0 +1,57 @@
+{
+  "task_id": "p2-score-en-08",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://energy-efficient-products.ec.europa.eu/product-list/washing-machines_en",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://eprel.ec.europa.eu/screen/product/washingmachines2019",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2019/2014/oj",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://eur-lex.europa.eu/eli/reg/2019/2023/oj",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.energystar.gov/products/clothes_washers",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.energystar.gov/products/clothes_washers/key_product_criteria",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.energy.gov/eere/buildings/appliance-and-equipment-standards-program",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.energystar.gov/products/clothes_dryers",
+      "reuse_class": "public-domain",
+      "replaces_url": "https://www.ftc.gov/business-guidance/resources/shopping-home-appliances-use-energyguide-label",
+      "replacement_reason": "FTC blocked in both transports; related appliance-label distractor browser-verified"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-305",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430",
+      "reuse_class": "public-domain"
+    }
+  ]
+}

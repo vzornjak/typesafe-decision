@@ -1,0 +1,113 @@
+{
+  "task_id": "p2-score-hr-07",
+  "language": "hr",
+  "domain": "consumer_product",
+  "complexity": "moderate",
+  "query": "Usporedi električni automobil i usporedivi benzinski automobil za 15.000 km godišnje. Objasni kako procijeniti godišnji trošak energije, emisije tijekom uporabe i praktičnost punjenja, bez pretpostavljanja jedne cijene goriva ili električne energije.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Objasniti usporediv izračun godišnjeg troška energije uz promjenjive cijene."
+    },
+    {
+      "id": "r02",
+      "text": "2. Usporediti emisije tijekom uporabe uz transparentne pretpostavke."
+    },
+    {
+      "id": "r03",
+      "text": "3. Usporediti praktičnost kućnog i javnog punjenja s točenjem goriva."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbsSelect",
+      "title": "Pending source 1",
+      "domain": "fueleconomy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.fueleconomy.gov/feg/evtech.shtml",
+      "title": "Pending source 2",
+      "domain": "fueleconomy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.fueleconomy.gov/feg/label/learn-more-electric-label.shtml",
+      "title": "Pending source 3",
+      "domain": "fueleconomy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://afdc.energy.gov/fuels/electricity.html",
+      "title": "Pending source 4",
+      "domain": "afdc.energy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://afdc.energy.gov/calc/",
+      "title": "Pending source 5",
+      "domain": "afdc.energy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://afdc.energy.gov/stations/",
+      "title": "Pending source 6",
+      "domain": "afdc.energy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.epa.gov/greenvehicles/electric-vehicle-myths",
+      "title": "Pending source 7",
+      "domain": "epa.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://alternative-fuels-observatory.ec.europa.eu/",
+      "title": "Pending source 8",
+      "domain": "alternative-fuels-observatory.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe_en",
+      "title": "Pending source 9",
+      "domain": "transport.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1804/oj",
+      "title": "Pending source 10",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR j2hz-6mqs CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

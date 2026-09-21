@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "data": {
+    "model_id": "claude-opus-5",
+    "stop_reason": "end_turn",
+    "output_text": "READY",
+    "usage": {
+      "input_tokens": 38,
+      "output_tokens": 4
+    }
+  }
+}

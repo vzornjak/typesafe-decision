@@ -1,0 +1,121 @@
+{
+  "task_id": "p2-score-hr-04",
+  "language": "hr",
+  "domain": "public_policy_regulation",
+  "complexity": "complex",
+  "query": "Mala klinika uvodi internetski portal za pacijente. Objasni kada treba provesti procjenu učinka na zaštitu podataka, koje zaštite ugraditi u sustav, kako procijeniti povredu podataka, kada obavijestiti nadzorno tijelo i kada obavijestiti pacijente.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Objasniti kada je potrebna procjena učinka na zaštitu podataka."
+    },
+    {
+      "id": "r02",
+      "text": "2. Opisati zaštitu podataka po dizajnu i zadanim postavkama."
+    },
+    {
+      "id": "r03",
+      "text": "3. Objasniti procjenu rizika nastale povrede podataka."
+    },
+    {
+      "id": "r04",
+      "text": "4. Objasniti rok i uvjete obavješćivanja nadzornog tijela."
+    },
+    {
+      "id": "r05",
+      "text": "5. Objasniti kada je potrebno izravno obavijestiti ispitanike."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "title": "Pending source 1",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32016R0679",
+      "title": "Pending source 2",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-data-protection-impact-assessment-dpia-and_en",
+      "title": "Pending source 3",
+      "domain": "edpb.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-42019-article-25-data-protection-design-and_en",
+      "title": "Pending source 4",
+      "domain": "edpb.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-012021-examples-regarding-data-breach_en",
+      "title": "Pending source 5",
+      "domain": "edpb.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.edpb.europa.eu/sme-data-protection-guide/data-breaches_en",
+      "title": "Pending source 6",
+      "domain": "edpb.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/obligations/what-data-breach-and-what-do-we-have-do-case-data-breach_en",
+      "title": "Pending source 7",
+      "domain": "commission.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/obligations/when-data-protection-impact-assessment-dpia-required_en",
+      "title": "Pending source 8",
+      "domain": "commission.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://azop.hr/prava-ispitanika/",
+      "title": "Pending source 9",
+      "domain": "azop.hr",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://azop.hr/obrazac-za-izvjescivanje-o-povredi-osobnih-podataka/",
+      "title": "Pending source 10",
+      "domain": "azop.hr",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR a8lr-5xpd CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

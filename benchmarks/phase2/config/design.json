@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "draft_not_locked",
+  "benchmark_id": "typesafe-decision-phase2-blind-v1",
+  "scored_tasks": 16,
+  "development_tasks": 4,
+  "languages": {"hr": 8, "en": 8},
+  "domains": {
+    "software_technical": 4,
+    "public_policy_regulation": 4,
+    "science_health": 4,
+    "consumer_product": 4
+  },
+  "complexity": {"moderate_2_to_3_requirements": 8, "complex_4_to_6_requirements": 8},
+  "candidate_count": {"minimum": 10, "maximum": 16},
+  "arms": {
+    "A_no_rank": {"jev_runs": 0, "main_runs_per_task": 1, "candidate_content_ceiling_chars": 120000, "truncation_forbidden": true},
+    "B_winner_top8": {"jev_runs": 3, "main_runs_per_task": 3, "k": 8},
+    "C_shortlist_default": {
+      "jev_runs": 3,
+      "main_runs_per_task": 3,
+      "selection": {
+        "max_candidates": 8,
+        "target_context_chars": 50000,
+        "minimum_score": 0.25,
+        "minimum_coverage_score": 0.4,
+        "max_per_domain": 2
+      }
+    },
+    "D_shortlist_tuned": {
+      "jev_runs": 3,
+      "main_runs_per_task": 3,
+      "configuration_file": "tuned-arm.json",
+      "must_be_frozen_on_development_set": true,
+      "selection": {
+        "max_candidates": 5,
+        "target_context_chars": 4000,
+        "minimum_score": 0.25,
+        "minimum_coverage_score": 0.4,
+        "max_per_domain": 1
+      }
+    }
+  },
+  "expected_scored_main_answers": 160,
+  "randomization": {
+    "candidate_order_seed_namespace": "phase2-v1-candidate-order",
+    "answer_blinding_seed_namespace": "phase2-v1-answer-blinding",
+    "seed_derivation": "sha256(namespace + ':' + task_id + ':' + arm_id + ':' + repetition), first 64 bits"
+  },
+  "missingness": {
+    "silent_drop_forbidden": true,
+    "all_scored_tasks_required": true,
+    "unresolved_model_or_transport_failure": "count_as_abstention_and_run_failure",
+    "material_comparability_failure": "phase2_inconclusive_or_invalid"
+  }
+}

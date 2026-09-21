@@ -1,0 +1,57 @@
+{
+  "task_id": "p2-score-hr-05",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.who.int/europe/health-topics/heatwaves",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.who.int/europe/publications/i/item/9789289071918",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://climate-adapt.eea.europa.eu/en/observatory/evidence/health-effects/heat-and-health",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.weather.gov/safety/heat",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.weather.gov/safety/heat-illness",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.ready.gov/heat",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://meteo.hr/prognoze.php?section=prognoze_specp&param=toplinski_val",
+      "reuse_class": "unknown"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.osha.gov/heat-exposure",
+      "reuse_class": "public-domain",
+      "replaces_url": "https://www.who.int/europe/news-room/fact-sheets/item/heat-and-health",
+      "replacement_reason": "WHO replacement 404; OSHA heat overview browser-verified"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.who.int/europe/publications/i/item/9789289055406",
+      "reuse_class": "open-reuse"
+    }
+  ]
+}

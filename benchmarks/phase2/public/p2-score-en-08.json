@@ -1,0 +1,121 @@
+{
+  "task_id": "p2-score-en-08",
+  "language": "en",
+  "domain": "consumer_product",
+  "complexity": "complex",
+  "query": "Create a method for comparing two household washing machines sold in the EU and US using energy, water, capacity, cycle duration, and labeling information, while explaining why headline annual-cost figures may not transfer between households or countries.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Normalize energy consumption to a comparable usage basis."
+    },
+    {
+      "id": "r02",
+      "text": "2. Compare water consumption and rated capacity."
+    },
+    {
+      "id": "r03",
+      "text": "3. Compare program or cycle duration."
+    },
+    {
+      "id": "r04",
+      "text": "4. Explain the relevant EU and US label fields and test-basis differences."
+    },
+    {
+      "id": "r05",
+      "text": "5. Explain why annual operating-cost estimates depend on usage patterns and local utility prices."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://energy-efficient-products.ec.europa.eu/product-list/household-washing-machines-and-washer-dryers_en",
+      "title": "Pending source 1",
+      "domain": "energy-efficient-products.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://eprel.ec.europa.eu/screen/product/washingmachines2019",
+      "title": "Pending source 2",
+      "domain": "eprel.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2019/2014/oj",
+      "title": "Pending source 3",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://eur-lex.europa.eu/eli/reg/2019/2023/oj",
+      "title": "Pending source 4",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-label-and-ecodesign/about_en",
+      "title": "Pending source 5",
+      "domain": "energy.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.energystar.gov/products/clothes_washers",
+      "title": "Pending source 6",
+      "domain": "energystar.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.energystar.gov/products/clothes_washers/key_product_criteria",
+      "title": "Pending source 7",
+      "domain": "energystar.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.energy.gov/energysaver/clothes-washers",
+      "title": "Pending source 8",
+      "domain": "energy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.ftc.gov/business-guidance/resources/energy-labeling-rule",
+      "title": "Pending source 9",
+      "domain": "ftc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-305",
+      "title": "Pending source 10",
+      "domain": "ecfr.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR d5mq-2rce CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

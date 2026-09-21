@@ -1,0 +1,113 @@
+{
+  "task_id": "p2-score-hr-03",
+  "language": "hr",
+  "domain": "public_policy_regulation",
+  "complexity": "moderate",
+  "query": "Let mi je otkazan na putovanju iz Hrvatske u drugu državu EU-a. Objasni kada mogu birati povrat novca ili preusmjeravanje, kada može pripadati novčana naknada i koju pomoć prijevoznik mora pružiti tijekom čekanja.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Objasniti izbor između povrata novca i preusmjeravanja."
+    },
+    {
+      "id": "r02",
+      "text": "2. Objasniti uvjete i moguća izuzeća za novčanu naknadu."
+    },
+    {
+      "id": "r03",
+      "text": "3. Opisati obveze skrbi i pomoći tijekom čekanja."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://eur-lex.europa.eu/eli/reg/2004/261/oj",
+      "title": "Pending source 1",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32004R0261",
+      "title": "Pending source 2",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_hr.htm",
+      "title": "Pending source 3",
+      "domain": "europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/air_en",
+      "title": "Pending source 4",
+      "domain": "transport.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://transport.ec.europa.eu/system/files/2022-11/2022-summary-of-the-most-relevant-cjeu-judgements.pdf",
+      "title": "Pending source 5",
+      "domain": "transport.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52016XC0615(01",
+      "title": "Pending source 6",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://commission.europa.eu/strategy-and-policy/policies/consumers/consumer-protection-policy/consumer-rights-travel_en",
+      "title": "Pending source 7",
+      "domain": "commission.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.ecc-croatia.hr/",
+      "title": "Pending source 8",
+      "domain": "ecc-croatia.hr",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.hakom.hr/default.aspx?id=27",
+      "title": "Pending source 9",
+      "domain": "hakom.hr",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/index_hr.htm",
+      "title": "Pending source 10",
+      "domain": "europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR h3qs-9btk CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "task_id": "p2-score-hr-03",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://eur-lex.europa.eu/eli/reg/2004/261/oj",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_hr.htm",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/air_en",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52016XC0615%2801%29",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/index_hr.htm",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights_en",
+      "reuse_class": "open-reuse",
+      "replaces_url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/passenger-rights-campaign/air-passenger-rights_en",
+      "replacement_reason": "browser-confirmed 404; use official general passenger-rights overview as partial candidate"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/passenger-rights-campaign_en",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/air-passenger-rights_en",
+      "reuse_class": "open-reuse",
+      "replaces_url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/legislation-air-passenger-rights_en",
+      "replacement_reason": "browser-confirmed 404; use current official air-passenger-rights overview"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://curia.europa.eu/jcms/jcms/Jo2_7026/en/",
+      "reuse_class": "link-or-short-excerpt-only"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.hakom.hr/hr/prava-putnika-u-zracnom-prometu/206",
+      "reuse_class": "unknown"
+    }
+  ]
+}

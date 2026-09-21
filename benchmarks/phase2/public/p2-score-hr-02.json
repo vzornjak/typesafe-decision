@@ -1,0 +1,121 @@
+{
+  "task_id": "p2-score-hr-02",
+  "language": "hr",
+  "domain": "software_technical",
+  "complexity": "complex",
+  "query": "Pregledaj plan za pristupačan web-obrazac za prijavu na događaj: opiši oznake i upute, rukovanje pogreškama, tipkovničku navigaciju, vidljivi fokus i kriterije za provjeru kontrasta te predloži testni postupak.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Objasniti pristupačne oznake, grupiranje polja i upute."
+    },
+    {
+      "id": "r02",
+      "text": "2. Objasniti prepoznavanje i priopćavanje pogrešaka."
+    },
+    {
+      "id": "r03",
+      "text": "3. Pokriti potpunu uporabu tipkovnicom."
+    },
+    {
+      "id": "r04",
+      "text": "4. Pokriti vidljivi fokus i zahtjeve kontrasta."
+    },
+    {
+      "id": "r05",
+      "text": "5. Predložiti praktičan postupak provjere obrasca."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "title": "Pending source 1",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html",
+      "title": "Pending source 2",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+      "title": "Pending source 3",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html",
+      "title": "Pending source 4",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html",
+      "title": "Pending source 5",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html",
+      "title": "Pending source 6",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "title": "Pending source 7",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "title": "Pending source 8",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.w3.org/WAI/test-evaluate/",
+      "title": "Pending source 9",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/",
+      "title": "Pending source 10",
+      "domain": "w3.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR x1pn-4hju CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

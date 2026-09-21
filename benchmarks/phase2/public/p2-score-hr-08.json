@@ -1,0 +1,121 @@
+{
+  "task_id": "p2-score-hr-08",
+  "language": "hr",
+  "domain": "consumer_product",
+  "complexity": "complex",
+  "query": "Usporedi zračnu dizalicu topline i kondenzacijski plinski kotao za obnovu obiteljske kuće u Hrvatskoj. Uključi sezonsku učinkovitost, rad pri hladnoći, potrebnu temperaturu sustava grijanja, emisije, dimenzioniranje i informacije koje treba provjeriti na oznaci proizvoda.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Usporediti sezonsku, a ne samo nazivnu učinkovitost."
+    },
+    {
+      "id": "r02",
+      "text": "2. Objasniti utjecaj vanjske temperature i potrebne polazne temperature grijanja."
+    },
+    {
+      "id": "r03",
+      "text": "3. Usporediti operativne emisije uz transparentne pretpostavke o energentima."
+    },
+    {
+      "id": "r04",
+      "text": "4. Objasniti potrebu za proračunom toplinskog opterećenja i pravilnim dimenzioniranjem."
+    },
+    {
+      "id": "r05",
+      "text": "5. Navesti relevantne podatke s energetske oznake i informacijskog lista proizvoda."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://energy-efficient-products.ec.europa.eu/product-list/space-heaters_en",
+      "title": "Pending source 1",
+      "domain": "energy-efficient-products.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://eprel.ec.europa.eu/screen/product/spaceheaters",
+      "title": "Pending source 2",
+      "domain": "eprel.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2013/811/oj",
+      "title": "Pending source 3",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://eur-lex.europa.eu/eli/reg/2013/813/oj",
+      "title": "Pending source 4",
+      "domain": "eur-lex.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-label-and-ecodesign/about_en",
+      "title": "Pending source 5",
+      "domain": "energy.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.energy.gov/energysaver/air-source-heat-pumps",
+      "title": "Pending source 6",
+      "domain": "energy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.energy.gov/energysaver/heat-pump-systems",
+      "title": "Pending source 7",
+      "domain": "energy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.energy.gov/energysaver/sizing-new-heating-system",
+      "title": "Pending source 8",
+      "domain": "energy.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://joint-research-centre.ec.europa.eu/scientific-activities-z/heat-pumps_en",
+      "title": "Pending source 9",
+      "domain": "joint-research-centre.ec.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.fzoeu.hr/hr/energetska-obnova-obiteljskih-kuca/7673",
+      "title": "Pending source 10",
+      "domain": "fzoeu.hr",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR f7pu-1vbx CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/vzornjak/typesafe-decision/benchmarks/phase2/schemas/run-output.schema.json",
+  "title": "Phase 2 sealed run artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task_id", "arm_id", "repetition", "selection", "answer", "models", "usage", "timing", "warnings"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "arm_id": {"enum": ["A_no_rank", "B_winner_top8", "C_shortlist_default", "D_shortlist_tuned"]},
+    "repetition": {"type": "integer", "minimum": 0, "maximum": 3},
+    "selection": {"type": "object"},
+    "answer": {"type": "string"},
+    "models": {
+      "type": "object", "additionalProperties": false,
+      "required": ["jev_requested", "jev_served", "main"],
+      "properties": {
+        "jev_requested": {"type": ["string", "null"]},
+        "jev_served": {"type": ["string", "null"]},
+        "main": {"type": "string"}
+      }
+    },
+    "usage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["jev_input_tokens", "jev_output_tokens", "main_input_tokens", "main_output_tokens"],
+      "properties": {
+        "jev_input_tokens": {"type": "integer", "minimum": 0},
+        "jev_output_tokens": {"type": "integer", "minimum": 0},
+        "main_input_tokens": {"type": "integer", "minimum": 0},
+        "main_output_tokens": {"type": "integer", "minimum": 0}
+      }
+    },
+    "timing": {
+      "type": "object", "additionalProperties": false,
+      "required": ["jev_ms", "main_ms", "end_to_end_ms"],
+      "properties": {
+        "jev_ms": {"type": "integer", "minimum": 0},
+        "main_ms": {"type": "integer", "minimum": 0},
+        "end_to_end_ms": {"type": "integer", "minimum": 0}
+      }
+    },
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  }
+}

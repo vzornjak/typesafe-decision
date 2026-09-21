@@ -1,0 +1,14 @@
+{
+  "kind": "source_plan_amendment",
+  "gold_visible": false,
+  "changes": [
+    {
+      "task_id": "p2-score-hr-04",
+      "candidate_id": "c03",
+      "old_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-42019-article-25-data-protection-design-and_en",
+      "new_url": "https://eur-lex.europa.eu/eli/reg/2016/679/art_25/oj",
+      "reuse_class": "open-reuse",
+      "reason": "EDPB Article 25 route thin/soft-error; use browser-verified official Article 25 as intentional near-duplicate"
+    }
+  ]
+}

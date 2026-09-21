@@ -1,0 +1,46 @@
+{
+  "kind": "source_plan_amendment",
+  "gold_visible": false,
+  "changes": [
+    {
+      "task_id": "p2-score-en-03",
+      "candidate_id": "c09",
+      "old_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act",
+      "new_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act-governance-and-enforcement",
+      "reuse_class": "open-reuse",
+      "reason": "replacement-1 soft-error; official governance page browser-verified"
+    },
+    {
+      "task_id": "p2-score-en-08",
+      "candidate_id": "c08",
+      "old_url": "https://www.ftc.gov/business-guidance/resources/shopping-home-appliances-use-energyguide-label",
+      "new_url": "https://www.energystar.gov/products/clothes_dryers",
+      "reuse_class": "public-domain",
+      "reason": "FTC blocked in both transports; related appliance-label distractor browser-verified"
+    },
+    {
+      "task_id": "p2-score-hr-04",
+      "candidate_id": "c02",
+      "old_url": "https://www.edpb.europa.eu/sme-data-protection-guide/respect-individuals-rights/data-protection-impact-assessment_en",
+      "new_url": "https://www.edpb.europa.eu/sme-data-protection-guide/secure-personal-data_en",
+      "reuse_class": "link-or-short-excerpt-only",
+      "reason": "DPIA route soft-error; current EDPB security/DPIA context browser-verified"
+    },
+    {
+      "task_id": "p2-score-hr-05",
+      "candidate_id": "c09",
+      "old_url": "https://www.who.int/europe/news-room/fact-sheets/item/heat-and-health",
+      "new_url": "https://www.osha.gov/heat-exposure",
+      "reuse_class": "public-domain",
+      "reason": "WHO replacement 404; OSHA heat overview browser-verified"
+    },
+    {
+      "task_id": "p2-score-hr-08",
+      "candidate_id": "c10",
+      "old_url": "https://www.energystar.gov/products/heat_pumps",
+      "new_url": "https://www.energystar.gov/products/clothes_dryers",
+      "reuse_class": "public-domain",
+      "reason": "heat-pump replacement 404; intentional off-topic appliance-energy distractor browser-verified"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "kind": "source_plan_amendment",
+  "gold_visible": false,
+  "changes": [
+    {
+      "task_id": "p2-score-en-03",
+      "candidate_id": "c09",
+      "old_url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act",
+      "new_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-act",
+      "reuse_class": "open-reuse",
+      "reason": "browser-confirmed 404; use official AI Act topic page as partial-overlap candidate"
+    },
+    {
+      "task_id": "p2-score-en-06",
+      "candidate_id": "c10",
+      "old_url": "https://www.fda.gov/medical-devices/vitro-diagnostics/blood-pressure-monitoring-devices",
+      "new_url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/treatment",
+      "reuse_class": "public-domain",
+      "reason": "browser-confirmed FDA 404; use adjacent NHLBI treatment/lifestyle context"
+    },
+    {
+      "task_id": "p2-score-en-08",
+      "candidate_id": "c08",
+      "old_url": "https://www.ftc.gov/legal-library/browse/rules/energy-labeling-rule",
+      "new_url": "https://www.ftc.gov/business-guidance/resources/shopping-home-appliances-use-energyguide-label",
+      "reuse_class": "public-domain",
+      "reason": "FTC rule index blocked; replace with official EnergyGuide consumer/business explanation"
+    },
+    {
+      "task_id": "p2-score-hr-03",
+      "candidate_id": "c06",
+      "old_url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/passenger-rights-campaign/air-passenger-rights_en",
+      "new_url": "https://transport.ec.europa.eu/transport-themes/passenger-rights_en",
+      "reuse_class": "open-reuse",
+      "reason": "browser-confirmed 404; use official general passenger-rights overview as partial candidate"
+    },
+    {
+      "task_id": "p2-score-hr-03",
+      "candidate_id": "c08",
+      "old_url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/legislation-air-passenger-rights_en",
+      "new_url": "https://transport.ec.europa.eu/transport-themes/passenger-rights/air-passenger-rights_en",
+      "reuse_class": "open-reuse",
+      "reason": "browser-confirmed 404; use current official air-passenger-rights overview"
+    },
+    {
+      "task_id": "p2-score-hr-04",
+      "candidate_id": "c02",
+      "old_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-data-protection-impact-assessment-dpia-and_en",
+      "new_url": "https://www.edpb.europa.eu/sme-data-protection-guide/respect-individuals-rights/data-protection-impact-assessment_en",
+      "reuse_class": "link-or-short-excerpt-only",
+      "reason": "old EDPB guideline route soft-errors; use current EDPB SME DPIA guide"
+    },
+    {
+      "task_id": "p2-score-hr-04",
+      "candidate_id": "c04",
+      "old_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-012021-examples-regarding-data-breach_en",
+      "new_url": "https://www.edpb.europa.eu/sme-data-protection-guide/data-breaches_en",
+      "reuse_class": "link-or-short-excerpt-only",
+      "reason": "old examples guideline route soft-errors; reuse current live breach guide as intentional near-duplicate"
+    },
+    {
+      "task_id": "p2-score-hr-05",
+      "candidate_id": "c09",
+      "old_url": "https://www.who.int/publications/i/item/9789240091913",
+      "new_url": "https://www.who.int/europe/news-room/fact-sheets/item/heat-and-health",
+      "reuse_class": "open-reuse",
+      "reason": "WHO publication permalink 404; use WHO Europe fact sheet"
+    },
+    {
+      "task_id": "p2-score-hr-08",
+      "candidate_id": "c09",
+      "old_url": "https://energy-efficient-products.ec.europa.eu/product-list/boilers_en",
+      "new_url": "https://energy-efficient-products.ec.europa.eu/product-list/local-space-heaters_en",
+      "reuse_class": "open-reuse",
+      "reason": "old boilers slug 404; use related official heater category as partial candidate"
+    },
+    {
+      "task_id": "p2-score-hr-08",
+      "candidate_id": "c10",
+      "old_url": "https://energy-efficient-products.ec.europa.eu/product-list/heat-pumps_en",
+      "new_url": "https://www.energystar.gov/products/heat_pumps",
+      "reuse_class": "public-domain",
+      "reason": "old EC heat-pumps slug 404; use official ENERGY STAR heat-pump overview"
+    }
+  ]
+}

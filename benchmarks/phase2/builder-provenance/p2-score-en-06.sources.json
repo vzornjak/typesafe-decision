@@ -1,0 +1,57 @@
+{
+  "task_id": "p2-score-en-06",
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/diagnosis",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+      "reuse_class": "public-domain"
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/hypertension",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.nice.org.uk/guidance/ng136",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.nice.org.uk/guidance/ng136/chapter/recommendations",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.nhs.uk/tests-and-treatments/blood-pressure-test/",
+      "reuse_class": "open-reuse"
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.validatebp.org/",
+      "reuse_class": "link-or-short-excerpt-only"
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://stridebp.org/",
+      "reuse_class": "link-or-short-excerpt-only"
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/treatment",
+      "reuse_class": "public-domain",
+      "replaces_url": "https://www.fda.gov/medical-devices/vitro-diagnostics/blood-pressure-monitoring-devices",
+      "replacement_reason": "browser-confirmed FDA 404; use adjacent NHLBI treatment/lifestyle context"
+    }
+  ]
+}

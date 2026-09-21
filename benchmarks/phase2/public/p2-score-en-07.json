@@ -1,0 +1,113 @@
+{
+  "task_id": "p2-score-en-07",
+  "language": "en",
+  "domain": "consumer_product",
+  "complexity": "moderate",
+  "query": "Compare the security features I should look for when buying a home Wi-Fi router, focusing on update support, secure default setup, and protections for guest or untrusted devices.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Explain how to compare update mechanisms and the expected support period."
+    },
+    {
+      "id": "r02",
+      "text": "2. Identify secure default configuration and account-management features."
+    },
+    {
+      "id": "r03",
+      "text": "3. Explain network separation options for guest and untrusted devices."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.cisa.gov/news-events/news/securing-wireless-networks",
+      "title": "Pending source 1",
+      "domain": "cisa.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.cisa.gov/secure-our-world/secure-your-home-wifi",
+      "title": "Pending source 2",
+      "domain": "cisa.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.cisa.gov/news-events/news/home-network-security",
+      "title": "Pending source 3",
+      "domain": "cisa.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://consumer.ftc.gov/articles/how-secure-your-home-wi-fi-network",
+      "title": "Pending source 4",
+      "domain": "consumer.ftc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://pages.nist.gov/IoT-Device-Cybersecurity-Requirement-Catalogs/",
+      "title": "Pending source 5",
+      "domain": "pages.nist.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program",
+      "title": "Pending source 6",
+      "domain": "nist.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.nist.gov/publications/foundational-cybersecurity-activities-iot-device-manufacturers",
+      "title": "Pending source 7",
+      "domain": "nist.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.ncsc.gov.uk/guidance/secure-your-devices",
+      "title": "Pending source 8",
+      "domain": "ncsc.gov.uk",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.ncsc.gov.uk/collection/device-security-guidance",
+      "title": "Pending source 9",
+      "domain": "ncsc.gov.uk",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.etsi.org/technologies/consumer-iot-security",
+      "title": "Pending source 10",
+      "domain": "etsi.org",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR s3gn-8ykt CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}

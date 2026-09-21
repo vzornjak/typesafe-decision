@@ -1,0 +1,121 @@
+{
+  "task_id": "p2-score-hr-06",
+  "language": "hr",
+  "domain": "science_health",
+  "complexity": "complex",
+  "query": "Odrasla osoba od 29 godina nije sigurna je li cijepljena protiv HPV-a. Objasni kome se cijepljenje preporučuje, kako se broj doza određuje prema dobi i imunološkom statusu, što se zna o sigurnosti, zašto cjepivo ne zamjenjuje probir i što treba provjeriti u hrvatskom sustavu.",
+  "requirements": [
+    {
+      "id": "r01",
+      "text": "1. Objasniti dobne skupine za rutinsko, nadoknadno i individualno odlučivanje o cijepljenju."
+    },
+    {
+      "id": "r02",
+      "text": "2. Objasniti kako dob pri početku i imunološki status utječu na broj doza."
+    },
+    {
+      "id": "r03",
+      "text": "3. Sažeti poznate sigurnosne podatke i uobičajene nuspojave."
+    },
+    {
+      "id": "r04",
+      "text": "4. Objasniti zašto cijepljenje ne zamjenjuje preporučeni probir."
+    },
+    {
+      "id": "r05",
+      "text": "5. Navesti koje aktualne preporuke, dostupnost ili troškove treba provjeriti u Hrvatskoj."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "c01",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/cervical-cancer",
+      "title": "Pending source 1",
+      "domain": "who.int",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 1. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c02",
+      "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/human-papillomavirus-vaccines-(HPV",
+      "title": "Pending source 2",
+      "domain": "who.int",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 2. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c03",
+      "url": "https://www.who.int/publications/i/item/who-wer9750-645-672",
+      "title": "Pending source 3",
+      "domain": "who.int",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 3. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c04",
+      "url": "https://www.cdc.gov/vaccines/vpd/hpv/hcp/recommendations.html",
+      "title": "Pending source 4",
+      "domain": "cdc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 4. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c05",
+      "url": "https://www.cdc.gov/hpv/about/index.html",
+      "title": "Pending source 5",
+      "domain": "cdc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 5. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c06",
+      "url": "https://www.cdc.gov/vaccine-safety/vaccines/hpv.html",
+      "title": "Pending source 6",
+      "domain": "cdc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 6. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c07",
+      "url": "https://www.cdc.gov/cervical-cancer/screening/index.html",
+      "title": "Pending source 7",
+      "domain": "cdc.gov",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 7. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c08",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/guidance-hpv-vaccination-eu-focus-boys-people-living-hiv-and-9-valent-hpv",
+      "title": "Pending source 8",
+      "domain": "ecdc.europa.eu",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 8. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c09",
+      "url": "https://www.hzjz.hr/sluzba-epidemiologija-zarazne-bolesti/cijepljenje-protiv-humanog-papiloma-virusa-hpv/",
+      "title": "Pending source 9",
+      "domain": "hzjz.hr",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 9. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 146
+    },
+    {
+      "candidate_id": "c10",
+      "url": "https://www.hzjz.hr/aktualnosti/cijepljenje-protiv-hpv-a/",
+      "title": "Pending source 10",
+      "domain": "hzjz.hr",
+      "published_at_if_observable": null,
+      "content": "PENDING VERIFIED PUBLIC EXTRACT FOR t6cj-3swy CANDIDATE 10. This placeholder is not valid benchmark content and must be replaced before input lock.",
+      "content_chars": 147
+    }
+  ]
+}
